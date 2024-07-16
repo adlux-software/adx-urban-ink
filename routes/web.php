@@ -28,8 +28,8 @@ Route::resource('/products', ProductController::class)
 ->only([
     'index'
 ]);
-Route::get('product/{slug}', 'App\Http\Controllers\ProductController@show')->name('product.show');
 
+Route::get('product/{slug}', 'App\Http\Controllers\ProductController@show')->name('product.show');
 
 //product details
 Route::get('/product-details', function () {

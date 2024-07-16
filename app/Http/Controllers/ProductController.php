@@ -8,19 +8,9 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = (new Product())
-            ->where('status', 1)
-            ->with('variants', 'media')
-            ->get();
-
-        $totalProducts = $products->count();
-
-        return view('products', [
-            'products' => $products,
-            'totalProducts' => $totalProducts
-        ]);
-
+        return view('products.index');
     }
+
     //show
     public function show($slug)
     {
@@ -29,7 +19,7 @@ class ProductController extends Controller
             ->with('variants', 'media')
             ->first();
 
-        return view('product-detail', [
+        return view('products.show', [
             'product' => $product
         ]);
     }
