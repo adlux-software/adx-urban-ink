@@ -89,11 +89,11 @@
             <div class="item">
                 <input class="inp-cbx" id="cbx" type="checkbox">
                 <label class="cbx" for="cbx">
-                                        <span>
-                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                            </svg>
-                                        </span>
+                    <span>
+                        <svg width="12px" height="10px" viewbox="0 0 12 10">
+                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                        </svg>
+                    </span>
                     <span>I agree with the terms and conditions</span>
                 </label>
             </div>
@@ -110,5 +110,10 @@
         <a href="#" class="optional-btn"><i class='bx bx-refresh'></i> Add to Compare</a>
     </div>
 
+    @if($success)
+        <div class="alert alert-success mt-4" role="alert">
+            {{ $success }}
+        </div>
+    @endif
 
 </div>

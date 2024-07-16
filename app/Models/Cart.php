@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Finance;
+namespace App\Models;
 
 use App\Models\Auth\User;
 use App\Models\Variant;
@@ -18,6 +18,7 @@ class Cart extends Model
     protected $fillable = [
         'user_id',
         'session_id',
+        'is_paid',
         'total',
     ];
 
@@ -32,6 +33,8 @@ class Cart extends Model
     {
         return $this->belongsToMany(Variant::class)
             ->withPivot([
+                'cart_id',
+                'variant_id',
                 'price',
                 'quantity',
             ]);
