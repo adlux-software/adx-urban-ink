@@ -66,6 +66,9 @@ class Product extends Resource
 
 
             Boolean::make('Status', 'status')->sortable(),
+            Boolean::make('Featured', 'featured')->sortable(),
+            Boolean::make('Popular', 'popular')->sortable(),
+            Boolean::make('Best Selling Product', 'BestSellingProduct')->sortable(),
 
 
             Textarea::make('Description')->sortable()->rules('required'),

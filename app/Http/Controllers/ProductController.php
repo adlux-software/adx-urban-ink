@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -10,6 +12,13 @@ class ProductController extends Controller
     {
         return view('products.index');
     }
+
+    public function homeIndex()
+    {
+        $products = Product::with('media')->get();
+        return view('home', compact('products'));
+    }
+
 
     //show
     public function show($slug)

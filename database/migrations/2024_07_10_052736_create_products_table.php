@@ -19,6 +19,9 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained()->cascadeOnUpdate();
             $table->integer('sort_order')->default(0);
             $table->boolean('status')->default(true);
+            $table->boolean('featured')->default(false);
+            $table->boolean('popular')->default(false);
+            $table->boolean('BestSellingProduct')->default(false);
             $table->timestamps();
         });
     }

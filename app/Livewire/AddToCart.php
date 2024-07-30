@@ -159,12 +159,12 @@ class AddToCart extends Component
             ]);
 
         }
-
         if(isset($cart) && $cart instanceof Cart) {
-
             $price = $this->selected_variant->selling_price * $this->selected_quantity;
 
+            // Include 'product_id' in the array of pivot table fields
             $cart->variants()->attach($this->selected_variant->id, [
+                'product_id' => $this->selected_variant->product_id, // Ensure this line is correctly referencing the product ID
                 'price' => $price,
                 'quantity' => $this->selected_quantity,
             ]);

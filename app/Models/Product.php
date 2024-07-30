@@ -22,8 +22,12 @@ class Product extends Model implements HasMedia
         'description',
         'category_id',
         'sort_order',
-        'status'
+        'status',
+        'featured',
+        'popular',
+        'BestSellingProduct',
     ];
+
 
     public function variants()
     {
@@ -54,7 +58,6 @@ class Product extends Model implements HasMedia
         $this->addMediaConversion('thumb')
             ->width(100)
             ->height(100);
-
 
     }
 
