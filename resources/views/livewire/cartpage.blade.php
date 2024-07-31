@@ -30,15 +30,20 @@
 
                         <td class="product-name">
                             <a href="#">{{$product->title}}</a>
+
+                            @php
+                                $variant_item = \App\Models\Variant::where('id', $product->pivot->variant_id)->first();
+                            @endphp
+
                             <ul>
-                                    <li>Color: <span>{{$product->variants->first()->color->name}}</span></li>
-                                    <li>Size: <span>{{$product->variants->first()->size->name}}</span></li>
+                                <li>Color: <span>{{$variant_item->color->name}}</span></li>
+                                <li>Size: <span>{{$variant_item->size->name}}</span></li>
                                     {{-- <li>Material: <span>Cotton</span></li> --}}
                             </ul>
                         </td>
 
                         <td class="product-price">
-                            <span class="unit-amount">Rs.{{$product->variants->first()->selling_price}}</span>
+                            <span class="unit-amount">Rs.{{ number_format($variant_item->selling_price, 2) }}</span>
                         </td>
                         <td class="product-quantity">
                             <div class="input-counter">
@@ -47,8 +52,9 @@
                                 <span class="plus-btn" wire:click="incrementQuantity({{$product->pivot->id}})"><i class='bx bx-plus'></i></span>
                             </div>
                         </td>
+
                         <td class="product-subtotal">
-                            <span class="subtotal-amount">RS.{{$product->variants->first()->selling_price * $product->pivot->quantity}}</span>
+                            <span class="subtotal-amount">Rs.{{ number_format($product->pivot->price, 2) }}</span>
                             <a type="button" wire:click="removeProduct({{ $product->pivot->id }})" class="remove"><i class='bx bx-trash'></i></a>
                         </td>
                     </tr>
@@ -75,7 +81,7 @@
                 <ul>
                     <li>Subtotal <span>$800.00</span></li>
                     <li>Shipping <span>$30.00</span></li>
-                    <li>Total <span>RS.{{ $total }}</span></li>
+                    <li>Total <span>RS.{{ number_format($cart->total, 2) }}</span></li>
                 </ul>
 
                 <a href="#" class="default-btn">Proceed to Checkout</a>

@@ -11,7 +11,7 @@ class Variant extends Model
 
     protected $attributes = [
         'stock' => 0,
-//        'status' => 1,
+        //        'status' => 1,
         'sort_order' => 0,
     ];
 
@@ -23,7 +23,7 @@ class Variant extends Model
         'mrp',
         'selling_price',
         'stock',
-        'sku'
+        'sku',
     ];
 
     public function product()
@@ -40,6 +40,4 @@ class Variant extends Model
     {
         return $this->belongsTo(Size::class);
     }
-
-
 }

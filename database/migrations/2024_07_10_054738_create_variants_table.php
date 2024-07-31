@@ -27,10 +27,10 @@ return new class extends Migration
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      */
-
     public function down(): void
     {
         Schema::dropIfExists('variants');

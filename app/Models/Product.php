@@ -7,13 +7,12 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-
 class Product extends Model implements HasMedia
 {
     use InteractsWithMedia;
 
     protected $attributes = [
-        'status' => 1
+        'status' => 1,
     ];
 
     protected $fillable = [
@@ -27,7 +26,6 @@ class Product extends Model implements HasMedia
         'popular',
         'BestSellingProduct',
     ];
-
 
     public function variants()
     {
@@ -60,7 +58,4 @@ class Product extends Model implements HasMedia
             ->height(100);
 
     }
-
-
 }
-

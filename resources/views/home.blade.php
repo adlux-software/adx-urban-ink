@@ -13,8 +13,8 @@
                             <h1>Winter-2024!</h1>
                             <p>Take 20% Off ‘Sale Must-Haves'</p>
                             <div class="btn-box">
-                                <a href="products-left-sidebar.html" class="default-btn">Shop Women's</a>
-                                <a href="products-left-sidebar.html" class="optional-btn">Shop Men's</a>
+                                <a href="/products" class="default-btn">Shop  Now</a>
+{{--                                <a href="products-left-sidebar.html" class="optional-btn">Shop Men's</a>--}}
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,6 @@
                             </ul>
                         </div>
 
-                        <div class="new-tag">New!</div>
                     </div>
 
                     <div class="products-content">
@@ -123,7 +122,8 @@
                             <i class='bx bxs-star'></i>
                             <i class='bx bxs-star'></i>
                         </div>
-                        <a href="cart.html" class="add-to-cart">Add to Cart</a>
+                        <a class="add-to-cart" href="{{ route('product.show' , $Product->slug) }}">Buy Now</a>
+
                     </div>
                 </div>
             </div>
@@ -251,7 +251,6 @@
                             </ul>
                         </div>
 
-                        <div class="new-tag">New!</div>
                     </div>
 
                     <div class="products-content">
@@ -278,112 +277,6 @@
     </div>
 </section>
 <!-- End Products Area -->
-
-<!-- Start Partner Area -->
-<div class="partner-area ptb-70">
-    <div class="container">
-        <div class="section-title">
-            <h2>Our Partners</h2>
-        </div>
-
-        <div class="partner-slides owl-carousel owl-theme">
-            <div class="partner-item">
-                <a href="index.html"><img src="assets/img/partner/partner1.png" alt="image"></a>
-            </div>
-
-            <div class="partner-item">
-                <a href="index.html"><img src="assets/img/partner/partner2.png" alt="image"></a>
-            </div>
-
-            <div class="partner-item">
-                <a href="index.html"><img src="assets/img/partner/partner3.png" alt="image"></a>
-            </div>
-
-            <div class="partner-item">
-                <a href="index.html"><img src="assets/img/partner/partner4.png" alt="image"></a>
-            </div>
-
-            <div class="partner-item">
-                <a href="index.html"><img src="assets/img/partner/partner5.png" alt="image"></a>
-            </div>
-
-            <div class="partner-item">
-                <a href="index.html"><img src="assets/img/partner/partner6.png" alt="image"></a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Partner Area -->
-
-<!-- Start Blog Area -->
-<section class="blog-area pt-100 pb-70">
-    <div class="container">
-        <div class="section-title">
-            <span class="sub-title">Recent Story</span>
-            <h2>From The Xton Blog</h2>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6">
-                <div class="single-blog-post">
-                    <div class="post-image">
-                        <a href="single-blog-1.html">
-                            <img src="assets/img/blog/img1.jpg" alt="image">
-                        </a>
-                        <div class="date">
-                            <span>January 29, 2024</span>
-                        </div>
-                    </div>
-
-                    <div class="post-content">
-                        <span class="category">Ideas</span>
-                        <h3><a href="single-blog-1.html">The #1 eCommerce blog to grow your business</a></h3>
-                        <a href="single-blog-1.html" class="details-btn">Read Story</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="single-blog-post">
-                    <div class="post-image">
-                        <a href="single-blog-1.html">
-                            <img src="assets/img/blog/img2.jpg" alt="image">
-                        </a>
-                        <div class="date">
-                            <span>January 29, 2024</span>
-                        </div>
-                    </div>
-
-                    <div class="post-content">
-                        <span class="category">Advice</span>
-                        <h3><a href="single-blog-1.html">Latest ecommerce trend: The rise of shoppable posts</a></h3>
-                        <a href="single-blog-1.html" class="details-btn">Read Story</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="single-blog-post">
-                    <div class="post-image">
-                        <a href="single-blog-1.html">
-                            <img src="assets/img/blog/img3.jpg" alt="image">
-                        </a>
-                        <div class="date">
-                            <span>January 29, 2024</span>
-                        </div>
-                    </div>
-
-                    <div class="post-content">
-                        <span class="category">Social</span>
-                        <h3><a href="single-blog-1.html">Building eCommerce wave: Social media shopping</a></h3>
-                        <a href="single-blog-1.html" class="details-btn">Read Story</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Blog Area -->
 
 <!-- Start Instagram Area -->
 <div class="instagram-area">

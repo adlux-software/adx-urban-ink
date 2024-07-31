@@ -1,14 +1,17 @@
 <?php
+
 namespace App\Livewire;
 
+use App\Models\Cart;
 use App\Models\Variant;
 use Livewire\Component;
-use App\Models\Cart;
 
 class Cartpage extends Component
 {
     public $cart;
+
     public $total = 0;
+
     public $warning = '';
 
     public function mount()
@@ -28,11 +31,15 @@ class Cartpage extends Component
         $this->calculateTotal();
     }
 
-
     public function incrementQuantity(int $product_id)
     {
         foreach ($this->cart->products as $product) {
+
             if ($product->pivot->id == $product_id) {
+
+                $variant = (new Variant())
+                    ->where('id', $product->pivot->variant_id)
+                    ->first();
 
                 // get the current pivot quantity
                 $quantity = $product->pivot->quantity;
@@ -40,18 +47,27 @@ class Cartpage extends Component
                 // new stock quantity
                 $new_quantity = $quantity + 1;
 
-                // update the pivot quantity
+                if ($product->pivot->quantity + 1 > $variant->stock) {
+                    $product->pivot->quantity = $variant->stock;
+
+                    $this->warning = 'You cannot have more than 10 quantity of a product in your cart.';
+                    return;
+                }
+
                 $product->pivot->quantity = $new_quantity;
+
+                $variant = (new Variant())
+                    ->where('id', $product->pivot->variant_id)
+                    ->first();
+
+                $product->pivot->price = $variant->selling_price * $new_quantity;
+
                 $product->pivot->save();
             }
         }
 
         // Recalculate the total
         $this->calculateTotal();
-        $this->cart->total = $this->total;
-        $this->cart->save();
-
-        $this->cart = Cart::with('variants', 'products')->find($this->cart->id);
     }
 
     public function decrementQuantity(int $product_id)
@@ -62,31 +78,33 @@ class Cartpage extends Component
                 // get the current pivot quantity
                 $quantity = $product->pivot->quantity;
 
+                // Prevents the quantity from going below 1
+                if ($quantity == 1) {
+                    $this->warning = 'You cannot have less than 1 quantity of a product in your cart.';
+                    return;
+                }
+
                 // new stock quantity
                 $new_quantity = $quantity - 1;
 
                 $product->pivot->quantity = $new_quantity;
+
+                $variant = (new Variant())
+                    ->where('id', $product->pivot->variant_id)
+                    ->first();
+
+                $product->pivot->price = $variant->selling_price * $new_quantity;
+
                 $product->pivot->save();
             }
         }
 
         $this->calculateTotal();
-        $this->cart->total = $this->total;
-        $this->cart->save();
-        $this->cart = Cart::with('variants', 'products')->find($this->cart->id);
-
-
     }
 
     public function calculateTotal()
     {
-        $this->total = 0;
-        foreach ($this->cart->products as $product) {
-            $product_total = $product->variants->first()->selling_price * $product->pivot->quantity;
-            $this->total += $product_total;
-            $product->pivot->price = $product_total;
-            $product->pivot->save();
-        }
+        $this->cart = calculate_cart_total($this->cart->id);
     }
 
     public function removeProduct(int $product_id)
@@ -96,7 +114,6 @@ class Cartpage extends Component
                 $product->pivot->delete();
                 $this->cart = Cart::with('variants', 'products')->find($this->cart->id);
                 $this->calculateTotal();
-                $this->cart->total = $this->total;
                 $this->cart->save();
             }
         }

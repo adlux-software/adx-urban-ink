@@ -18,7 +18,7 @@ class VariantResource extends Resource
     public static $title = 'title';
 
     public static $search = [
-        ''
+        '',
     ];
 
     public function fields(Request $request): array
@@ -27,11 +27,10 @@ class VariantResource extends Resource
             ID::make()
                 ->sortable(),
 
-            (new Panel('Details' , [
+            (new Panel('Details', [
 
                 //sort order
                 Number::make('Sort Order', 'sort_order'),
-
 
                 BelongsTo::make('Product', 'product', Product::class)
                     ->sortable()
@@ -42,7 +41,6 @@ class VariantResource extends Resource
                     ->sortable()
                     ->showOnPreview(),
 
-
                 BelongsTo::make('Size', 'size', Size::class)
                     ->sortable()
                     ->showOnPreview(),
@@ -51,12 +49,9 @@ class VariantResource extends Resource
                     ->sortable()
                     ->rules('required'),
 
-
-
                 Number::make('Quantity', 'quantity')
                     ->sortable()
                     ->rules('required'),
-
 
                 Currency::make('Selling Price', 'selling_price')
                     ->currency('LKR')

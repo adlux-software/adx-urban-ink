@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Models\Auth\User;
-use App\Models\Variant;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -12,8 +11,8 @@ use Laravel\Nova\Actions\Actionable;
 
 class Cart extends Model
 {
-    use SoftDeletes,
-        Actionable;
+    use Actionable,
+        SoftDeletes;
 
     protected $fillable = [
         'user_id',
@@ -37,7 +36,7 @@ class Cart extends Model
                 'variant_id',
                 'price',
                 'quantity',
-                'price'
+                'price',
 
             ]);
     }
@@ -51,13 +50,17 @@ class Cart extends Model
                 'variant_id',
                 'price',
                 'quantity',
-                'price'
+                'price',
             ]);
     }
 
     public static function totalProductCount()
     {
-//number of product in cart
+        $session_id = session()->get('cart_session_id', null);
+
+        //number of product in cart_iem table
+        return Cart::where('session_id', $session_id)->first()->products->count();
     }
+
 
 }

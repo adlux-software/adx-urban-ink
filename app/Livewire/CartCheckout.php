@@ -5,21 +5,31 @@ namespace App\Livewire;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
-use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class CartCheckout extends Component
 {
     public $carts;
+
     public $totalProductAmount;
+
     public $firstName;
+
     public $lastName;
+
     public $email;
+
     public $phone;
+
     public $address;
+
     public $city;
+
     public $zip;
+
     public $payment_mode;
+
     public $payment_id;
 
     public function mount()
@@ -55,7 +65,7 @@ class CartCheckout extends Component
             foreach ($cartItem->variants as $variant) {
                 if (is_null($variant->product_id) || is_null($variant->id)) {
                     // Debugging information
-                    throw new \Exception('Product ID or Variant ID is missing for some cart items. Cart Item: ' . json_encode($cartItem));
+                    throw new \Exception('Product ID or Variant ID is missing for some cart items. Cart Item: '.json_encode($cartItem));
                 }
 
                 OrderItem::create([
@@ -69,10 +79,10 @@ class CartCheckout extends Component
             }
         }
 
-        // Optionally clear the cart items after the order is placed
         Cart::where('user_id', Auth::id())->delete();
 
         session()->flash('message', 'Order placed successfully!');
+
         return redirect()->route('order.success');
     }
 
@@ -84,18 +94,19 @@ class CartCheckout extends Component
             foreach ($cart->variants as $variant) {
                 if (is_null($variant->product_id) || is_null($variant->id)) {
                     // Debugging information
-                    throw new \Exception('Product ID or Variant ID is missing for some cart items. Cart Item: ' . json_encode($cart));
+                    throw new \Exception('Product ID or Variant ID is missing for some cart items. Cart Item: '.json_encode($cart));
                 }
-                $totalProductAmount += $variant->pivot->price ;
+                $totalProductAmount += $variant->pivot->price;
             }
         }
+
         return $totalProductAmount;
     }
 
     public function render()
     {
         return view('livewire.cart-checkout', [
-            'totalProductAmount' => $this->totalProductAmount
+            'totalProductAmount' => $this->totalProductAmount,
         ]);
     }
 }

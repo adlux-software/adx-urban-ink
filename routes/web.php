@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Route;
 
 //Route::get('/', function () {
 //    return view('home');
@@ -18,7 +18,6 @@ Route::middleware([
     })->name('dashboard');
 });
 
-
 //about page
 Route::get('/about', function () {
     return view('about');
@@ -26,12 +25,11 @@ Route::get('/about', function () {
 
 //products
 Route::resource('/products', ProductController::class)
-->only([
-    'index'
-]);
+    ->only([
+        'index',
+    ]);
 
 Route::get('product/{slug}', 'App\Http\Controllers\ProductController@show')->name('product.show');
-
 
 Route::get('/cart', 'App\Http\Controllers\CartController@index');
 

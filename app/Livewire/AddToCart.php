@@ -2,8 +2,8 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\Cart;
+use Livewire\Component;
 use Ramsey\Uuid\Uuid;
 
 class AddToCart extends Component
@@ -32,13 +32,13 @@ class AddToCart extends Component
 
     public function mount()
     {
-        if($this->product) {
+        if ($this->product) {
 
-            if($this->product->variants->count() > 0){
+            if ($this->product->variants->count() > 0) {
 
                 $this->variants = $this->product->variants;
 
-                foreach($this->variants as $variant) {
+                foreach ($this->variants as $variant) {
 
                     $this->colors[$variant->color_id] = [
                         'name' => $variant->color->name,
@@ -68,7 +68,7 @@ class AddToCart extends Component
     public function selectVariant()
     {
         // This only gets triggered with both color and size are selected
-        if($this->selected_size_id && $this->selected_color_id) {
+        if ($this->selected_size_id && $this->selected_color_id) {
 
             $this->selected_variant = $this->variants
                 ->where('color_id', $this->selected_color_id)
@@ -83,11 +83,10 @@ class AddToCart extends Component
         $this->selected_quantity++;
     }
 
-
     public function reduceQuantity()
     {
 
-        if($this->selected_quantity > 1) {
+        if ($this->selected_quantity > 1) {
             $this->selected_quantity--;
         }
 
@@ -100,7 +99,7 @@ class AddToCart extends Component
 
         $cart_status = 'create';
 
-        if(!request()->session()->has('cart_session_id')) {
+        if (! request()->session()->has('cart_session_id')) {
             $session_id = (string) Uuid::uuid4();
 
             request()->session()->put('cart_session_id', $session_id);
@@ -116,7 +115,7 @@ class AddToCart extends Component
             ->where('user_id', (! is_null($user) ? $user->id : $user))
             ->where('is_paid', 0);
 
-        if($cart->count() > 0) {
+        if ($cart->count() > 0) {
 
             $cart_status = 'update';
 
@@ -124,13 +123,13 @@ class AddToCart extends Component
 
         } else {
 
-            if(!is_null($user) && $user instanceof User) {
+            if (! is_null($user) && $user instanceof User) {
 
                 $cart = (new Cart())
                     ->where('user_id', (! is_null($user) ? $user->id : $user))
                     ->where('is_paid', 0);
 
-                if($cart && $cart->count() > 0) {
+                if ($cart && $cart->count() > 0) {
                     $cart_status = 'update';
 
                     $cart = $cart->get()->first();
@@ -139,16 +138,15 @@ class AddToCart extends Component
 
         }
 
-        if($cart_status === 'update' && isset($cart) && $cart instanceof Cart) {
+        if ($cart_status === 'update' && isset($cart) && $cart instanceof Cart) {
 
-            if(($cart->variants && $cart->variants->count() && $cart->variants->pluck('id')->search($this->selected_variant->id) > -1)) {
+            if (($cart->variants && $cart->variants->count() && $cart->variants->pluck('id')->search($this->selected_variant->id) > -1)) {
 
                 $cart->variants()
-                     ->detach($this->selected_variant->id);
+                    ->detach($this->selected_variant->id);
             }
 
-
-        } else if($cart_status === 'create') {
+        } elseif ($cart_status === 'create') {
 
             $user = auth('web')->check() ? auth('web')->user() : null;
 
@@ -159,7 +157,8 @@ class AddToCart extends Component
             ]);
 
         }
-        if(isset($cart) && $cart instanceof Cart) {
+        if (isset($cart) && $cart instanceof Cart) {
+
             $price = $this->selected_variant->selling_price * $this->selected_quantity;
 
             // Include 'product_id' in the array of pivot table fields
@@ -176,10 +175,10 @@ class AddToCart extends Component
 
         // resets the component's quantity to 1
         $this->selected_quantity = 1;
+        $this->selected_variant = [];
 
         $this->dispatch('cartUpdated');
     }
-
 
     public function render()
     {

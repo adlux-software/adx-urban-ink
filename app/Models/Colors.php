@@ -10,19 +10,17 @@ class Colors extends Model
     use HasFactory;
 
     protected $attributes = [
-        'is_active' => 1
+        'is_active' => 1,
     ];
 
     protected $fillable = [
         'name',
         'code',
-        'is_active'
+        'is_active',
     ];
 
     public function variants()
     {
         return $this->hasMany(Variant::class);
     }
-
-
 }

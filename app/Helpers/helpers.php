@@ -1,9 +1,8 @@
 <?php
 
-
 use App\Models\Cart;
 
-if (!function_exists('calculate_cart_total')) {
+if (! function_exists('calculate_cart_total')) {
     function calculate_cart_total($cart_id)
     {
         try {

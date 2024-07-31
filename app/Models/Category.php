@@ -10,11 +10,11 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Category extends Model implements HasMedia
 {
-    use InteractsWithMedia;
     use HasFactory;
+    use InteractsWithMedia;
 
     protected $attributes = [
-        'is_active' => 1
+        'is_active' => 1,
     ];
 
     protected $fillable = [

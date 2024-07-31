@@ -9,7 +9,7 @@ use App\Models\Size;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 
-class ProductIndex extends Component
+class NavbarProduct extends Component
 {
     public $categories = [];
 
@@ -39,14 +39,17 @@ class ProductIndex extends Component
             ->get();
 
         $this->colors = (new Colors()) // todo: change the name to singular
-            ->where('is_active', 1) // update to status later
-            ->get();
+        ->where('is_active', 1) // update to status later
+        ->get();
 
     }
 
     public function selectCategory($category_id)
     {
         $this->category_id = $category_id;
+        //and show livewire.product-index
+        $this->emit('showProductIndex');
+
     }
 
     public function selectSize($size_id)
