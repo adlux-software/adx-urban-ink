@@ -28,6 +28,8 @@ class ProductIndex extends Component
 
     public $price = 5000;
 
+    public $category_name = 'All Products';
+
     public function mount()
     {
         $this->categories = (new Category())
@@ -67,6 +69,9 @@ class ProductIndex extends Component
 
         if ($this->category_id) {
             $query->where('category_id', $this->category_id);
+
+            // gets the name of the category
+            $this->category_name = Category::find($this->category_id)->name;
         }
 
         if ($this->selected_size_id) {

@@ -24,20 +24,6 @@
     </div>
     <!-- End Search Overlay -->
 
-    <!-- Start Page Title -->
-    <div class="page-title-area">
-        <div class="container">
-            <div class="page-title-content">
-                <h2>All Products</h2>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li>All Products</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- End Page Title -->
-
     <livewire:product-index/>
 
 

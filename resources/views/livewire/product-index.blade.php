@@ -1,4 +1,17 @@
 <div>
+
+    <div class="page-title-area">
+        <div class="container">
+            <div class="page-title-content">
+                <h2>{{ $category_name }}</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>{{ $category_name }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <section class="products-area pt-100 pb-70">
         <div class="container">
             <div class="row justify-content-center">
