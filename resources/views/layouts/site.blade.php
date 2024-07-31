@@ -113,11 +113,13 @@ use App\Models\Cart;
 
                         <li class="nav-item"><a href="#" class="nav-link " id="nav">Our Collection <i class='bx bx-chevron-down'></i></a>
                             <ul class="dropdown-menu">
-{{--                                @foreach($products as $product)--}}
-
-{{--                                @endforeach--}}
-
-                                <li class="nav-item"><a href="index.html" class="nav-link active">Home 1</a></li>
+                                @foreach($categories as $category)
+                                    <li class="nav-item">
+                                        <a href="{{ route('products.index', ['category' => $category->id]) }}" class="nav-link">
+                                            {{ $category->name }}
+                                        </a>
+                                    </li>
+                                @endforeach
 
                             </ul>
                         </li>
