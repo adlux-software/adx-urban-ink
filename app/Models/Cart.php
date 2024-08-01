@@ -58,8 +58,11 @@ class Cart extends Model
     {
         $session_id = session()->get('cart_session_id', null);
 
-        //number of product in cart_iem table
-        return Cart::where('session_id', $session_id)->first()->products->count();
+        // Find the cart with the given session_id
+        $cart = Cart::where('session_id', $session_id)->first();
+
+        // Check if the cart exists and return the product count or default value
+        return $cart ? $cart->products->count() : 0;
     }
 
 

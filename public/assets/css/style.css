@@ -121,7 +121,7 @@ p:last-child {
 /*default-btn&optional-btn*/
 .default-btn {
     display: inline-block;
-    border: 1px solid #47A4AD;
+    border: 1px solid ;
     padding: 10px 30px;
     transition: 0.5s;
     text-transform: uppercase;
