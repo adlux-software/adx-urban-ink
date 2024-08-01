@@ -18,7 +18,6 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="woocommerce-widget-area">
 
-
                         <div class="woocommerce-widget collections-list-widget">
                             <h3 class="woocommerce-widget-title">Collections</h3>
 
