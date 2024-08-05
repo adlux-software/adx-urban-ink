@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Order extends Model
 {
@@ -30,4 +31,11 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class, 'order_id');
     }
+
+
+    private function generatePaymentId()
+    {
+        return 'PAY-' . Str::upper(Str::random(10));
+    }
+
 }

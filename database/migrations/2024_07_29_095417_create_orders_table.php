@@ -21,7 +21,7 @@ return new class extends Migration
             $table->decimal('total', 8, 2);
             $table->string('payment_mode');
             $table->string('payment_id')->nullable();
-            $table->string('status')->default('pending');
+            $table->enum('status', ['pending', 'complete'])->default('pending');
             $table->timestamps();
         });
     }

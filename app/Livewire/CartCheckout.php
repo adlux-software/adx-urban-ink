@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Livewire;
 
 use App\Models\Cart;
@@ -7,44 +6,41 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Illuminate\Support\Facades\Redirect;
 
 class CartCheckout extends Component
 {
     public $carts;
-
     public $totalProductAmount;
-
     public $firstName;
-
     public $lastName;
-
     public $email;
-
     public $phone;
-
     public $address;
-
     public $city;
-
     public $zip;
-
     public $payment_mode;
-
     public $payment_id;
 
     public function mount()
     {
+        if (!Auth::check()) {
+            return Redirect::route('register');
+        }
+
         $this->totalProductAmount = $this->calculateTotalAmount();
     }
 
     public function placeOrder()
     {
-        // Validate payment mode and ID
+        if (!Auth::check()) {
+            return Redirect::route('register'); // Redirect to the register page if not authenticated
+        }
+
         if ($this->payment_mode !== 'cod' && empty($this->payment_id)) {
             throw new \Exception('Payment ID cannot be null for non-COD orders.');
         }
 
-        // Create the order
         $order = Order::create([
             'user_id' => Auth::id(),
             'firstname' => $this->firstName,
@@ -60,11 +56,9 @@ class CartCheckout extends Component
             'status' => 'pending',
         ]);
 
-        // Create order items
         foreach ($this->carts as $cartItem) {
             foreach ($cartItem->variants as $variant) {
                 if (is_null($variant->product_id) || is_null($variant->id)) {
-                    // Debugging information
                     throw new \Exception('Product ID or Variant ID is missing for some cart items. Cart Item: '.json_encode($cartItem));
                 }
 
@@ -93,7 +87,6 @@ class CartCheckout extends Component
         foreach ($this->carts as $cart) {
             foreach ($cart->variants as $variant) {
                 if (is_null($variant->product_id) || is_null($variant->id)) {
-                    // Debugging information
                     throw new \Exception('Product ID or Variant ID is missing for some cart items. Cart Item: '.json_encode($cart));
                 }
                 $totalProductAmount += $variant->pivot->price;

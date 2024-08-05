@@ -16,12 +16,22 @@ class OrderItem extends Model
         'product_id',
         'variant_id',
         'quantity',
-        'price',
         'total',
-        'status',
         'note',
-        'payment_status',
-        'payment_method',
-        'payment_id',
     ];
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function variant()
+    {
+        return $this->belongsTo(Variant::class);
+    }
 }

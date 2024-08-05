@@ -14,13 +14,8 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->foreignId('variant_id')->constrained()->onDelete('cascade');
             $table->integer('quantity');
-            $table->decimal('price', 8, 2);
             $table->decimal('total', 8, 2);
-            $table->string('status')->default('pending');
             $table->string('note')->nullable();
-            $table->string('payment_status')->nullable();
-            $table->string('payment_method')->nullable();
-            $table->string('payment_id')->nullable();
             $table->timestamps();
         });
     }

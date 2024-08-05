@@ -239,8 +239,7 @@
 
 
                     @foreach($related_products as $related_product)
-
-
+                        
                     <div class="single-products-box">
                         <div class="products-image">
 

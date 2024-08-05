@@ -31,6 +31,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             ->register();
     }
 
+
     /**
      * Register the Nova gate.
      *
