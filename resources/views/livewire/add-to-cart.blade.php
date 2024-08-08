@@ -2,8 +2,8 @@
     <h3>{{$product->title}}</h3>
     @if($product->variants->count() > 0)
         <div class="price">
-            <span class="new-price">{{ number_format($product->variants?->first()->selling_price, 2) }}</span>
-            <span class="old-price">{{ number_format($product->variants?->first()->mrp, 2) }}</span>
+            <span class="new-price">Rs.{{ number_format($product->variants?->first()->selling_price, 2) }}</span>
+            <span class="old-price">Rs.{{ number_format($product->variants?->first()->mrp, 2) }}</span>
         </div>
     @endif
     <div class="products-review">
@@ -53,9 +53,17 @@
     </div>
 
     <div class="products-info-btn">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#sizeGuideModal"><i class='bx bx-crop'></i> Size guide</a>
-        <a href="#" data-bs-toggle="modal" data-bs-target="#productsShippingModal"><i class='bx bxs-truck' ></i> Shipping</a>
-        <a href="contact.html"><i class='bx bx-envelope'></i> Ask about this products</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#sizeGuideModal">
+            <img src="/assets/img/t size.svg" class="main-logo" alt="logo" style="width: 22px; margin-right: 4px; margin-left: -10px" >
+            T-Shirt Size guide
+        </a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#printsize">
+            <img src="/assets/img/prnt sizw.svg" class="main-logo" alt="logo" style="width: 22px; margin-right: 4px; margin-left: -10px" >
+            Print Size guide
+        </a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#productsShippingModal"><i class='bx bxs-truck' ></i> Free Shipping</a>
+
+        {{--        <a href="contact.html"><i class='bx bx-envelope'></i> Ask about this products</a>--}}
     </div>
 
     @if($selected_variant)
@@ -107,7 +115,6 @@
 
     <div class="wishlist-compare-btn">
         <a href="#" class="optional-btn"><i class='bx bx-heart'></i> Add to Wishlist</a>
-        <a href="#" class="optional-btn"><i class='bx bx-refresh'></i> Add to Compare</a>
     </div>
 
     @if($success)

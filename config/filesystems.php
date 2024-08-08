@@ -56,6 +56,116 @@ return [
             'throw' => false,
         ],
 
+
+        'image' => [
+            'driver' => 's3',
+            'root' => 'images/',
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION'),
+            'bucket' => env('AWS_BUCKET'),
+            'url' => env('AWS_URL').'/'.env('AWS_BUCKET'),
+            'endpoint' => env('AWS_ENDPOINT'),
+            'visibility' => 'public',
+            'ACL' => 'public-read',
+            'options' => [
+                'CacheControl' => 'max-age=31536000, public',
+                'Expires' => gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 365)),
+            ],
+        ],
+
+        'file' => [
+            'driver' => 's3',
+            'root' => 'files/',
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION'),
+            'bucket' => env('AWS_BUCKET'),
+            'url' => env('AWS_URL').'/'.env('AWS_BUCKET'),
+            'endpoint' => env('AWS_ENDPOINT'),
+            'visibility' => 'public',
+            'ACL' => 'public-read',
+            'options' => [
+                'CacheControl' => 'max-age=31536000, public',
+                'Expires' => gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 365)),
+            ],
+        ],
+
+        'video' => [
+            'driver' => 's3',
+            'root' => 'videos/',
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION'),
+            'bucket' => env('AWS_BUCKET'),
+            'url' => env('AWS_URL').'/'.env('AWS_BUCKET'),
+            'endpoint' => env('AWS_ENDPOINT'),
+            'visibility' => 'public',
+            'ACL' => 'public-read',
+            'options' => [
+                'CacheControl' => 'max-age=31536000, public',
+                'Expires' => gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 365)),
+            ],
+        ],
+
+        'audio' => [
+            'driver' => 's3',
+            'root' => 'audios/',
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION'),
+            'bucket' => env('AWS_BUCKET'),
+            'url' => env('AWS_URL').'/'.env('AWS_BUCKET'),
+            'endpoint' => env('AWS_ENDPOINT'),
+            'visibility' => 'public',
+            'ACL' => 'public-read',
+            'options' => [
+                'CacheControl' => 'max-age=31536000, public',
+                'Expires' => gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 365)),
+            ],
+        ],
+
+        'livewire_temp' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/livewire_temp'),
+            'url' => env('APP_URL').'/storage/livewire_temp',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'media_s3' => [
+            'driver' => 's3',
+            'root' => 'media/',
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION'),
+            'bucket' => env('AWS_BUCKET'),
+            'url' => env('AWS_URL').'/'.env('AWS_BUCKET'),
+            'endpoint' => env('AWS_ENDPOINT'),
+            'visibility' => 'public',
+            'ACL' => 'public-read',
+            'options' => [
+                'CacheControl' => 'max-age=31536000, public',
+                'Expires' => gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 365)),
+            ],
+        ],
+
+        'storage_s3' => [
+            'driver' => 's3',
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION'),
+            'bucket' => env('AWS_BUCKET'),
+            'url' => env('AWS_URL').'/'.env('AWS_BUCKET'),
+            'endpoint' => env('AWS_ENDPOINT'),
+            'visibility' => 'public',
+            'ACL' => 'public-read',
+            'options' => [
+                'CacheControl' => 'max-age=31536000, public',
+                'Expires' => gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7)),
+            ],
+        ],
+
     ],
 
     /*
