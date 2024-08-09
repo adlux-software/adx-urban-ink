@@ -64,14 +64,14 @@
             </div>
 
             <div class="cart-buttons">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-lg-7 col-sm-7 col-md-7">
+                <div class="row justify-content-center">
+                    <div class="">
                         <a href="#" class="optional-btn">Continue Shopping</a>
                     </div>
 
-                    <div class="col-lg-5 col-sm-5 col-md-5 text-end">
-                        <a href="#" class="default-btn">Update Cart</a>
-                    </div>
+{{--                    <div class="col-lg-5 col-sm-5 col-md-5 text-end">--}}
+{{--                        <a href="#" class="default-btn">Update Cart</a>--}}
+{{--                    </div>--}}
                 </div>
             </div>
 
@@ -79,12 +79,12 @@
                 <h3>Cart Totals</h3>
 
                 <ul>
-                    <li>Subtotal <span>$800.00</span></li>
-                    <li>Shipping <span>$30.00</span></li>
+                    <li>Subtotal <span>RS.{{ number_format($cart->total, 2) }}</span></li>
+                    <li>Shipping <span>Rs. 00</span></li>
                     <li>Total <span>RS.{{ number_format($cart->total, 2) }}</span></li>
                 </ul>
 
-                <a href="#" class="default-btn">Proceed to Checkout</a>
+                <a href="/checkout" class="default-btn">Proceed to Checkout</a>
             </div>
 
         </div>

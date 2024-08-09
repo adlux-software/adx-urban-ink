@@ -28,6 +28,7 @@ use App\Models\Cart;
 </head>
 <!-- Start Top Header Area -->
 
+<!-- Start Top Header Area -->
 <div class="top-header">
     <div class="container">
         <div class="row align-items-center justify-content-center">
@@ -35,24 +36,21 @@ use App\Models\Cart;
                 <ul class="header-contact-info">
                     <li>Welcome to URBONINK</li>
                     <li>Call: <a href="tel:+01321654214">+01 321 654 214</a></li>
-                  </ul>
+                </ul>
             </div>
 
             <div class="col-lg-6 col-md-12">
                 <ul class="header-top-menu">
-{{--                    <li><a href="login.html"><i class='bx bxs-user'></i> My Account</a></li>--}}
+                    {{-- <li><a href="login.html"><i class='bx bxs-user'></i> My Account</a></li> --}}
                     <li><a href="#" data-bs-toggle="modal" data-bs-target="#shoppingWishlistModal"><i class='bx bx-heart'></i> Wishlist</a></li>
                     @if (Route::has('login'))
                         @auth
-                            <li><a href="{{ url('/user/profile') }}"><i class='bx bxs-user'></i>Hi,{{ Auth::user()->name }}</a></li>
-
+                            <li><a href="{{ url('/user/profile') }}"><i class='bx bxs-user'></i> Hi, {{ Auth::user()->name }}</a></li>
                         @else
                             <li><a href="{{ route('login') }}"><i class='bx bx-log-in'></i> Login</a></li>
-
-                        @endif
                         @endauth
-
-        </ul>
+                    @endif
+                </ul>
 
                 <ul class="header-top-others-option">
                     <div class="option-item">
@@ -61,11 +59,9 @@ use App\Models\Cart;
                         </div>
                     </div>
 
-
-
                     <div class="option-item">
                         <div class="cart-btn">
-                            <a href="/cart" ><i class='bx bx-shopping-bag'></i><span>{{ \App\Models\Cart::totalProductCount() }}</span></a>
+                            <a href="/cart"><i class='bx bx-shopping-bag'></i><span>{{ \App\Models\Cart::totalProductCount() }}</span></a>
                         </div>
                     </div>
                 </ul>
@@ -81,7 +77,7 @@ use App\Models\Cart;
         <div class="container">
             <div class="xton-responsive-menu">
                 <div class="logo">
-                    <a href="index.html" style="height: 10px">
+                    <a href="/" style="height: 10px">
                         <img src="assets/img/logo.png" class="main-logo" alt="logo" style="width: 100px">
                         <img src="assets/img/logo.png" class="white-logo" alt="logo" style="width: 100px">
                     </a>
@@ -93,41 +89,40 @@ use App\Models\Cart;
     <div class="xton-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
                     <img src="assets/img/logo.png" class="main-logo" alt="logo" style="width: 100px">
                     <img src="assets/img/logo.png" class="white-logo" alt="logo" style="width: 100px">
                 </a>
 
-
-
                 <div class="collapse navbar-collapse mean-menu">
                     <ul class="navbar-nav">
-                        <li class="nav-item" id="nav"><a href="/" class="nav-link active">Home </a>
-
+                        <li class="nav-item" id="nav">
+                            <a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
                         </li>
 
-                        <li class="nav-item megamenu" id="nav"><a href="/about" class="nav-link">About US </a>
-
+                        <li class="nav-item megamenu" id="nav">
+                            <a href="/about" class="nav-link {{ request()->is('about') ? 'active' : '' }}">About Us</a>
                         </li>
-                        <li class="nav-item megamenu" id="nav"><a href="/products" class="nav-link">Shop </a>
 
-                        <li class="nav-item"><a href="#" class="nav-link " id="nav">Our Collection <i class='bx bx-chevron-down'></i></a>
+                        <li class="nav-item megamenu" id="nav">
+                            <a href="/products" class="nav-link {{ request()->is('products') ? 'active' : '' }}">Shop</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link {{ request()->is('collection') ? 'active' : '' }}">Our Collection <i class='bx bx-chevron-down'></i></a>
                             <ul class="dropdown-menu">
                                 @foreach($categories as $category)
                                     <li class="nav-item">
-                                        <a href="{{ route('products.index', ['category' => $category->id]) }}" class="nav-link">
+                                        <a href="{{ route('products.index', ['category' => $category->id]) }}" class="nav-link {{ request()->is('products?category=' . $category->id) ? 'active' : '' }}">
                                             {{ $category->name }}
                                         </a>
                                     </li>
                                 @endforeach
-
                             </ul>
                         </li>
 
-                        </li >
-
-                              <li class="nav-item megamenu" id="nav"><a href="/contact" class="nav-link">Contact Us</a>
-
+                        <li class="nav-item megamenu" id="nav">
+                            <a href="/contact" class="nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact Us</a>
                         </li>
                     </ul>
 
@@ -140,7 +135,7 @@ use App\Models\Cart;
 
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="/cart" ><i class='bx bx-shopping-bag'></i><span>{{ \App\Models\Cart::totalProductCount() }}</span></a>
+                                <a href="/cart"><i class='bx bx-shopping-bag'></i><span>{{ \App\Models\Cart::totalProductCount() }}</span></a>
                             </div>
                         </div>
 
@@ -153,10 +148,6 @@ use App\Models\Cart;
                         </div>
                     </div>
                 </div>
-
-
-
-
             </nav>
         </div>
     </div>
@@ -168,42 +159,37 @@ use App\Models\Cart;
     <div class="xton-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
                     <img src="assets/img/logo.png" class="main-logo" alt="logo" style="width: 100px">
                     <img src="assets/img/logo.png" class="white-logo" alt="logo" style="width: 100px">
                 </a>
-
-
-
-
                 <div class="collapse navbar-collapse mean-menu">
                     <ul class="navbar-nav">
-                        <li class="nav-item" id="nav"><a href="/" class="nav-link active">Home </a>
-
+                        <li class="nav-item" id="nav">
+                            <a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
                         </li>
 
-                        <li class="nav-item megamenu" id="nav"><a href="/about" class="nav-link">About US </a>
-
+                        <li class="nav-item megamenu" id="nav">
+                            <a href="/about" class="nav-link {{ request()->is('about') ? 'active' : '' }}">About Us</a>
                         </li>
-                        <li class="nav-item megamenu" id="nav"><a href="/products" class="nav-link">Shop</a>
 
+                        <li class="nav-item megamenu" id="nav">
+                            <a href="/products" class="nav-link {{ request()->is('products') ? 'active' : '' }}">Shop</a>
                         </li>
-                        <li class="nav-item" id="nav"><a href="#" class="nav-link ">Collection <i class='bx bx-chevron-down'></i></a>
+
+                        <li class="nav-item" id="nav">
+                            <a href="#" class="nav-link {{ request()->is('collection') ? 'active' : '' }}">Collection <i class='bx bx-chevron-down'></i></a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a href="index.html" class="nav-link active">Home 1</a></li>
-
                                 <li class="nav-item"><a href="index-2.html" class="nav-link">Home 2</a></li>
-
                                 <li class="nav-item"><a href="index-3.html" class="nav-link">Home 3</a></li>
-
                                 <li class="nav-item"><a href="index-4.html" class="nav-link">Home 4</a></li>
-
                                 <li class="nav-item"><a href="index-5.html" class="nav-link">Home 5</a></li>
                             </ul>
                         </li>
 
-                        <li class="nav-item megamenu" id="nav"><a href="/contact" class="nav-link">Contact Us</a>
-
+                        <li class="nav-item megamenu" id="nav">
+                            <a href="/contact" class="nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact Us</a>
                         </li>
                     </ul>
 
@@ -216,7 +202,7 @@ use App\Models\Cart;
 
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="#" ><i class='bx bx-shopping-bag'></i><span>{{ \App\Models\Cart::totalProductCount() }}</span></a>
+                                <a href="#"><i class='bx bx-shopping-bag'></i><span>{{ \App\Models\Cart::totalProductCount() }}</span></a>
                             </div>
                         </div>
 
@@ -229,15 +215,11 @@ use App\Models\Cart;
                         </div>
                     </div>
                 </div>
-
-
-
-
             </nav>
         </div>
     </div>
 </div>
-<!-- End Header Area -->
+<!-- End Sticky Navbar Area -->
 
 <!-- Start Search Overlay -->
 <div class="search-overlay">
@@ -263,6 +245,7 @@ use App\Models\Cart;
 </div>
 <!-- End Search Overlay -->
 
+<!-- End Search Overlay -->
 
 {{$slot}}
 

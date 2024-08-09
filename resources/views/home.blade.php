@@ -10,7 +10,8 @@
                     <div class="col-lg-7 col-md-12">
                         <div class="main-banner-content">
                             <span class="sub-title">Limited Time Offer!</span>
-                            <h1>Winter-2024!</h1>
+                            <h1>Wear your story
+                            </h1>
                             <p>Take 20% Off ‘Sale Must-Haves'</p>
                             <div class="btn-box">
                                 <a href="/products" class="default-btn">Shop  Now</a>
@@ -282,7 +283,7 @@
 <div class="instagram-area">
     <div class="container-fluid">
         <div class="instagram-title">
-            <a href="#" target="_blank"><i class='bx bxl-instagram'></i> Follow us on @xton</a>
+            <a href="https://www.instagram.com/urbanink_lk?igsh=MWo1dzI3NDZ3cWM1cg==" target="_blank"><i class='bx bxl-instagram'></i> Follow us on @urbanink_lk</a>
         </div>
 
         <div class="instagram-slides owl-carousel owl-theme">
