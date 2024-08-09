@@ -1387,27 +1387,30 @@ textarea.form-control {
 .banner-bg2 {
     background-image: url(../../assets/img/main-banner2.jpg);
 }
-.banner-bg3 {
-    background-image: url(../../assets/img/main-banner3.jpg);
+.main-banner {
+    position: relative;
+    overflow: hidden;
+    /* Ensure the banner takes up the full width and height */
+    width: 100%;
+    height: 100vh;
+    /* Adjust to your desired height */
 }
-.banner-bg4 {
-    background-image: url(../../assets/img/main-banner3.jpg);
+
+.banner-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire area */
+    z-index: -1; /* Places the video behind the content */
 }
-.banner-bg5 {
-    background-image: url(../../assets/img/main-banner3.jpg);
+
+.d-table {
+    position: relative;
+    z-index: 1; /* Ensures the content is above the video */
 }
-.banner-bg6 {
-    background-image: url(../../assets/img/main-banner3.jpg);
-}
-.banner-bg7 {
-    background-image: url(../../assets/img/main-banner3.jpg);
-}
-.banner-bg8 {
-    background-image: url(../../assets/img/main-banner3.jpg);
-}
-.banner-bg9 {
-    background-image: url(../../assets/img/main-banner3.jpg);
-}
+
 .banner-section {
     height: 650px;
     position: relative;

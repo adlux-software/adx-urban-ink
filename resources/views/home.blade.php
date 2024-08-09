@@ -2,20 +2,24 @@
 <x-site-layout>
 
 <!-- Start Main Banner Area -->
-<div class="main-banner single-main-banner banner-bg6">
-    <div class="d-table">
-        <div class="d-table-cell">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-7 col-md-12">
-                        <div class="main-banner-content">
-                            <span class="sub-title">Limited Time Offer!</span>
-                            <h1>Wear your story
-                            </h1>
-                            <p>Take 20% Off ‘Sale Must-Haves'</p>
-                            <div class="btn-box">
-                                <a href="/products" class="default-btn">Shop  Now</a>
-{{--                                <a href="products-left-sidebar.html" class="optional-btn">Shop Men's</a>--}}
+    <div class="main-banner single-main-banner banner-bg6">
+        <video autoplay muted loop class="banner-video">
+            <source src="../../assets/img/urbanink.lk-cover.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <div class="row justify-content-left">
+                        <div class="col-lg-7 col-md-12">
+                            <div class="main-banner-content">
+                                <span class="sub-title">Limited Time Offer!</span>
+                                <h1 style="color: #FFFFFF">Wear your story</h1>
+                                <p>Take 20% Off ‘Sale Must-Haves'</p>
+                                <div class="btn-box">
+                                    <a href="/products" class="default-btn">Shop Now</a>
+                                    {{-- <a href="products-left-sidebar.html" class="optional-btn">Shop Men's</a> --}}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -23,7 +27,7 @@
             </div>
         </div>
     </div>
-</div>
+
 <!-- End Main Banner Area -->
 
 <!-- Start Categories Banner Area -->
