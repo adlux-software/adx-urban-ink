@@ -7,26 +7,96 @@
             <source src="../../assets/img/Render 22.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
                     <div class="row justify-content-left">
-                        <div class="col-lg-7 col-md-12">
+                        <div class="col-lg-7 col-md-12 banner-container">
                             <div class="main-banner-content">
-                                <span class="sub-title">Limited Time Offer!</span>
-                                <h1 style="color: #FFFFFF">Wear your story</h1>
-                                <p>Take 20% Off ‘Sale Must-Haves'</p>
+                                <span class="sub-title" style="color: #356B7A">Limited Time Offer!</span>
+                                <h1 class="banner-heading" style="color: #0C1E27">Wear your story</h1>
+                                <p class="banner-description" style="color: #356B7A">Take 20% Off ‘Sale Must-Haves'</p>
                                 <div class="btn-box">
                                     <a href="/products" class="default-btn">Shop Now</a>
-                                    {{-- <a href="products-left-sidebar.html" class="optional-btn">Shop Men's</a> --}}
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+
+
     </div>
+
+    <style>
+        .banner-container {
+            position: relative;
+            background-size: cover;
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+        .banner-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80%;
+            height: 100%;
+            background: #FFFFFF; /* LightSkyBlue with transparency */
+            filter: blur(100px); /* Adjust blur radius as needed */
+            z-index: 1;
+        }
+
+        .main-banner-content {
+            position: relative;
+            z-index: 2;
+            color: #FFFFFF;
+            text-align: left;
+            padding: 50px 20px; /* Adjust padding as needed */
+            backdrop-filter: blur(5px); /* Optional: Adds a blur effect to the content area */
+        }
+
+        .sub-title {
+            display: block;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .banner-heading {
+            font-size: 3em; /* Adjust as needed */
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .banner-description {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .btn-box {
+            margin-top: 20px;
+        }
+
+        .default-btn {
+            background-color: #F4C03D;
+            color: #000000;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .default-btn:hover {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+    </style>
 
 <!-- End Main Banner Area -->
 
