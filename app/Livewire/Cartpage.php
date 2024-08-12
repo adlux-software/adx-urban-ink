@@ -9,9 +9,6 @@ use Livewire\Component;
 class Cartpage extends Component
 {
     public $cart;
-
-    public $total = 0;
-
     public $warning = '';
 
     public function mount()
@@ -34,77 +31,54 @@ class Cartpage extends Component
     public function incrementQuantity(int $product_id)
     {
         foreach ($this->cart->products as $product) {
-
             if ($product->pivot->id == $product_id) {
+                $variant = Variant::find($product->pivot->variant_id);
+                $new_quantity = $product->pivot->quantity + 1;
 
-                $variant = (new Variant())
-                    ->where('id', $product->pivot->variant_id)
-                    ->first();
-
-                // get the current pivot quantity
-                $quantity = $product->pivot->quantity;
-
-                // new stock quantity
-                $new_quantity = $quantity + 1;
-
-                if ($product->pivot->quantity + 1 > $variant->stock) {
-                    $product->pivot->quantity = $variant->stock;
-
-                    $this->warning = 'You cannot have more than 10 quantity of a product in your cart.';
+                if ($new_quantity > $variant->stock) {
+                    $this->warning = 'You cannot have more than ' . $variant->stock . ' quantity of this product in your cart.';
                     return;
                 }
 
                 $product->pivot->quantity = $new_quantity;
-
-                $variant = (new Variant())
-                    ->where('id', $product->pivot->variant_id)
-                    ->first();
-
                 $product->pivot->price = $variant->selling_price * $new_quantity;
-
                 $product->pivot->save();
+
+                $this->calculateTotal();
+                return;
             }
         }
-
-        // Recalculate the total
-        $this->calculateTotal();
     }
 
     public function decrementQuantity(int $product_id)
     {
         foreach ($this->cart->products as $product) {
             if ($product->pivot->id == $product_id) {
-
-                // get the current pivot quantity
-                $quantity = $product->pivot->quantity;
-
-                // Prevents the quantity from going below 1
-                if ($quantity == 1) {
+                if ($product->pivot->quantity <= 1) {
                     $this->warning = 'You cannot have less than 1 quantity of a product in your cart.';
                     return;
                 }
 
-                // new stock quantity
-                $new_quantity = $quantity - 1;
+                $new_quantity = $product->pivot->quantity - 1;
+                $variant = Variant::find($product->pivot->variant_id);
 
                 $product->pivot->quantity = $new_quantity;
-
-                $variant = (new Variant())
-                    ->where('id', $product->pivot->variant_id)
-                    ->first();
-
                 $product->pivot->price = $variant->selling_price * $new_quantity;
-
                 $product->pivot->save();
+
+                $this->calculateTotal();
+                return;
             }
         }
-
-        $this->calculateTotal();
     }
 
     public function calculateTotal()
     {
-        $this->cart = calculate_cart_total($this->cart->id);
+        $this->cart->total = $this->cart->products->sum(function ($product) {
+            return $product->pivot->price;
+        });
+
+        $this->cart->save();
     }
 
     public function removeProduct(int $product_id)
@@ -112,15 +86,16 @@ class Cartpage extends Component
         foreach ($this->cart->products as $product) {
             if ($product->pivot->id == $product_id) {
                 $product->pivot->delete();
-                $this->cart = Cart::with('variants', 'products')->find($this->cart->id);
+                $this->cart->products->forget($this->cart->products->search($product));
                 $this->calculateTotal();
                 $this->cart->save();
+                return;
             }
         }
     }
 
     public function render()
     {
-        return view('livewire.cartpage', ['total' => $this->total]);
+        return view('livewire.cartpage');
     }
 }

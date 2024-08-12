@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Livewire;
 
 use App\Models\Cart;
@@ -6,7 +7,6 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Illuminate\Support\Facades\Redirect;
 
 class CartCheckout extends Component
 {
@@ -21,16 +21,37 @@ class CartCheckout extends Component
     public $zip;
     public $payment_mode;
     public $payment_id;
+    public $create_account = false;
+    public $ship_different_address = false;
+    public $notes = '';
+
+    protected $rules = [
+        'firstName' => 'required|string|max:255',
+        'lastName' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'phone' => 'required|string|max:20',
+        'address' => 'required|string|max:255',
+        'city' => 'required|string|max:255',
+        'zip' => 'required|string|max:10',
+        'payment_mode' => 'required|string',
+        'payment_id' => 'nullable|string',
+    ];
 
     public function mount()
     {
+        $this->carts = Cart::with('variants.product', 'variants.color', 'variants.size')->where('user_id', Auth::id())->get();
         $this->totalProductAmount = $this->calculateTotalAmount();
     }
 
+
+
     public function placeOrder()
     {
+        $validatedData = $this->validate();
+
         if ($this->payment_mode !== 'cod' && empty($this->payment_id)) {
-            throw new \Exception('Payment ID cannot be null for non-COD orders.');
+            $this->addError('payment_id', 'Payment ID cannot be null for non-COD orders.');
+            return;
         }
 
         $order = Order::create([
@@ -42,16 +63,17 @@ class CartCheckout extends Component
             'address' => $this->address,
             'city' => $this->city,
             'zip' => $this->zip,
-            'total' => $this->totalProductAmount,
+            'total' => $this->totalProductAmount + 30.00, // Including shipping
             'payment_mode' => $this->payment_mode,
             'payment_id' => $this->payment_id,
             'status' => 'pending',
+            'notes' => $this->notes,
         ]);
 
-        foreach ($this->carts as $cartItem) {
-            foreach ($cartItem->variants as $variant) {
+        foreach ($this->carts as $cart) {
+            foreach ($cart->variants as $variant) {
                 if (is_null($variant->product_id) || is_null($variant->id)) {
-                    throw new \Exception('Product ID or Variant ID is missing for some cart items. Cart Item: '.json_encode($cartItem));
+                    throw new \Exception('Product ID or Variant ID is missing for some cart items. Cart Item: '.json_encode($cart));
                 }
 
                 OrderItem::create([
@@ -60,7 +82,7 @@ class CartCheckout extends Component
                     'variant_id' => $variant->id,
                     'quantity' => $variant->pivot->quantity,
                     'price' => $variant->pivot->price,
-                    'total' => $variant->pivot->price,
+                    'total' => $variant->pivot->price * $variant->pivot->quantity,
                 ]);
             }
         }
@@ -72,21 +94,27 @@ class CartCheckout extends Component
         return redirect()->route('order.success');
     }
 
+
+
     public function calculateTotalAmount()
     {
-        $this->carts = Cart::with('variants')->where('user_id', Auth::id())->get();
         $totalProductAmount = 0;
+
+        if ($this->carts->isEmpty()) {
+            return $totalProductAmount;
+        }
+
         foreach ($this->carts as $cart) {
             foreach ($cart->variants as $variant) {
-                if (is_null($variant->product_id) || is_null($variant->id)) {
-                    throw new \Exception('Product ID or Variant ID is missing for some cart items. Cart Item: '.json_encode($cart));
-                }
-                $totalProductAmount += $variant->pivot->price;
+                $totalProductAmount += $variant->selling_price * $variant->pivot->quantity;
             }
         }
 
         return $totalProductAmount;
     }
+
+
+
 
     public function render()
     {

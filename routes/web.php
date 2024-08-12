@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ThankYouController;
+
 
 //Route::get('/', function () {
 //    return view('home');
@@ -42,3 +44,5 @@ Route::get('/product-details', function () {
 Route::get('/checkout', 'App\Http\Controllers\OrderController@index')
     ->name('order.success');
 
+// thanks
+Route::get('/thank-you', [ThankYouController::class, 'index'])->name('order.success');
