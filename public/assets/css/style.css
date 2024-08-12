@@ -6883,7 +6883,8 @@ blockquote::after, .blockquote::after {
     margin-top: 10px;
 }
 .woocommerce-widget-area .size-list-widget .size-list-row li a {
-    width: 35px;
+    padding-left: 4px;
+    padding-right: 4px;
     height: 35px;
     display: inline-block;
     line-height: 33px;
@@ -6891,6 +6892,7 @@ blockquote::after, .blockquote::after {
     text-align: center;
     font-size: 15px;
     font-weight: 600;
+    cursor: pointer;
 }
 .woocommerce-widget-area .size-list-widget .size-list-row li a:hover, .woocommerce-widget-area .size-list-widget .size-list-row li a:focus {
     border-color: #F4C03D
@@ -6903,6 +6905,135 @@ blockquote::after, .blockquote::after {
 
 ;
 }
+
+.woocommerce-widget.color-list-widget {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.woocommerce-widget-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.color-list-row {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.color-list-item {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.color-list-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.color-box {
+    display: block;
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-color: #ccc;
+    position: relative;
+}
+
+.color-box::after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+ .woocommerce-widget {
+     background-color: #f9f9f9;
+     border-radius: 8px;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     padding: 16px;
+     margin: 16px 0;
+     font-family: 'Questrial', sans-serif;
+ }
+
+.woocommerce-widget-title {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.collection-filter-by-price {
+    margin-bottom: 16px;
+}
+.collections-list-row li a {
+    cursor: pointer;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #f49f0b;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #f49f0b;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.price-display {
+    font-size: 1rem;
+}
+
+.price-display span {
+    font-weight: 700;
+    color: #f49f0b;
+}
+
+
+
+
+
 .woocommerce-widget-area .size-list-widget .size-list-row li a.active a {
     border-color: #F4C03D
 

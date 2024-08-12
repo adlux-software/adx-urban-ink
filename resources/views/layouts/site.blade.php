@@ -260,18 +260,18 @@ use App\Models\Cart;
                     <div class="about-the-store">
                         <p>One of the most popular on the web is shopping.</p>
                         <ul class="footer-contact-info">
-                            <li><i class='bx bx-map'></i> <a href="#" target="_blank">Wonder Street, USA, New York</a></li>
-                            <li><i class='bx bx-phone-call'></i> <a href="tel:+01321654214">+01 321 654 214</a></li>
-                            <li><i class='bx bx-envelope'></i> <a href="mailto:hello@xton.com">hello@xton.com</a></li>
+                            <li><i class='bx bx-map'></i> <a href="#" target="_blank">Dehiwala</a></li>
+                            <li><i class='bx bx-phone-call'></i> <a href="tel:+9471 178 0018">+9471 178 0018 , +9477 632 9697</a></li>
+                            <li><i class='bx bx-envelope'></i> <a href="mailto:urbanink.lk@gmail.com">urbanink.lk@gmail.com</a></li>
                         </ul>
                     </div>
 
                     <ul class="social-link">
                         <li><a href="https://www.facebook.com/" class="d-block" target="_blank"><i class='bx bxl-facebook'></i></a></li>
-                        <li><a href="https://twitter.com/login" class="d-block" target="_blank"><i class='bx bxl-twitter'></i></a></li>
                         <li><a href="https://www.instagram.com/" class="d-block" target="_blank"><i class='bx bxl-instagram'></i></a></li>
-                        <li><a href="https://www.linkedin.com/login" class="d-block" target="_blank"><i class='bx bxl-linkedin'></i></a></li>
-                        <li><a href="https://www.pinterest.com/" class="d-block" target="_blank"><i class='bx bxl-pinterest-alt'></i></a></li>
+                        <li><a href="https://www.whatsapp.com/" class="d-block" target="_blank"><i class='bx bxl-whatsapp'></i></a></li>
+
+
                     </ul>
                 </div>
             </div>
@@ -281,12 +281,10 @@ use App\Models\Cart;
                     <h3>Quick Links</h3>
 
                     <ul class="quick-links">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="products-left-sidebar.html">Shop Now!</a></li>
-                        <li><a href="products-left-sidebar-2.html">Woman's</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/shop">Shop Now!</a></li>
                         <li><a href="faqs.html">FAQ's</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="customer-service.html">Customer Services</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -296,12 +294,19 @@ use App\Models\Cart;
                     <h3>Customer Support</h3>
 
                     <ul class="customer-support">
-                        <li><a href="login.html">My Account</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="cart.html">Cart</a></li>
+                        @if(auth()->user())
+                            <li><a href="/user/profile">My Account</a></li>
+                        @else
+                            <li><a href="/login">Login</a></li>
+                            <li><a href="/register">Register</a></li>
+                        @endif
+                        @if(auth()->user())
+                            <li><a href="/checkout">Checkout</a></li>
+                        @endif
+                        <li><a href="/cart">Cart</a></li>
                         <li><a href="faqs.html">FAQ's</a></li>
-                        <li><a href="track-order.html">Order Tracking</a></li>
-                        <li><a href="contact.html">Help & Support</a></li>
+{{--                        <li><a href="track-order.html">Order Tracking</a></li>--}}
+{{--                        <li><a href="contact.html">Help & Support</a></li>--}}
                     </ul>
                 </div>
             </div>
@@ -327,7 +332,7 @@ use App\Models\Cart;
         <div class="footer-bottom-area">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 col-md-6">
-                    <p>© Xton is Proudly Owned by <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a></p>
+                    <p>© Copyright 2024 © urbanink.lk  All Rights Reserved. Solution by  Adlux</p>
                 </div>
 
                 <div class="col-lg-6 col-md-6">

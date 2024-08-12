@@ -76,10 +76,9 @@
 
                                 <ul class="color-list-row">
                                     @foreach($colors as $color)
-                                        <li
-                                            wire:click="selectColor({{ $color->id }})">
-                                            <a title="{{ $color->name }}"
-                                                style="background-color: {{ $color->code }}">
+                                        <li wire:click="selectColor({{ $color->id }})" class="color-list-item">
+                                            <a title="{{ $color->name }}" class="color-box" style="background-color: {{ $color->code }}">
+                                                <span class="sr-only">{{ $color->name }}</span>
                                             </a>
                                         </li>
                                     @endforeach
@@ -89,17 +88,18 @@
 
 
 
-                        <div class="woocommerce-widget aside-trending-widget">
-                            <div class="aside-trending-products">
-                                <img src="assets/img/offer-bg.jpg" alt="image">
 
-                                <div class="category">
-                                    <h3>Top Trending</h3>
-                                    <span>Spring/Summer 2024 Collection</span>
-                                </div>
-                                <a href="products-right-sidebar.html" class="link-btn"></a>
-                            </div>
-                        </div>
+{{--                        <div class="woocommerce-widget aside-trending-widget">--}}
+{{--                            <div class="aside-trending-products">--}}
+{{--                                <img src="assets/img/offer-bg.jpg" alt="image">--}}
+
+{{--                                <div class="category">--}}
+{{--                                    <h3>Top Trending</h3>--}}
+{{--                                    <span>Spring/Summer 2024 Collection</span>--}}
+{{--                                </div>--}}
+{{--                                <a href="products-right-sidebar.html" class="link-btn"></a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
 
