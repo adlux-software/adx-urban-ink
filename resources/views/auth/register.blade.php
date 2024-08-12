@@ -29,6 +29,10 @@
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
+            @if(session()->has('redirectTo'))
+                <input type="hidden" name="redirectTo" value="{{ session('redirectTo') }}">
+            @endif
+
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
                     <x-label for="terms">

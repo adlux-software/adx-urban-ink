@@ -39,5 +39,6 @@ Route::get('/product-details', function () {
 });
 
 //checkout
-Route::get('/checkout', 'App\Http\Controllers\OrderController@index')->name('order.success');
+Route::get('/checkout', 'App\Http\Controllers\OrderController@index')
+    ->name('order.success');
 

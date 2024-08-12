@@ -28,8 +28,9 @@
             @foreach($colors as $key => $color)
                 <li>
                     <a
-                        wire:click="selectColor({{ $key }})"
-                        type="button" style="background-color: {{ $color['code'] }}">
+                        class="{{ $selected_color_id == $key ? 'border-black border-2' : '' }}"
+                        wire:click.prevent="selectColor({{ $key }})"
+                        style="background-color: {{ $color['code'] }}">
                     </a>
                 </li>
             @endforeach
@@ -38,17 +39,16 @@
 
     <div class="products-size-wrapper">
         <span>Size:</span>
-
         <ul>
             @foreach($sizes as $key => $size)
                 <li>
                     <a
-                        wire:click="selectSize({{ $key }})"
-                        type="button">{{ $size['name'] }}
+                        class="{{ $selected_size_id == $key ? 'border-black border-2' : '' }}"
+                        wire:click="selectSize({{ $key }})">
+                        {{ $size['name'] }}
                     </a>
                 </li>
             @endforeach
-
         </ul>
     </div>
 

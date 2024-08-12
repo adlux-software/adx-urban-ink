@@ -80,11 +80,6 @@ class AddToCart extends Component
 
     public function addToCart()
     {
-        if (!Auth::check()) {
-            // Redirect to login or registration page
-            return redirect()->route('register')->with('redirectTo', url()->current());
-        }
-
         $this->success = false;
         $this->warning = false;
 
@@ -96,6 +91,7 @@ class AddToCart extends Component
         }
 
         $session_id = request()->session()->get('cart_session_id');
+
         $user = Auth::user();
 
         $cart = (new Cart())
@@ -107,6 +103,7 @@ class AddToCart extends Component
             $cart_status = 'update';
             $cart = $cart->get()->first();
         } else {
+
             if ($user) {
                 $cart = (new Cart())
                     ->where('user_id', $user->id)
@@ -126,7 +123,7 @@ class AddToCart extends Component
         } elseif ($cart_status === 'create') {
             $cart = (new Cart())->create([
                 'session_id' => $session_id,
-                'user_id' => $user->id,
+                'user_id' => $user->id ?? null,
                 'is_paid' => 0,
             ]);
         }

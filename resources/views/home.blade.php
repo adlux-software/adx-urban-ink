@@ -4,7 +4,7 @@
 <!-- Start Main Banner Area -->
     <div class="main-banner single-main-banner banner-bg6">
         <video autoplay muted loop class="banner-video">
-            <source src="../../assets/img/urbanink.lk-cover.mp4" type="video/mp4">
+            <source src="../../assets/img/Render 22.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="d-table">

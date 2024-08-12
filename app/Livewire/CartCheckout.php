@@ -24,19 +24,11 @@ class CartCheckout extends Component
 
     public function mount()
     {
-        if (!Auth::check()) {
-            return Redirect::route('register');
-        }
-
         $this->totalProductAmount = $this->calculateTotalAmount();
     }
 
     public function placeOrder()
     {
-        if (!Auth::check()) {
-            return Redirect::route('register'); // Redirect to the register page if not authenticated
-        }
-
         if ($this->payment_mode !== 'cod' && empty($this->payment_id)) {
             throw new \Exception('Payment ID cannot be null for non-COD orders.');
         }
