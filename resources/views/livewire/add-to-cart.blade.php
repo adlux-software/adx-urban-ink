@@ -22,13 +22,14 @@
         <li><span>Products Type:</span> <a href="#">{{$product->category?->name}}</a></li>
     </ul>
 
+
     <div class="products-color-switch">
         <span>Color:</span>
         <ul>
             @foreach($colors as $key => $color)
                 <li>
                     <a
-                        class="{{ $selected_color_id == $key ? 'border-black border-2' : '' }}"
+                        class="{{ $selected_color_id == $key ? 'selected' : '' }}"
                         wire:click.prevent="selectColor({{ $key }})"
                         style="background-color: {{ $color['code'] }}">
                     </a>
@@ -43,7 +44,7 @@
             @foreach($sizes as $key => $size)
                 <li>
                     <a
-                        class="{{ $selected_size_id == $key ? 'border-black border-2' : '' }}"
+                        class="{{ $selected_size_id == $key ? 'selected' : '' }}"
                         wire:click="selectSize({{ $key }})">
                         {{ $size['name'] }}
                     </a>
@@ -110,6 +111,18 @@
                 <a href="#" class="default-btn">Buy it now!</a>
             </div>
         </div>
+
+    @elseif($selected_variant)
+        <div class="products-add-to-cart">
+            <button
+                type="button"
+                class="default-btn"
+                disabled>
+                Out of Stock
+            </button>
+        </div>
+
+
 
     @endif
 

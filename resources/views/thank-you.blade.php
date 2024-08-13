@@ -28,11 +28,6 @@
                     </ul>
                 </div>
 
-{{--                <div class="mb-6">--}}
-{{--                    <h2 class="text-xl font-semibold text-gray-800 mb-2">What’s Next?</h2>--}}
-{{--                    <p class="text-gray-600 mb-4">You can track your order status or contact us for any questions or concerns.</p>--}}
-{{--                    <a href="{{ url('/orders') }}" class="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">Track Your Order</a>--}}
-{{--                </div>--}}
 
                 <div>
                     <h2 class="text-xl font-semibold text-gray-800 mb-2">Need Assistance?</h2>

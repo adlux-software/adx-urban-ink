@@ -15,17 +15,8 @@
     </div>
     <!-- End Page Title -->
 
-@if($cart->count() == 0)
-    <div class="container" style="margin-top: 50px; margin-bottom: 50px">
-        <div class="alert alert-info" role="alert" >
-            Your cart is empty. <a href="{{ route('products.index') }}" class="alert-link">Continue shopping</a>.
-        </div>
-    </div>
-@else
     @livewire('cartpage', ['cart' => $cart])
 
-
-@endif
     <!-- Start Facility Area -->
     <section class="facility-area pb-70">
         <div class="container">

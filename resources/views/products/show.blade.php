@@ -48,63 +48,12 @@
                                     </a>
 
                                     <div class="accordion-content show">
-                                        <p>Design inspiration lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim.</p>
 
-                                        <ul>
-                                            <li>Fabric 1: 100% Polyester</li>
-                                            <li>Fabric 2: 100% Polyester, Lining: 100% Polyester</li>
-                                            <li>Fabric 3: 75% Polyester, 20% Viscose, 5% Elastane</li>
-                                        </ul>
+                                        <p>{!! $product->description !!}
+
                                     </div>
                                 </li>
-
-                                <li class="accordion-item">
-                                    <a class="accordion-title" href="javascript:void(0)">
-                                        <i class='bx bx-chevron-down'></i>
-                                        Additional information
-                                    </a>
-
-                                    <div class="accordion-content">
-                                        <table class="table table-striped">
-                                            <tbody>
-                                            <tr>
-                                                <td>Color:</td>
-                                                <td>Blue, Purple, White</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Size:</td>
-                                                <td>20, 24</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Material:</td>
-                                                <td>100% Polyester</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Height:</td>
-                                                <td>180 cm - 5' 11”</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bust:</td>
-                                                <td>83 cm - 32”</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Waist:</td>
-                                                <td>57 cm - 22”</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hips:</td>
-                                                <td>88 cm - 35</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Shipping:</td>
-                                                <td>Free</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </li>
-
-                                <li class="accordion-item">
+       <li class="accordion-item">
                                     <a class="accordion-title" href="javascript:void(0)">
                                         <i class='bx bx-chevron-down'></i>
                                         Reviews

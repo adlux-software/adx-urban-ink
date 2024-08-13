@@ -25,11 +25,20 @@ class Cartpage extends Component
             ->with('variants', 'products')
             ->first();
 
-        $this->calculateTotal();
+        if ($this->cart) {
+            $this->calculateTotal();
+        } else {
+            $this->warning = 'No cart found for the current session or user.';
+        }
     }
 
     public function incrementQuantity(int $product_id)
     {
+        if (!$this->cart) {
+            $this->warning = 'No cart found.';
+            return;
+        }
+
         foreach ($this->cart->products as $product) {
             if ($product->pivot->id == $product_id) {
                 $variant = Variant::find($product->pivot->variant_id);
@@ -52,6 +61,11 @@ class Cartpage extends Component
 
     public function decrementQuantity(int $product_id)
     {
+        if (!$this->cart) {
+            $this->warning = 'No cart found.';
+            return;
+        }
+
         foreach ($this->cart->products as $product) {
             if ($product->pivot->id == $product_id) {
                 if ($product->pivot->quantity <= 1) {
@@ -74,6 +88,10 @@ class Cartpage extends Component
 
     public function calculateTotal()
     {
+        if (!$this->cart) {
+            return;
+        }
+
         $this->cart->total = $this->cart->products->sum(function ($product) {
             return $product->pivot->price;
         });
@@ -83,6 +101,11 @@ class Cartpage extends Component
 
     public function removeProduct(int $product_id)
     {
+        if (!$this->cart) {
+            $this->warning = 'No cart found.';
+            return;
+        }
+
         foreach ($this->cart->products as $product) {
             if ($product->pivot->id == $product_id) {
                 $product->pivot->delete();
