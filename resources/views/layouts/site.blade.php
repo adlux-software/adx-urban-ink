@@ -160,8 +160,8 @@ use App\Models\Cart;
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="/">
-                    <img src="assets/img/logo.png" class="main-logo" alt="logo" style="width: 100px">
-                    <img src="assets/img/logo.png" class="white-logo" alt="logo" style="width: 100px">
+                    <img src="/assets/img/logo.png" class="main-logo" alt="logo" style="width: 100px">
+                    <img src="/assets/img/logo.png" class="white-logo" alt="logo" style="width: 100px">
                 </a>
                 <div class="collapse navbar-collapse mean-menu">
                     <ul class="navbar-nav">
