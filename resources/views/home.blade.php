@@ -117,9 +117,9 @@
                             <div class="content text-white">
                                 <span>Don’t Miss Today</span>
                                 <h3>50% OFF</h3>
-                                <a href="products-left-sidebar.html" class="default-btn">Discover Now</a>
+                                <a href="{{ route('product.show' , $Product->slug) }}" class="default-btn">Discover Now</a>
                             </div>
-                            <a href="products-left-sidebar.html" class="link-btn"></a>
+                            <a href="{{ route('product.show' , $Product->slug) }}" class="link-btn"></a>
                         </div>
                     </div>
                 @endif
@@ -185,7 +185,7 @@
                     </div>
 
                     <div class="products-content">
-                        <h3><a href="products-type-4.html">Women's Modern-Skinny</a></h3>
+                        <h3><a href="{{ route('product.show' , $Product->slug) }}">{{$Product->title}}</a></h3>
                         <div class="price">
                             <span class="old-price">$150</span>
                             <span class="new-price">$100</span>
@@ -197,7 +197,7 @@
                             <i class='bx bxs-star'></i>
                             <i class='bx bxs-star'></i>
                         </div>
-                        <a class="add-to-cart" href="{{ route('product.show' , $Product->slug) }}">Buy Now</a>
+                        <a class="add-to-cart" href="{{ route('product.show' , $Product->slug) }}">View</a>
 
                     </div>
                 </div>
