@@ -226,19 +226,11 @@
                         @endforeach
 
                         <div class="mt-3 items-center col-span-3">
-                            {{ $products->links() }}
+{{--                            {{dd($products)}}--}}
+{{--                            {{ $products->links() }}--}}
                         </div>
                     </div>
 
-{{--                    <div class="pagination-area text-center">--}}
-{{--                        <a href="#" class="prev page-numbers"><i class='bx bx-chevron-left'></i></a>--}}
-{{--                        <span class="page-numbers current" aria-current="page">1</span>--}}
-{{--                        <a href="#" class="page-numbers">2</a>--}}
-{{--                        <a href="#" class="page-numbers">3</a>--}}
-{{--                        <a href="#" class="page-numbers">4</a>--}}
-{{--                        <a href="#" class="page-numbers">5</a>--}}
-{{--                        <a href="#" class="next page-numbers"><i class='bx bx-chevron-right'></i></a>--}}
-{{--                    </div>--}}
                 </div>
             </div>
         </div>

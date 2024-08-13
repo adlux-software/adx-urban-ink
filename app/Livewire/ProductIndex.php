@@ -8,6 +8,8 @@ use App\Models\Product;
 use App\Models\Size;
 use Livewire\Attributes\Url;
 use Livewire\Component;
+use Illuminate\Database\Eloquent\Collection;
+
 
 class ProductIndex extends Component
 {
@@ -98,7 +100,7 @@ class ProductIndex extends Component
     public function render()
     {
         return view('livewire.product-index', [
-            'products' => $this->productQuery()->paginate(12),
+            'products' => $this->productQuery()->paginate(10),
         ]);
     }
 }
