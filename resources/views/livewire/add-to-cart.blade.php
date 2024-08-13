@@ -108,14 +108,13 @@
             </div>
         </div>
 
-        ```blade
     @else
 
         <div class="alert alert-warning mt-4" role="alert">
             This product is currently out of stock. Please check back later.
         </div>
     @endif
-    ```
+
 
     <div class="wishlist-compare-btn">
         <a href="#" class="optional-btn"><i class='bx bx-heart'></i> Add to Wishlist</a>
