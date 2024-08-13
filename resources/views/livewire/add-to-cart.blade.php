@@ -22,7 +22,7 @@
         <li><span>Products Type:</span> <a href="#">{{$product->category?->name}}</a></li>
     </ul>
 
-    <div class="products-color-switch">
+    <div class="products-size-wrapper">
         <span>Color:</span>
         <ul>
             @foreach($colors as $key => $color)
@@ -30,8 +30,10 @@
                     <a
                         class="{{ $selected_color_id == $key ? 'selected' : '' }}"
                         wire:click.prevent="selectColor({{ $key }})"
-                        style="background-color: {{ $color['code'] }}">
+
+                    > {{ $color['name'] }}
                     </a>
+{{--                     <span>{{ $color['name'] }}</span>--}}
                 </li>
             @endforeach
         </ul>
