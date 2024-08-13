@@ -22,6 +22,7 @@ class AddToCart extends Component
     public $warning = false;
     public $cart;
     public $redirectTo;
+    public $show_success_message ;
 
     public function mount()
     {
@@ -137,7 +138,10 @@ class AddToCart extends Component
                 'quantity' => $this->selected_quantity,
             ]);
 
-            $this->success = 'Successfully added to cart!';
+            $this->show_success_message = true;
+
+            // Optionally, you can reset other states or hide other messages here
+            $this->success = 'Product added to cart successfully!';
         }
 
         $this->cart = calculate_cart_total($cart->id);

@@ -153,6 +153,11 @@ use App\Models\Cart;
     </div>
 </div>
 <!-- End Navbar Area -->
+{{--@if($show_success_message)--}}
+{{--    <div class="alert alert-success mt-4" role="alert">--}}
+{{--        {{ $success }}--}}
+{{--    </div>--}}
+{{--@endif--}}
 
 <!-- Start Sticky Navbar Area -->
 <div class="navbar-area navbar-style-two header-sticky">

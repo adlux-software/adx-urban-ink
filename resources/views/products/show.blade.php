@@ -215,7 +215,7 @@
                         </div>
 
                         <div class="products-content">
-                            <h3><a href="#">{{$related_product->title}}</a></h3>
+                            <h3><a href="{{ route('product.show' , $related_product->slug) }}">{{$related_product->title}}</a></h3>
 
                             @if($related_product->variants->count() > 0)
                                 <div class="price">
@@ -231,7 +231,7 @@
                                 <i class='bx bxs-star'></i>
                                 <i class='bx bxs-star'></i>
                             </div>
-                            <a href="{{ route('product.show' , $related_product->slug) }}" class="add-to-cart">Buy Now</a>
+                            <a href="{{ route('product.show' , $related_product->slug) }}" class="add-to-cart">View</a>
                         </div>
                     </div>
 
