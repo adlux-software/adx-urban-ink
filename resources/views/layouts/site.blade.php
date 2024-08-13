@@ -78,8 +78,8 @@ use App\Models\Cart;
             <div class="xton-responsive-menu">
                 <div class="logo">
                     <a href="/" style="height: 10px">
-                        <img src="assets/img/logo.png" class="main-logo" alt="logo" style="width: 100px">
-                        <img src="assets/img/logo.png" class="white-logo" alt="logo" style="width: 100px">
+                        <img src="/assets/img/logo.png" class="main-logo" alt="logo" style="width: 100px">
+                        <img src="/assets/img/logo.png" class="white-logo" alt="logo" style="width: 100px">
                     </a>
                 </div>
             </div>
