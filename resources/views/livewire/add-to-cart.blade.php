@@ -19,9 +19,8 @@
 
     <ul class="products-info">
         <li><span>Availability:</span> <a href="#">In stock ({{$product->variants->sum('quantity')}} items)</a></li>
-        <li><span>Products Type:</span> <a href="#">{{$product->category?->name}}</a></li>
+        <li><span>Product Type:</span> <a href="#">{{$product->category?->name}}</a></li>
     </ul>
-
 
     <div class="products-color-switch">
         <span>Color:</span>
@@ -55,20 +54,17 @@
 
     <div class="products-info-btn">
         <a href="#" data-bs-toggle="modal" data-bs-target="#sizeGuideModal">
-            <img src="/assets/img/t size.svg" class="main-logo" alt="logo" style="width: 22px; margin-right: 4px; margin-left: -10px" >
-            T-Shirt Size guide
+            <img src="/assets/img/t size.svg" class="main-logo" alt="Size guide" style="width: 22px; margin-right: 4px; margin-left: -10px" >
+            T-Shirt Size Guide
         </a>
         <a href="#" data-bs-toggle="modal" data-bs-target="#printsize">
-            <img src="/assets/img/prnt sizw.svg" class="main-logo" alt="logo" style="width: 22px; margin-right: 4px; margin-left: -10px" >
-            Print Size guide
+            <img src="/assets/img/prnt sizw.svg" class="main-logo" alt="Print size guide" style="width: 22px; margin-right: 4px; margin-left: -10px" >
+            Print Size Guide
         </a>
-        <a href="#" data-bs-toggle="modal" data-bs-target="#productsShippingModal"><i class='bx bxs-truck' ></i> Free Shipping</a>
-
-        {{--        <a href="contact.html"><i class='bx bx-envelope'></i> Ask about this products</a>--}}
+        <a href="#" data-bs-toggle="modal" data-bs-target="#productsShippingModal"><i class='bx bxs-truck'></i> Free Shipping</a>
     </div>
 
-    @if($selected_variant)
-
+    @if($selected_variant && $selected_variant->quantity > 0)
         <div class="products-add-to-cart">
             <div class="input-counter">
                 <span
@@ -112,19 +108,14 @@
             </div>
         </div>
 
-    @elseif($selected_variant)
-        <div class="products-add-to-cart">
-            <button
-                type="button"
-                class="default-btn"
-                disabled>
-                Out of Stock
-            </button>
+        ```blade
+    @else
+
+        <div class="alert alert-warning mt-4" role="alert">
+            This product is currently out of stock. Please check back later.
         </div>
-
-
-
     @endif
+    ```
 
     <div class="wishlist-compare-btn">
         <a href="#" class="optional-btn"><i class='bx bx-heart'></i> Add to Wishlist</a>
@@ -135,7 +126,4 @@
             {{ $success }}
         </div>
     @endif
-
-
-
 </div>
