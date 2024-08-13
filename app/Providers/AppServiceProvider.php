@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\View\Composers\CommonViewComposer;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,13 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $categories = (new Category())
-            ->where('is_active', 1) // update to status later
-            ->get();
-
-        $products = Product::with('media')->get();
-
-        view()->share('categories', $categories);
-        view()->share('products', $products);
+        view()->composer('*', CommonViewComposer::class);
     }
 }
