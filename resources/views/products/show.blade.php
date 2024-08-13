@@ -13,9 +13,6 @@
     </div>
     <!-- End Page Title -->
 
-
-
-
     <!-- Start Product Details Area -->
     <section class="product-details-area pt-100 pb-70">
         <div class="container">

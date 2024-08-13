@@ -183,28 +183,28 @@
                                                         </a>
                                                     </div>
                                                 </li>
-                                                <li>
-                                                    <div class="compare-btn">
-                                                        <a href="compare.html">
-                                                            <i class='bx bx-refresh'></i>
-                                                            <span class="tooltip-label">Compare</span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="quick-view-btn">
-                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                                                            <i class='bx bx-search-alt'></i>
-                                                            <span class="tooltip-label">Quick View</span>
-                                                        </a>
-                                                    </div>
-                                                </li>
+{{--                                                <li>--}}
+{{--                                                    <div class="compare-btn">--}}
+{{--                                                        <a href="compare.html">--}}
+{{--                                                            <i class='bx bx-refresh'></i>--}}
+{{--                                                            <span class="tooltip-label">Compare</span>--}}
+{{--                                                        </a>--}}
+{{--                                                    </div>--}}
+{{--                                                </li>--}}
+{{--                                                <li>--}}
+{{--                                                    <div class="quick-view-btn">--}}
+{{--                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">--}}
+{{--                                                            <i class='bx bx-search-alt'></i>--}}
+{{--                                                            <span class="tooltip-label">Quick View</span>--}}
+{{--                                                        </a>--}}
+{{--                                                    </div>--}}
+{{--                                                </li>--}}
                                             </ul>
                                         </div>
                                     </div>
 
                                     <div class="products-content">
-                                        <h3><a href="products-type-1.html">{{ $product->title }}</a></h3>
+                                        <h3><a href="{{ route('product.show' , $product->slug) }}">{{ $product->title }}</a></h3>
 
                                         @if($product->variants->count() > 0)
                                             <div class="price">
@@ -219,7 +219,7 @@
                                             <i class='bx bxs-star'></i>
                                             <i class='bx bxs-star'></i>
                                         </div>
-                                        <a href="cart.html" class="add-to-cart">Add to Cart</a>
+                                        <a href="{{ route('product.show' , $product->slug) }}" class="add-to-cart">View</a>
                                     </div>
                                 </div>
                             </div>
