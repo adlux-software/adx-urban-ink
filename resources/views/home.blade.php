@@ -1,13 +1,13 @@
 
 <x-site-layout>
 
-<!-- Start Main Banner Area -->
     <!-- Start Main Banner Area -->
     <div class="main-banner single-main-banner banner-bg6">
         <!-- Image for mobile screens -->
+        <img src="../../assets/img/Render 22.jpg" class="img-fluid d-block d-md-none banner-image" alt="Banner Image">
 
         <!-- Video for larger screens -->
-        <div class="embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive embed-responsive-16by9 d-none d-md-block">
             <video autoplay muted loop class="embed-responsive-item banner-video">
                 <source src="../../assets/img/Render 22.mp4" type="video/mp4">
                 Your browser does not support the video tag.
@@ -20,11 +20,11 @@
                     <div class="row justify-content-left">
                         <div class="col-lg-7 col-md-12 banner-container">
                             <div class="main-banner-content">
-                                <span class="sub-title" style="color: #356B7A">Limited Time Offer!</span>
-                                <h1 class="banner-heading" style="color: #0C1E27">Wear your story</h1>
-                                <p class="banner-description" style="color: #356B7A">Take 20% Off ‘Sale Must-Haves'</p>
+                                <span class="sub-title text-primary">Limited Time Offer!</span>
+                                <h1 class="banner-heading text-dark">Wear your story</h1>
+                                <p class="banner-description text-primary">Take 20% Off ‘Sale Must-Haves'</p>
                                 <div class="btn-box">
-                                    <a href="/products" class="default-btn">Shop Now</a>
+                                    <a href="/products" class="btn btn-warning">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -33,27 +33,7 @@
             </div>
         </div>
     </div>
-
-    <style>
-        @media (max-width: 360px) {
-            .banner-image {
-                display: block; /* Show image on mobile devices */
-            }
-            .banner-video {
-                display: none; /* Hide video on mobile devices */
-            }
-        }
-        /* Show the video on larger screens */
-        @media (min-width: 360px) {
-            .banner-image {
-                display: none; /* Hide image on larger screens */
-            }
-            .banner-video {
-                display: block; /* Show video on larger screens */
-            }
-        }
-    </style>
-
+    <!-- End Main Banner Area -->
 
 
 
