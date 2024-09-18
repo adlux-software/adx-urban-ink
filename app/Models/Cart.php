@@ -11,8 +11,7 @@ use Laravel\Nova\Actions\Actionable;
 
 class Cart extends Model
 {
-    use Actionable,
-        SoftDeletes;
+    use Actionable, SoftDeletes;
 
     protected $fillable = [
         'user_id',
@@ -37,7 +36,6 @@ class Cart extends Model
                 'price',
                 'quantity',
                 'price',
-
             ]);
     }
 
@@ -56,14 +54,11 @@ class Cart extends Model
 
     public static function totalProductCount()
     {
-        $session_id = session()->get('cart_session_id', null);
-
-        // Find the cart with the given session_id
-        $cart = Cart::where('session_id', $session_id)->first();
-
-        // Check if the cart exists and return the product count or default value
-        return $cart ? $cart->products->count() : 0;
+        //show all calculated total product count
+        $cart = Cart::where('session_id', session()->getId())->first();
+        if ($cart) {
+            return $cart->variants->count();
+        }
+        return 0;
     }
-
-
 }

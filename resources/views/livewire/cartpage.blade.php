@@ -63,7 +63,7 @@
                 <div class="cart-buttons">
                     <div class="row justify-content-center">
                         <div class="">
-                            <a href="#" class="optional-btn">Continue Shopping</a>
+                            <a href="/products" class="optional-btn">Continue Shopping</a>
                         </div>
                     </div>
                 </div>

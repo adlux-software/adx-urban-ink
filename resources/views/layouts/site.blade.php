@@ -35,7 +35,7 @@ use App\Models\Cart;
             <div class="col-lg-6 col-md-12">
                 <ul class="header-contact-info">
                     <li>Welcome to URBONINK</li>
-                    <li>Call: <a href="tel:+01321654214">+01 321 654 214</a></li>
+                    <li>Call: <a href="+9477 632 9697">+9477 632 9697</a></li>
                 </ul>
             </div>
 
@@ -61,7 +61,7 @@ use App\Models\Cart;
 
                     <div class="option-item">
                         <div class="cart-btn">
-                            <a href="/cart"><i class='bx bx-shopping-bag'></i><span>{{ \App\Models\Cart::totalProductCount() }}</span></a>
+                            <a href="/cart"><i class='bx bx-shopping-bag'></i><span>@livewire('cart-counter')</span></a>
                         </div>
                     </div>
                 </ul>
@@ -86,16 +86,16 @@ use App\Models\Cart;
         </div>
     </div>
 
-    <div class="xton-nav">
-        <div class="container">
+    <div class="xton-nav" >
+        <div class="container" >
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="/">
                     <img src="/assets/img/logo.png" class="main-logo" alt="logo" style="width: 100px">
                     <img src="/assets/img/logo.png" class="white-logo" alt="logo" style="width: 100px">
                 </a>
 
-                <div class="collapse navbar-collapse mean-menu">
-                    <ul class="navbar-nav">
+                <div class="collapse navbar-collapse mean-menu"  >
+                    <ul class="navbar-nav"  >
                         <li class="nav-item" id="nav">
                             <a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
                         </li>

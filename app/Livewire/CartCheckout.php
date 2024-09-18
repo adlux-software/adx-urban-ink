@@ -44,7 +44,6 @@ class CartCheckout extends Component
     }
 
 
-
     public function placeOrder()
     {
         $validatedData = $this->validate();
@@ -54,8 +53,10 @@ class CartCheckout extends Component
             return;
         }
 
+        $userId = Auth::check() ? Auth::id() : null;
+
         $order = Order::create([
-            'user_id' => Auth::id(),
+            'user_id' => $userId,
             'firstname' => $this->firstName,
             'lastname' => $this->lastName,
             'email' => $this->email,
@@ -87,14 +88,14 @@ class CartCheckout extends Component
             }
         }
 
-        Cart::where('user_id', Auth::id())->delete();
+        if ($userId) {
+            Cart::where('user_id', $userId)->delete();
+        }
 
         session()->flash('message', 'Order placed successfully!');
 
         return redirect()->route('order.success');
     }
-
-
 
     public function calculateTotalAmount()
     {
