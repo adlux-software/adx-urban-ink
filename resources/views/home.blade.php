@@ -3,11 +3,8 @@
 
     <!-- Start Main Banner Area -->
     <div class="main-banner single-main-banner banner-bg6">
-        <!-- Image for mobile screens -->
-        <img src="../../assets/img/Render 22.jpg" class="img-fluid d-block d-md-none banner-image" alt="Banner Image">
-
-        <!-- Video for larger screens -->
-        <div class="embed-responsive embed-responsive-16by9 d-none d-md-block">
+        <!-- Video for all screens -->
+        <div class="embed-responsive embed-responsive-16by9">
             <video autoplay muted loop class="embed-responsive-item banner-video">
                 <source src="../../assets/img/Render 22.mp4" type="video/mp4">
                 Your browser does not support the video tag.
