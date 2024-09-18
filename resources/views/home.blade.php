@@ -2,11 +2,9 @@
 <x-site-layout>
 
 <!-- Start Main Banner Area -->
+    <!-- Start Main Banner Area -->
     <div class="main-banner single-main-banner banner-bg6">
-        <!-- Image for mobile screens -->
-        <img src="../../assets/img/main-banner2.jpg" class="banner-image" alt="image">
 
-        <!-- Video for larger screens -->
         <video autoplay muted loop class="banner-video">
             <source src="../../assets/img/Render 22.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -33,8 +31,7 @@
     </div>
 
     <style>
-
-        @media (max-width: 414px) {
+        @media (max-width: 412px) {
             .banner-image {
                 display: block; /* Show image on mobile devices */
             }
@@ -43,7 +40,7 @@
             }
         }
         /* Show the video on larger screens */
-        @media (min-width: 415px) {
+        @media (min-width: 412px) {
             .banner-image {
                 display: none; /* Hide image on larger screens */
             }
@@ -52,10 +49,6 @@
             }
         }
     </style>
-
-
-
-    </div>
 
     <style>
         .banner-container {
