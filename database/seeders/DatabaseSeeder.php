@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin123$'),
         ]);
 
+
         //categories seed
         \App\Models\Category::create([
             'name' => 'Category 1',
@@ -45,6 +46,7 @@ class DatabaseSeeder extends Seeder
             'code' => 'M',
             'is_active' => 1,
         ]);
+
 
         //colors
         \App\Models\Colors::create([

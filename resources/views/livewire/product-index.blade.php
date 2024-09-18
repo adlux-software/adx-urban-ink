@@ -226,6 +226,7 @@
                         @endforeach
 
                         <div class="mt-3 items-center col-span-3">
+{{--                            {{dd($products)}}--}}
 {{--                            {{ $products->links() }}--}}
                         </div>
                     </div>
