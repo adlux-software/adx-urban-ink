@@ -1,5 +1,4 @@
 <x-site-layout>
-
     <!-- Start Search Overlay -->
     <div class="search-overlay">
         <div class="d-table">
@@ -23,6 +22,7 @@
         </div>
     </div>
     <!-- End Search Overlay -->
+
 
     <livewire:product-index/>
 

@@ -25,7 +25,7 @@
                                 <ul class="collections-list-row">
                                     @foreach($categories as $category)
                                         <li>
-                                            <a wire:click="selectCategory({{ $category->id }})">
+                                            <a wire:click.debounce="selectCategory({{ $category->id }})">
                                                 {{ $category->name }}
                                             </a>
                                         </li>
@@ -118,12 +118,13 @@
                                                 <span></span>
                                             </a>
 
-                                            <a href="#" class="icon-view-two">
+                                            <a href="#" class="icon-view-two active">
                                                 <span></span>
                                                 <span></span>
+
                                             </a>
 
-                                            <a href="#" class="icon-view-three active">
+                                            <a href="#" class="icon-view-three ">
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
@@ -162,7 +163,7 @@
 
                     <div id="products-collections-filter" class="row">
 
-                        @foreach($products as $product)
+                        @foreach($productss as $product)
                             <div class="col-lg-6 col-md-6 col-sm-6 products-col-item">
                                 <div class="single-products-box">
                                     <div class="products-image">

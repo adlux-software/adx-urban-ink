@@ -32,6 +32,7 @@ class ProductIndex extends Component
 
     public $category_name = 'All Products';
 
+    protected $query;
     public function mount()
     {
         $this->categories = (new Category())
@@ -99,8 +100,9 @@ class ProductIndex extends Component
 
     public function render()
     {
+
         return view('livewire.product-index', [
-            'products' => $this->productQuery()->paginate(10),
+            'productss' => $this->productQuery()->paginate(10),
         ]);
     }
 }
