@@ -95,6 +95,8 @@ use App\Models\Cart;
                 </a>
 
                 <div class="collapse navbar-collapse mean-menu"  >
+
+
                     <ul class="navbar-nav"  >
                         <li class="nav-item" id="nav">
                             <a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
@@ -109,7 +111,7 @@ use App\Models\Cart;
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link {{ request()->is('collection') ? 'active' : '' }}">Our Collection <i class='bx bx-chevron-down'></i></a>
+                            <a href="#" class="nav-link {{ request()->is('collection') ? 'active' : '' }}">Collection <i class='bx bx-chevron-down'></i></a>
                             <ul class="dropdown-menu">
                                 @foreach($categories as $category)
                                     <li class="nav-item">
@@ -125,6 +127,7 @@ use App\Models\Cart;
                             <a href="/contact" class="nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact Us</a>
                         </li>
                     </ul>
+
 
                     <div class="others-option">
                         <div class="option-item">
@@ -169,6 +172,8 @@ use App\Models\Cart;
                     <img src="/assets/img/logo.png" class="white-logo" alt="logo" style="width: 100px">
                 </a>
                 <div class="collapse navbar-collapse mean-menu">
+
+
                     <ul class="navbar-nav">
                         <li class="nav-item" id="nav">
                             <a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
@@ -182,14 +187,16 @@ use App\Models\Cart;
                             <a href="/products" class="nav-link {{ request()->is('products') ? 'active' : '' }}">Shop</a>
                         </li>
 
-                        <li class="nav-item" id="nav">
+                        <li class="nav-item">
                             <a href="#" class="nav-link {{ request()->is('collection') ? 'active' : '' }}">Collection <i class='bx bx-chevron-down'></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="index.html" class="nav-link active">Home 1</a></li>
-                                <li class="nav-item"><a href="index-2.html" class="nav-link">Home 2</a></li>
-                                <li class="nav-item"><a href="index-3.html" class="nav-link">Home 3</a></li>
-                                <li class="nav-item"><a href="index-4.html" class="nav-link">Home 4</a></li>
-                                <li class="nav-item"><a href="index-5.html" class="nav-link">Home 5</a></li>
+                                @foreach($categories as $category)
+                                    <li class="nav-item">
+                                        <a href="{{ route('products.index', ['category' => $category->id]) }}" class="nav-link {{ request()->is('products?category=' . $category->id) ? 'active' : '' }}">
+                                            {{ $category->name }}
+                                        </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </li>
 
@@ -197,6 +204,8 @@ use App\Models\Cart;
                             <a href="/contact" class="nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact Us</a>
                         </li>
                     </ul>
+
+
 
                     <div class="others-option">
                         <div class="option-item">
