@@ -14,10 +14,11 @@ use Illuminate\Database\Eloquent\Collection;
 class ProductIndex extends Component
 {
     public $categories = [];
-
     public $sizes = [];
 
     public $colors = [];
+
+    public $selected_category_id = null;
 
     #[Url(as: 'category', history: true)]
     public $category_id = null;
@@ -49,8 +50,10 @@ class ProductIndex extends Component
 
     }
 
+
     public function selectCategory($category_id)
     {
+        $this->selected_category_id = $category_id;
         $this->category_id = $category_id;
     }
 

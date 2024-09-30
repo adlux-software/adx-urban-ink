@@ -18,14 +18,16 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="woocommerce-widget-area">
 
-                        <div class="woocommerce-widget collections-list-widget">
+
+                        <div class="woocommerce-widget size-list-widget">
                             <h3 class="woocommerce-widget-title">Collections</h3>
 
                             @if($categories->count() > 0)
-                                <ul class="collections-list-row">
+                                <ul class="size-list-row">
                                     @foreach($categories as $category)
                                         <li>
-                                            <a wire:click.debounce="selectCategory({{ $category->id }})">
+                                            <a wire:click="selectCategory({{ $category->id }})"
+                                               class="{{ $selected_category_id === $category->id ? 'selected' : '' }}">
                                                 {{ $category->name }}
                                             </a>
                                         </li>
@@ -33,6 +35,15 @@
                                 </ul>
                             @endif
                         </div>
+
+
+                        <style>
+                            .selected {
+                                font-weight: bold;
+                                color: #47A4AD; /* Bootstrap primary color */
+                            }
+                        </style>
+
 
                         <div class="woocommerce-widget price-list-widget">
                             <h3 class="woocommerce-widget-title">Price</h3>
@@ -61,8 +72,7 @@
 
                                 <ul class="size-list-row">
                                     @foreach($sizes as $size)
-                                        <li
-                                            wire:click="selectSize({{ $size->id }})">
+                                        <li wire:click="selectSize({{ $size->id }})" class="{{ $selected_size_id === $size->id ? 'selected' : '' }}">
                                             <a>{{ $size->name }}</a>
                                         </li>
                                     @endforeach
@@ -70,13 +80,20 @@
                             </div>
                         @endif
 
+                        <style>
+                            .selected {
+                                font-weight: bold;
+                                color: #47A4AD; /* Bootstrap primary color */
+                            }
+                        </style>
+
                         @if($colors && $colors->count() > 0)
                             <div class="woocommerce-widget color-list-widget">
                                 <h3 class="woocommerce-widget-title">Color</h3>
 
                                 <ul class="color-list-row">
                                     @foreach($colors as $color)
-                                        <li wire:click="selectColor({{ $color->id }})" class="color-list-item">
+                                        <li wire:click="selectColor({{ $color->id }})" class="color-list-item {{ $selected_color_id === $color->id ? 'selected' : '' }}">
                                             <a title="{{ $color->name }}" class="color-box" style="background-color: {{ $color->code }}">
                                                 <span class="sr-only">{{ $color->name }}</span>
                                             </a>
@@ -85,6 +102,13 @@
                                 </ul>
                             </div>
                         @endif
+
+                        <style>
+                            .selected {
+                                font-weight: bold;
+                                color: #47A4AD; /* Bootstrap primary color */
+                            }
+                        </style>
 
 
 
