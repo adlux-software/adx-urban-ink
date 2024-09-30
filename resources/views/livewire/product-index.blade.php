@@ -118,12 +118,12 @@
                                                 <span></span>
                                             </a>
 
-                                            <a href="#" class="icon-view-two active">
+                                            <a href="#" class="icon-view-two">
                                                 <span></span>
                                                 <span></span>
                                             </a>
 
-                                            <a href="#" class="icon-view-three">
+                                            <a href="#" class="icon-view-three active">
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
