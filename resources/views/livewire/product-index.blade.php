@@ -189,12 +189,15 @@
 
                         @foreach($productss as $product)
                             <div class="col-lg-6 col-md-6 col-sm-6 products-col-item">
+
                                 <div class="single-products-box">
+
                                     <div class="products-image">
+
                                         <a href="{{ route('product.show' , $product->slug) }}">
                                             @if($product->hasMedia('featured'))
                                                 <a href="{{ route('product.show' , $product->slug) }}"><img src="{{ $product->getFirstMediaURL('featured', 'thumb') }}" class="main-image" alt="image"></a>
-                                                <a href="{{ route('product.show' , $product->slug) }}"><img src="{{ $product->getFirstMediaURL('featured', 'thumb') }}" class="hover-image" alt="image"></a>
+{{--                                                <a href="{{ route('product.show' , $product->slug) }}"><img src="{{ $product->getFirstMediaURL('featured', 'thumb') }}" class="hover-image" alt="image"></a>--}}
                                             @endif
                                         </a>
 
