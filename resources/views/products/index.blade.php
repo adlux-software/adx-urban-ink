@@ -88,69 +88,21 @@
     <div class="instagram-area">
         <div class="container-fluid">
             <div class="instagram-title">
-                <a href="#" target="_blank"><i class='bx bxl-instagram'></i> Follow us on @xton</a>
+                <a href="https://www.instagram.com/urbanink_lk?igsh=MWo1dzI3NDZ3cWM1cg==" target="_blank"><i class='bx bxl-instagram'></i> Follow us on @urbanink_lk</a>
             </div>
 
             <div class="instagram-slides owl-carousel owl-theme">
-                <div class="single-instagram-post">
-                    <img src="assets/img/instagram/img1.jpg" alt="image">
-                    <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-                </div>
 
-                <div class="single-instagram-post">
-                    <img src="assets/img/instagram/img2.jpg" alt="image">
-                    <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-                </div>
+                @foreach($instagram as $Product)
+                    @if($Product->hasMedia('featured'))
+                        <div class="single-instagram-post">
+                            <img src="{{ $Product->getFirstMediaURL('featured', 'thumb') }}" alt="image">
+                            <i class='bx bxl-instagram'></i>
+                            <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
+                        </div>
+                    @endif
+                @endforeach
 
-                <div class="single-instagram-post">
-                    <img src="assets/img/instagram/img3.jpg" alt="image">
-                    <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-                </div>
-
-                <div class="single-instagram-post">
-                    <img src="assets/img/instagram/img4.jpg" alt="image">
-                    <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-                </div>
-
-                <div class="single-instagram-post">
-                    <img src="assets/img/instagram/img10.jpg" alt="image">
-                    <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-                </div>
-
-                <div class="single-instagram-post">
-                    <img src="assets/img/instagram/img6.jpg" alt="image">
-                    <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-                </div>
-
-                <div class="single-instagram-post">
-                    <img src="assets/img/instagram/img7.jpg" alt="image">
-                    <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-                </div>
-
-                <div class="single-instagram-post">
-                    <img src="assets/img/instagram/img8.jpg" alt="image">
-                    <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-                </div>
-
-                <div class="single-instagram-post">
-                    <img src="assets/img/instagram/img9.jpg" alt="image">
-                    <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-                </div>
-
-                <div class="single-instagram-post">
-                    <img src="assets/img/instagram/img5.jpg" alt="image">
-                    <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-                </div>
             </div>
         </div>
     </div>
