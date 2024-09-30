@@ -135,7 +135,7 @@ use App\Models\Cart;
 
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="/cart"><i class='bx bx-shopping-bag'></i><span>{{ \App\Models\Cart::totalProductCount() }}</span></a>
+                                <a href="/cart"><i class='bx bx-shopping-bag'></i><span>@livewire('cart-counter')</span></a>
                             </div>
                         </div>
 
@@ -207,7 +207,7 @@ use App\Models\Cart;
 
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="#"><i class='bx bx-shopping-bag'></i><span>{{ \App\Models\Cart::totalProductCount() }}</span></a>
+                                <a href="#"><i class='bx bx-shopping-bag'></i><span>@livewire('cart-counter')</span></a>
                             </div>
                         </div>
 

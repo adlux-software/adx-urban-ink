@@ -190,9 +190,17 @@
                     <div class="products-content">
                         <h3><a href="{{ route('product.show' , $Product->slug) }}">{{$Product->title}}</a></h3>
                         <div class="price">
-                            <span class="old-price">$150</span>
-                            <span class="new-price">$100</span>
-                        </div>
+                            @php
+                                $variant = $Product->variants?->first();
+                            @endphp
+
+                            @if($variant)
+                                <span class="old-price">Rs. {{ number_format($variant->mrp, 2) }}</span>
+
+                                <span class="new-price " style="padding-left: 10px">Rs. {{ number_format($variant->selling_price, 2) }}</span>
+                            @else
+                                <span class="price-not-available ">Price not available</span>
+                            @endif </div>
                         <div class="star-rating">
                             <i class='bx bxs-star'></i>
                             <i class='bx bxs-star'></i>
@@ -289,65 +297,74 @@
             @foreach($products as $Product)
                 @if($Product->BestSellingProduct == 1)
 
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-products-box">
-                    <div class="products-image">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-products-box">
+                            <div class="products-image">
 
-                        @if($Product->hasMedia('featured'))
-                            <a href="{{ route('product.show' , $Product->slug) }}">
-                                <img src="{{ $Product->getFirstMediaURL('featured', 'thumb') }}" alt="image" class="main-image">
-                                <img src="{{ $Product->getFirstMediaURL('featured', 'thumb') }}" alt="image" class="hover-image">
-                            </a>
-                        @endif
+                                @if($Product->hasMedia('featured'))
+                                    <a href="{{ route('product.show' , $Product->slug) }}"><img src="{{ $Product->getFirstMediaURL('featured', 'thumb') }}" alt="image" class="main-image">
+                                        <img src="{{ $Product->getFirstMediaURL('featured', 'thumb') }}" alt="image" class="hover-image">
+                                    </a>
+                                @endif
 
-                        <div class="products-button">
-                            <ul>
-                                <li>
-                                    <div class="wishlist-btn">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#shoppingWishlistModal">
-                                            <i class='bx bx-heart'></i>
-                                            <span class="tooltip-label">Add to Wishlist</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="compare-btn">
-                                        <a href="compare.html">
-                                            <i class='bx bx-refresh'></i>
-                                            <span class="tooltip-label">Compare</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="quick-view-btn">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                                            <i class='bx bx-search-alt'></i>
-                                            <span class="tooltip-label">Quick View</span>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
+                                <div class="products-button">
+                                    <ul>
+                                        <li>
+                                            <div class="wishlist-btn">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#shoppingWishlistModal">
+                                                    <i class='bx bx-heart'></i>
+                                                    <span class="tooltip-label">Add to Wishlist</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="compare-btn">
+                                                <a href="compare.html">
+                                                    <i class='bx bx-refresh'></i>
+                                                    <span class="tooltip-label">Compare</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="quick-view-btn">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
+                                                    <i class='bx bx-search-alt'></i>
+                                                    <span class="tooltip-label">Quick View</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            <div class="products-content">
+                                <h3><a href="{{ route('product.show' , $Product->slug) }}">{{$Product->title}}</a></h3>
+                                <div class="price">
+                                    @php
+                                        $variant = $Product->variants?->first();
+                                    @endphp
+
+                                    @if($variant)
+                                        <span class="old-price">Rs. {{ number_format($variant->mrp, 2) }}</span>
+
+                                        <span class="new-price " style="padding-left: 10px">Rs. {{ number_format($variant->selling_price, 2) }}</span>
+                                    @else
+                                        <span class="price-not-available ">Price not available</span>
+                                    @endif </div>
+                                <div class="star-rating">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                </div>
+                                <a class="add-to-cart" href="{{ route('product.show' , $Product->slug) }}">View</a>
+
+                            </div>
                         </div>
-
                     </div>
 
-                    <div class="products-content">
-                        <h3><a href="products-type-4.html">EcoSmart Fleece Hoodie</a></h3>
-                        <div class="price">
-                            <span class="old-price">$150</span>
-                            <span class="new-price">$100</span>
-                        </div>
-                        <div class="star-rating">
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                        </div>
-                        <a href="cart.html" class="add-to-cart">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
                 @endif
             @endforeach
 

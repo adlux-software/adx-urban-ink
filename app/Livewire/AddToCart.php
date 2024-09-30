@@ -148,7 +148,8 @@ class AddToCart extends Component
         $this->selected_quantity = 1;
         $this->selected_variant = [];
 
-        $this->dispatch('cartUpdated');
+        $this->dispatch('CartAddedUpdated');
+
     }
 
     public function render()

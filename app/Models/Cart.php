@@ -52,13 +52,17 @@ class Cart extends Model
             ]);
     }
 
+    public function items()
+    {
+        return $this->hasMany(CartProduct::class);
+    }
+
     public static function totalProductCount()
     {
-        //show all calculated total product count
         $cart = Cart::where('session_id', session()->getId())->first();
         if ($cart) {
-            return $cart->variants->count();
+            return $cart->variants();
         }
-        return 0;
+        return null;
     }
 }
