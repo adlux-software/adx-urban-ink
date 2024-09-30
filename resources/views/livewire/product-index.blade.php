@@ -194,7 +194,7 @@
                                         <a href="{{ route('product.show' , $product->slug) }}">
                                             @if($product->hasMedia('featured'))
                                                 <a href="{{ route('product.show' , $product->slug) }}"><img src="{{ $product->getFirstMediaURL('featured', 'thumb') }}" class="main-image" alt="image"></a>
-                                                <a href="{{ route('product.show' , $product->slug) }}"><img src="{{ $product->getFirstMediaURL('featured', 'thumb') }}" class="main-image" alt="image"></a>
+                                                <a href="{{ route('product.show' , $product->slug) }}"><img src="{{ $product->getFirstMediaURL('featured', 'thumb') }}" class="hover-image" alt="image"></a>
                                             @endif
                                         </a>
 
