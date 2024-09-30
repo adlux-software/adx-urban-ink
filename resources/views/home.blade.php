@@ -115,7 +115,6 @@
 
                             @if($Product->hasMedia('featured'))
                                 <a href="{{ route('product.show' , $Product->slug) }}"><img src="{{ $Product->getFirstMediaURL('featured', 'thumb') }}" alt="image"></a>
-
                             @endif
                             <div class="content text-white">
                                 <span>Don’t Miss Today</span>
@@ -381,65 +380,17 @@
         </div>
 
         <div class="instagram-slides owl-carousel owl-theme">
-            <div class="single-instagram-post">
-                <img src="assets/img/instagram/img1.jpg" alt="image">
-                <i class='bx bxl-instagram'></i>
-                <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-            </div>
 
-            <div class="single-instagram-post">
-                <img src="assets/img/instagram/img2.jpg" alt="image">
-                <i class='bx bxl-instagram'></i>
-                <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-            </div>
+            @foreach($instagram as $Product)
+            @if($Product->hasMedia('featured'))
+                    <div class="single-instagram-post">
+                        <img src="{{ $Product->getFirstMediaURL('featured', 'thumb') }}" alt="image">
+                        <i class='bx bxl-instagram'></i>
+                        <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
+                    </div>
+            @endif
+            @endforeach
 
-            <div class="single-instagram-post">
-                <img src="assets/img/instagram/img3.jpg" alt="image">
-                <i class='bx bxl-instagram'></i>
-                <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-            </div>
-
-            <div class="single-instagram-post">
-                <img src="assets/img/instagram/img4.jpg" alt="image">
-                <i class='bx bxl-instagram'></i>
-                <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-            </div>
-
-            <div class="single-instagram-post">
-                <img src="assets/img/instagram/img10.jpg" alt="image">
-                <i class='bx bxl-instagram'></i>
-                <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-            </div>
-
-            <div class="single-instagram-post">
-                <img src="assets/img/instagram/img6.jpg" alt="image">
-                <i class='bx bxl-instagram'></i>
-                <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-            </div>
-
-            <div class="single-instagram-post">
-                <img src="assets/img/instagram/img7.jpg" alt="image">
-                <i class='bx bxl-instagram'></i>
-                <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-            </div>
-
-            <div class="single-instagram-post">
-                <img src="assets/img/instagram/img8.jpg" alt="image">
-                <i class='bx bxl-instagram'></i>
-                <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-            </div>
-
-            <div class="single-instagram-post">
-                <img src="assets/img/instagram/img9.jpg" alt="image">
-                <i class='bx bxl-instagram'></i>
-                <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-            </div>
-
-            <div class="single-instagram-post">
-                <img src="assets/img/instagram/img5.jpg" alt="image">
-                <i class='bx bxl-instagram'></i>
-                <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
-            </div>
         </div>
     </div>
 </div>
