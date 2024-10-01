@@ -44,5 +44,9 @@ Route::get('/product-details', function () {
 Route::get('/checkout', 'App\Http\Controllers\OrderController@index')
     ->name('order.success');
 
+//contact us
+Route::get('/contact', function () {
+    return view('contactus');
+});
 // thanks
 Route::get('/thank-you', [ThankYouController::class, 'index'])->name('order.success');
