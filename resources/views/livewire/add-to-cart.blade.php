@@ -94,17 +94,17 @@
             </div>
 
             <div class="buy-checkbox-btn">
-                <div class="item">
-                    <input class="inp-cbx" id="cbx" type="checkbox">
-                    <label class="cbx" for="cbx">
-                        <span>
-                            <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                            </svg>
-                        </span>
-                        <span>I agree with the terms and conditions</span>
-                    </label>
-                </div>
+{{--                <div class="item">--}}
+{{--                    <input class="inp-cbx" id="cbx" type="checkbox">--}}
+{{--                    <label class="cbx" for="cbx">--}}
+{{--                        <span>--}}
+{{--                            <svg width="12px" height="10px" viewbox="0 0 12 10">--}}
+{{--                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>--}}
+{{--                            </svg>--}}
+{{--                        </span>--}}
+{{--                        <span>I agree with the terms and conditions</span>--}}
+{{--                    </label>--}}
+{{--                </div>--}}
 
                 <div class="item">
                     <a href="#" class="default-btn">Buy it now!</a>
