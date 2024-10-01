@@ -97,15 +97,15 @@ use App\Models\Cart;
 
                 <div class="collapse navbar-collapse mean-menu">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
+                        <li class="nav-item "><a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
 
                         </li>
 
-                        <li class="nav-item "><a href="/about" class="nav-link {{ request()->is('about') ? 'active' : '' }}">About Us </a></li>
+                        <li class="nav-item" style="margin-left: 22px"><a href="/about" class="nav-link {{ request()->is('about') ? 'active' : '' }}">About Us </a></li>
 
-                        <li class="nav-item "><a href="/products" class="nav-link {{ request()->is('products') ? 'active' : '' }}">Shop </a></li>
+                        <li class="nav-item" style="margin-left: 22px"><a href="/products" class="nav-link {{ request()->is('products') ? 'active' : '' }}">Shop </a></li>
 
-                        <li class="nav-item megamenu"><a href="#" class="nav-link {{ request()->is('collection') ? 'active' : '' }}">Collection <i class='bx bx-chevron-down'></i></a>
+                        <li class="nav-item megamenu" style="margin-left: 22px"><a href="#" class="nav-link {{ request()->is('collection') ? 'active' : '' }}">Collection <i class='bx bx-chevron-down'></i></a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
                                     <div class="container">
@@ -142,7 +142,7 @@ use App\Models\Cart;
                             </ul>
                         </li>
 
-                        <li class="nav-item megamenu"><a href="/contact" class="nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact Us </a></li>
+                        <li class="nav-item " style="margin-left: 22px"><a href="/contact" class="nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact Us </a></li>
 
                     </ul>
 
@@ -156,7 +156,6 @@ use App\Models\Cart;
                         <div class="option-item">
                             <div class="cart-btn">
                                 <a href="/cart"><i class='bx bx-shopping-bag'></i><span>@livewire('cart-counter')</span></a>
-
                             </div>
                         </div>
 
