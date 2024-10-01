@@ -3,6 +3,7 @@
 namespace App\Actions\Fortify;
 
 use App\Models\Auth\User;
+use App\Models\Cart;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
@@ -26,10 +27,23 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
-        return User::create([
+
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
+
+        if(session()->has('cart_session_id', null)) {
+
+            $cart = Cart::where('session_id', session()->get('cart_session_id'))->first();
+
+            if($cart) {
+                $cart->user_id = $user->id;
+                $cart->save();
+            }
+        }
+
+        return $user;
     }
 }

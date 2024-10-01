@@ -5,7 +5,12 @@ namespace App\Livewire;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Auth\User; // Ensure User model is imported
+use App\Notifications\OrderConfirmationNotification;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class CartCheckout extends Component
@@ -43,7 +48,6 @@ class CartCheckout extends Component
         $this->totalProductAmount = $this->calculateTotalAmount();
     }
 
-
     public function placeOrder()
     {
         $validatedData = $this->validate();
@@ -53,10 +57,23 @@ class CartCheckout extends Component
             return;
         }
 
-        $userId = Auth::check() ? Auth::id() : null;
+        if (!Auth::check()) {
+            // Create a new user account
+            $password = Str::random(8); // Generate a random password
+            $user = User::create([
+                'name' => $this->firstName . ' ' . $this->lastName,
+                'email' => $this->email,
+                'password' => Hash::make($password),
+            ]);
+
+            Auth::login($user); // Log the user in
+        } else {
+            $user = Auth::user();
+            $password = null;
+        }
 
         $order = Order::create([
-            'user_id' => $userId,
+            'user_id' => $user->id,
             'firstname' => $this->firstName,
             'lastname' => $this->lastName,
             'email' => $this->email,
@@ -88,9 +105,11 @@ class CartCheckout extends Component
             }
         }
 
-        if ($userId) {
-            Cart::where('user_id', $userId)->delete();
-        }
+        Cart::where('user_id', $user->id)->delete();
+
+        // Send email with the password if a new user was created
+        Notification::route('mail', $this->email)
+            ->notify(new OrderConfirmationNotification($order, $user, $password));
 
         session()->flash('message', 'Order placed successfully!');
 
@@ -101,10 +120,6 @@ class CartCheckout extends Component
     {
         $totalProductAmount = 0;
 
-        if ($this->carts->isEmpty()) {
-            return $totalProductAmount;
-        }
-
         foreach ($this->carts as $cart) {
             foreach ($cart->variants as $variant) {
                 $totalProductAmount += $variant->selling_price * $variant->pivot->quantity;
@@ -113,9 +128,6 @@ class CartCheckout extends Component
 
         return $totalProductAmount;
     }
-
-
-
 
     public function render()
     {
