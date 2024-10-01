@@ -71,13 +71,14 @@ use App\Models\Cart;
 </div>
 <!-- End Top Header Area -->
 
+
 <!-- Start Navbar Area -->
-<div class="navbar-area navbar-style-two">
+<div class="navbar-area">
     <div class="xton-responsive-nav">
         <div class="container">
             <div class="xton-responsive-menu">
                 <div class="logo">
-                    <a href="/" style="height: 10px">
+                    <a href="index.html">
                         <img src="/assets/img/logo.png" class="main-logo" alt="logo" style="width: 100px">
                         <img src="/assets/img/logo.png" class="white-logo" alt="logo" style="width: 100px">
                     </a>
@@ -86,48 +87,64 @@ use App\Models\Cart;
         </div>
     </div>
 
-    <div class="xton-nav" >
-        <div class="container" >
+    <div class="xton-nav">
+        <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="/">
                     <img src="/assets/img/logo.png" class="main-logo" alt="logo" style="width: 100px">
                     <img src="/assets/img/logo.png" class="white-logo" alt="logo" style="width: 100px">
                 </a>
 
-                <div class="collapse navbar-collapse mean-menu"  >
+                <div class="collapse navbar-collapse mean-menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
 
-
-                    <ul class="navbar-nav"  >
-                        <li class="nav-item" id="nav">
-                            <a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
                         </li>
 
-                        <li class="nav-item megamenu" id="nav">
-                            <a href="/about" class="nav-link {{ request()->is('about') ? 'active' : '' }}">About Us</a>
-                        </li>
+                        <li class="nav-item "><a href="/about" class="nav-link {{ request()->is('about') ? 'active' : '' }}">About Us </a></li>
 
-                        <li class="nav-item megamenu" id="nav">
-                            <a href="/products" class="nav-link {{ request()->is('products') ? 'active' : '' }}">Shop</a>
-                        </li>
+                        <li class="nav-item "><a href="/products" class="nav-link {{ request()->is('products') ? 'active' : '' }}">Shop </a></li>
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link {{ request()->is('collection') ? 'active' : '' }}">Collection <i class='bx bx-chevron-down'></i></a>
+                        <li class="nav-item megamenu"><a href="#" class="nav-link {{ request()->is('collection') ? 'active' : '' }}">Collection <i class='bx bx-chevron-down'></i></a>
                             <ul class="dropdown-menu">
-                                @foreach($categories as $category)
-                                    <li class="nav-item">
-                                        <a href="{{ route('products.index', ['category' => $category->id]) }}" class="nav-link {{ request()->is('products?category=' . $category->id) ? 'active' : '' }}">
-                                            {{ $category->name }}
-                                        </a>
-                                    </li>
-                                @endforeach
+                                <li class="nav-item">
+                                    <div class="container">
+                                        <div class="col">
+                                            <ul class="megamenu-submenu">
+                                                <li>
+                                                    <div class="row">
+
+
+                                                            @foreach($categories as $category)
+                                                            <div class="col-md-2 d-flex justify-content-center align-items-center">
+                                                            <div class="aside-trending-products">
+                                                                @if($category->hasMedia('gallery'))
+                                                                    <a href="{{ route('products.index', ['category' => $category->id]) }}">
+                                                                        <img src="{{ $category->getFirstMediaURL('gallery', 'thumb') }}" alt="image" class="img-thumbnail" style="width: 200px; height: 150px;">
+                                                                    </a>
+                                                                @endif
+                                                                <div class="category">
+                                                                    <h4>{{ $category->name }}</h4>
+                                                                </div>
+                                                                <a href="{{ route('products.index', ['category' => $category->id]) }}" class="link-btn {{ request()->is('products?category=' . $category->id) ? 'active' : '' }}">
+                                                                </a>
+                                                            </div>
+                                                            </div>
+                                                                @endforeach
+
+
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </li>
 
-                        <li class="nav-item megamenu" id="nav">
-                            <a href="/contact" class="nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact Us</a>
-                        </li>
-                    </ul>
+                        <li class="nav-item megamenu"><a href="/contact" class="nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact Us </a></li>
 
+                    </ul>
 
                     <div class="others-option">
                         <div class="option-item">
@@ -139,6 +156,7 @@ use App\Models\Cart;
                         <div class="option-item">
                             <div class="cart-btn">
                                 <a href="/cart"><i class='bx bx-shopping-bag'></i><span>@livewire('cart-counter')</span></a>
+
                             </div>
                         </div>
 
@@ -156,14 +174,9 @@ use App\Models\Cart;
     </div>
 </div>
 <!-- End Navbar Area -->
-{{--@if($show_success_message)--}}
-{{--    <div class="alert alert-success mt-4" role="alert">--}}
-{{--        {{ $success }}--}}
-{{--    </div>--}}
-{{--@endif--}}
 
 <!-- Start Sticky Navbar Area -->
-<div class="navbar-area navbar-style-two header-sticky">
+<div class="navbar-area header-sticky">
     <div class="xton-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
@@ -171,41 +184,57 @@ use App\Models\Cart;
                     <img src="/assets/img/logo.png" class="main-logo" alt="logo" style="width: 100px">
                     <img src="/assets/img/logo.png" class="white-logo" alt="logo" style="width: 100px">
                 </a>
+
                 <div class="collapse navbar-collapse mean-menu">
-
-
                     <ul class="navbar-nav">
-                        <li class="nav-item" id="nav">
-                            <a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
+                        <li class="nav-item"><a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
+
                         </li>
 
-                        <li class="nav-item megamenu" id="nav">
-                            <a href="/about" class="nav-link {{ request()->is('about') ? 'active' : '' }}">About Us</a>
-                        </li>
+                        <li class="nav-item "><a href="/about" class="nav-link {{ request()->is('about') ? 'active' : '' }}">About Us </a></li>
 
-                        <li class="nav-item megamenu" id="nav">
-                            <a href="/products" class="nav-link {{ request()->is('products') ? 'active' : '' }}">Shop</a>
-                        </li>
+                        <li class="nav-item "><a href="/products" class="nav-link {{ request()->is('products') ? 'active' : '' }}">Shop </a></li>
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link {{ request()->is('collection') ? 'active' : '' }}">Collection <i class='bx bx-chevron-down'></i></a>
+                        <li class="nav-item megamenu"><a href="#" class="nav-link {{ request()->is('collection') ? 'active' : '' }}">Collection <i class='bx bx-chevron-down'></i></a>
                             <ul class="dropdown-menu">
-                                @foreach($categories as $category)
-                                    <li class="nav-item">
-                                        <a href="{{ route('products.index', ['category' => $category->id]) }}" class="nav-link {{ request()->is('products?category=' . $category->id) ? 'active' : '' }}">
-                                            {{ $category->name }}
-                                        </a>
-                                    </li>
-                                @endforeach
+                                <li class="nav-item">
+                                    <div class="container">
+                                        <div class="col">
+                                            <ul class="megamenu-submenu">
+                                                <li>
+                                                    <div class="row">
+
+
+                                                        @foreach($categories as $category)
+                                                            <div class="col-md-2 d-flex justify-content-center align-items-center">
+                                                                <div class="aside-trending-products">
+                                                                    @if($category->hasMedia('gallery'))
+                                                                        <a href="{{ route('products.index', ['category' => $category->id]) }}">
+                                                                            <img src="{{ $category->getFirstMediaURL('gallery', 'thumb') }}" alt="image" class="img-thumbnail" style="width: 200px; height: 150px;">
+                                                                        </a>
+                                                                    @endif
+                                                                    <div class="category">
+                                                                        <h4>{{ $category->name }}</h4>
+                                                                    </div>
+                                                                    <a href="{{ route('products.index', ['category' => $category->id]) }}" class="link-btn {{ request()->is('products?category=' . $category->id) ? 'active' : '' }}">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+
+
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </li>
 
-                        <li class="nav-item megamenu" id="nav">
-                            <a href="/contact" class="nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact Us</a>
-                        </li>
+                        <li class="nav-item megamenu"><a href="/contact" class="nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact Us </a></li>
+
                     </ul>
-
-
 
                     <div class="others-option">
                         <div class="option-item">
@@ -216,7 +245,8 @@ use App\Models\Cart;
 
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="#"><i class='bx bx-shopping-bag'></i><span>@livewire('cart-counter')</span></a>
+                                <a href="/cart"><i class='bx bx-shopping-bag'></i><span>@livewire('cart-counter')</span></a>
+
                             </div>
                         </div>
 
@@ -233,7 +263,11 @@ use App\Models\Cart;
         </div>
     </div>
 </div>
-<!-- End Sticky Navbar Area -->
+<!-- End Header Area -->
+
+
+
+
 
 <!-- Start Search Overlay -->
 <div class="search-overlay">
@@ -260,6 +294,12 @@ use App\Models\Cart;
 <!-- End Search Overlay -->
 
 <!-- End Search Overlay -->
+
+
+
+
+
+
 
 {{$slot}}
 
