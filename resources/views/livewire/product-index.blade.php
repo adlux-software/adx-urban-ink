@@ -187,7 +187,7 @@
 
                     <div id="products-collections-filter" class="row">
 
-                        @foreach($productss as $product)
+                        @foreach($product_shirts as $product)
                             <div class="col-lg-6 col-md-6 col-sm-6 products-col-item">
 
                                 <div class="single-products-box">
@@ -255,7 +255,7 @@
                         @endforeach
 
                         <div class="mt-3 items-center col-span-3">
-{{--                            {{ $products->links() }}--}}
+                            {{ $product_shirts->links() }}
                         </div>
                     </div>
 

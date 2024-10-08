@@ -9,10 +9,13 @@ use App\Models\Size;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 use Illuminate\Database\Eloquent\Collection;
+use Livewire\WithPagination;
 
 
 class ProductIndex extends Component
 {
+    use WithPagination;
+
     public $categories = [];
     public $sizes = [];
 
@@ -105,7 +108,7 @@ class ProductIndex extends Component
     {
 
         return view('livewire.product-index', [
-            'productss' => $this->productQuery()->paginate(10),
+            'product_shirts' => $this->productQuery()->paginate(10),
         ]);
     }
 }
