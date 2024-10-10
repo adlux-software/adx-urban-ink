@@ -194,13 +194,13 @@
 
                                     <div class="products-image">
 
-                                        <a href="{{ route('product.show' , $product->slug) }}">
-                                            @if($product->hasMedia('featured'))
-                                                <a href="{{ route('product.show' , $product->slug) }}"><img src="{{ $product->getFirstMediaURL('featured', 'thumb') }}" class="main-image" alt="image"></a>
-                                                <a href="{{ route('product.show' , $product->slug) }}"><img src="{{ $product->getFirstMediaURL('featured', 'thumb') }}" class="hover-image" alt="image"></a>
-                                            @endif
-                                        </a>
 
+                                        @if($product->hasMedia('featured'))
+                                            <a href="{{ route('product.show' , $product->slug) }}">
+                                                <img src="{{ $product->getFirstMediaURL('featured', 'thumb') }}" alt="image" class="main-image">
+                                                <img src="{{ $product->getFirstMediaURL('featured', 'thumb') }}" alt="image" class="hover-image">
+                                            </a>
+                                        @endif
 
                                         <div class="products-button">
                                             <ul>
