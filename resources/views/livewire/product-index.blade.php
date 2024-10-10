@@ -279,6 +279,7 @@
         .pagination .page-item.active .page-link {
             background-color: #47A4AD;
             border-color: #47A4AD;
+            color: #fff;
         }
 
         .pagination .page-item .page-link:hover {
