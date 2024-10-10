@@ -55,8 +55,8 @@
                                         max="10000"
                                         value="500" class="slider text-flamingo-400" id="priceRange">
 
-{{--                                <input--}}
-{{--                                    class="js-range-of-price" type="text" data-min="0" data-max="10000" name="filter_by_price" data-step="100">--}}
+                                {{--                                <input--}}
+                                {{--                                    class="js-range-of-price" type="text" data-min="0" data-max="10000" name="filter_by_price" data-step="100">--}}
 
                             </div>
                             <div class="flex justify-between items-center mt-6">
@@ -113,17 +113,17 @@
 
 
 
-{{--                        <div class="woocommerce-widget aside-trending-widget">--}}
-{{--                            <div class="aside-trending-products">--}}
-{{--                                <img src="assets/img/offer-bg.jpg" alt="image">--}}
+                        {{--                        <div class="woocommerce-widget aside-trending-widget">--}}
+                        {{--                            <div class="aside-trending-products">--}}
+                        {{--                                <img src="assets/img/offer-bg.jpg" alt="image">--}}
 
-{{--                                <div class="category">--}}
-{{--                                    <h3>Top Trending</h3>--}}
-{{--                                    <span>Spring/Summer 2024 Collection</span>--}}
-{{--                                </div>--}}
-{{--                                <a href="products-right-sidebar.html" class="link-btn"></a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                        {{--                                <div class="category">--}}
+                        {{--                                    <h3>Top Trending</h3>--}}
+                        {{--                                    <span>Spring/Summer 2024 Collection</span>--}}
+                        {{--                                </div>--}}
+                        {{--                                <a href="products-right-sidebar.html" class="link-btn"></a>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
                     </div>
                 </div>
 
@@ -163,12 +163,12 @@
                                 </div>
                             </div>
 
-{{--                            <div class="col-lg-4 col-md-4">--}}
-{{--                                <p>Showing 1 – {{ $products->count() }} of {{ $totalProducts }}</p>--}}
+                            {{--                            <div class="col-lg-4 col-md-4">--}}
+                            {{--                                <p>Showing 1 – {{ $products->count() }} of {{ $totalProducts }}</p>--}}
 
 
 
-{{--                            </div>--}}
+                            {{--                            </div>--}}
 
                             <div class="col-lg-4 col-md-4">
                                 <div class="products-ordering-list">
@@ -212,22 +212,22 @@
                                                         </a>
                                                     </div>
                                                 </li>
-{{--                                                <li>--}}
-{{--                                                    <div class="compare-btn">--}}
-{{--                                                        <a href="compare.html">--}}
-{{--                                                            <i class='bx bx-refresh'></i>--}}
-{{--                                                            <span class="tooltip-label">Compare</span>--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                </li>--}}
-{{--                                                <li>--}}
-{{--                                                    <div class="quick-view-btn">--}}
-{{--                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">--}}
-{{--                                                            <i class='bx bx-search-alt'></i>--}}
-{{--                                                            <span class="tooltip-label">Quick View</span>--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                </li>--}}
+                                                {{--                                                <li>--}}
+                                                {{--                                                    <div class="compare-btn">--}}
+                                                {{--                                                        <a href="compare.html">--}}
+                                                {{--                                                            <i class='bx bx-refresh'></i>--}}
+                                                {{--                                                            <span class="tooltip-label">Compare</span>--}}
+                                                {{--                                                        </a>--}}
+                                                {{--                                                    </div>--}}
+                                                {{--                                                </li>--}}
+                                                {{--                                                <li>--}}
+                                                {{--                                                    <div class="quick-view-btn">--}}
+                                                {{--                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">--}}
+                                                {{--                                                            <i class='bx bx-search-alt'></i>--}}
+                                                {{--                                                            <span class="tooltip-label">Quick View</span>--}}
+                                                {{--                                                        </a>--}}
+                                                {{--                                                    </div>--}}
+                                                {{--                                                </li>--}}
                                             </ul>
                                         </div>
                                     </div>
@@ -255,7 +255,7 @@
                         @endforeach
 
                         <div class="mt-3 items-center col-span-3">
-                            {{ $product_shirts->links() }}
+                            {{ $product_shirts->links('pagination::bootstrap-4') }}
                         </div>
                     </div>
 
@@ -264,4 +264,28 @@
         </div>
     </section>
     <!-- End Products Area -->
+
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .pagination .page-item .page-link {
+            color: #47A4AD; /* Bootstrap primary color */
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #47A4AD;
+            border-color: #47A4AD;
+        }
+
+        .pagination .page-item .page-link:hover {
+            background-color: #47A4AD;
+            border-color: #47A4AD;
+            color: #fff;
+        }
+    </style>
+
 </div>
