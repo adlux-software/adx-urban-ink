@@ -9,15 +9,16 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "bakerkretzmar/nova-settings-tool": "^2.0",
         "ebess/advanced-nova-media-library": "^4.2",
         "laravel/framework": "^11.0",
         "laravel/jetstream": "^5.1",
         "laravel/nova": "^4.0",
         "laravel/sanctum": "^4.0",
-        "livewire/livewire": "^3.0",
-        "spatie/laravel-medialibrary": "^11.7",
         "league/flysystem": "^3.27",
-        "league/flysystem-aws-s3-v3": "^3.27"
+        "league/flysystem-aws-s3-v3": "^3.27",
+        "livewire/livewire": "^3.0",
+        "spatie/laravel-medialibrary": "^11.7"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

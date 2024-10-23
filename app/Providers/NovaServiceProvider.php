@@ -19,6 +19,7 @@ use App\Nova\Resource\ProcessingStepsResource;
 use App\Nova\Size;
 use App\Nova\User;
 use App\Nova\VariantResource;
+use Bakerkretzmar\NovaSettingsTool\SettingsTool;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Menu\MenuItem;
@@ -138,7 +139,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [];
+        return [
+            (new SettingsTool()),
+        ];
     }
 
     /**
