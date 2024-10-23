@@ -5,7 +5,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 col-md-12">
                     <div class="about-image">
-                        <img src="{{ asset('assets/img/urbanink-about.png') }}" class="shadow" alt="image">
+                        <img src="{{ asset('assets/img/about/about-us.jpg') }}" class="shadow" alt="image">
                         <img src="{{ asset('assets/img/ui-logo-aboutus.png') }}" class="shadow" alt="image">
                     </div>
                 </div>
