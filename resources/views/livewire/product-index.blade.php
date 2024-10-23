@@ -138,17 +138,17 @@
 
                                     <div class="view-list-row d-none d-lg-block d-md-block">
                                         <div class="view-column">
-                                            <a href="#" class="icon-view-one">
-                                                <span></span>
-                                            </a>
+{{--                                            <a href="#" class="icon-view-one">--}}
+{{--                                                <span></span>--}}
+{{--                                            </a>--}}
 
-                                            <a href="#" class="icon-view-two active">
-                                                <span></span>
-                                                <span></span>
+{{--                                            <a href="#" class="icon-view-two">--}}
+{{--                                                <span></span>--}}
+{{--                                                <span></span>--}}
 
-                                            </a>
+{{--                                            </a>--}}
 
-                                            <a href="#" class="icon-view-three ">
+                                            <a href="#" class="icon-view-three active">
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
@@ -185,7 +185,7 @@
                         </div>
                     </div>
 
-                    <div id="products-collections-filter" class="row">
+                    <div id="products-collections-filter" class="row products-col-three">
 
                         @foreach($product_shirts as $product)
                             <div class="col-lg-6 col-md-6 col-sm-6 products-col-item">
