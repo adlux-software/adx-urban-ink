@@ -44,8 +44,21 @@ use App\Models\Cart;
                     {{-- <li><a href="login.html"><i class='bx bxs-user'></i> My Account</a></li> --}}
                     <li><a href="#" data-bs-toggle="modal" data-bs-target="#shoppingWishlistModal"><i class='bx bx-heart'></i> Wishlist</a></li>
                     @if (Route::has('login'))
-                        @auth
-                            <li><a href="{{ url('/user/profile') }}"><i class='bx bxs-user'></i> Hi, {{ Auth::user()->name }}</a></li>
+                        @auth('web')
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class='bx bxs-user'></i> Hi, {{ Auth::user()->name }}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="{{ url('/user/profile') }}">Profile</a></li>
+                                    <li>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <button type="submit" class="dropdown-item">Logout</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
                         @else
                             <li><a href="{{ route('login') }}"><i class='bx bx-log-in'></i> Login</a></li>
                         @endauth
