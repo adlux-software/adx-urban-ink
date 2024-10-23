@@ -71,6 +71,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuItem::resource(InstagramResource::class),
                 ])->icon('phone')->collapsable(),
 
+                MenuSection::make('Policy', [
+                    MenuItem::resource(\App\Nova\PolicyResource::class),
+                ])->icon('book-open')->collapsable(),
+
                 MenuSection::make(__(config('nova-settings-tool.sidebar-label', 'Settings')))
                     ->path('/settings')
                     ->icon('cog'),

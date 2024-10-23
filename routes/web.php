@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThankYouController;
@@ -50,3 +51,6 @@ Route::get('/contact', function () {
 });
 // thanks
 Route::get('/thank-you', [ThankYouController::class, 'index'])->name('order.success');
+
+// policies
+Route::get('/policies/{slug}', [PolicyController::class, 'show'])->name('policies.show');

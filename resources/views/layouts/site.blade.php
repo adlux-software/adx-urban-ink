@@ -352,6 +352,15 @@ use App\Models\Cart;
                         <li><a href="faqs.html">FAQ's</a></li>
                         <li><a href="/contact">Contact Us</a></li>
                     </ul>
+
+                    @php
+                        $policies = \App\Models\Policy::where('status', 1)->orderBy('sort_order')->get();
+                    @endphp
+                    <ul class="quick-links">
+                        @foreach($policies as $policy)
+                            <li><a href="{{ route('policies.show', $policy->slug) }}" target="_blank">{{ $policy->title }}</a></li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
 
