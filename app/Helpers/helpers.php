@@ -32,3 +32,25 @@ if (! function_exists('calculate_cart_total')) {
         }
     }
 }
+
+if (!function_exists('business')) {
+    function business(string $setting): string
+    {
+        try {
+
+            $valueStore = \Spatie\Valuestore\Valuestore::make(storage_path('app/settings.json'));
+
+            $result = $valueStore->get($setting);
+
+            if (is_null($result)) {
+                return '';
+            } else {
+                return $result;
+            }
+
+        } catch (\Exception $exception) {
+
+            abort(500, $exception->getMessage());
+        }
+    }
+}
