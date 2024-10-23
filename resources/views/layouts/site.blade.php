@@ -344,18 +344,10 @@ use App\Models\Cart;
 
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget pl-4">
-                    <h3>Quick Links</h3>
-
-                    <ul class="quick-links">
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/shop">Shop Now!</a></li>
-                        <li><a href="faqs.html">FAQ's</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
-                    </ul>
-
                     @php
                         $policies = \App\Models\Policy::where('status', 1)->orderBy('sort_order')->get();
                     @endphp
+                    <h3>Quick Links</h3>
                     <ul class="quick-links">
                         @foreach($policies as $policy)
                             <li><a href="{{ route('policies.show', $policy->slug) }}" target="_blank">{{ $policy->title }}</a></li>
@@ -369,6 +361,7 @@ use App\Models\Cart;
                     <h3>Customer Support</h3>
 
                     <ul class="customer-support">
+                        <li><a href="/contact">Contact Us</a></li>
                         @if(auth()->user())
                             <li><a href="/user/profile">My Account</a></li>
                         @else

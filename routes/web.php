@@ -50,7 +50,8 @@ Route::get('/contact', function () {
     return view('contactus');
 });
 // thanks
-Route::get('/thank-you', [ThankYouController::class, 'index'])->name('order.success');
+Route::get('/thank-you', [ThankYouController::class, 'index'])
+    ->name('order.success');
 
-// policies
-Route::get('/policies/{slug}', [PolicyController::class, 'show'])->name('policies.show');
+Route::get('/policies/{slug}', [PolicyController::class, 'show'])
+    ->name('policies.show');
