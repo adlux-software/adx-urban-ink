@@ -9,10 +9,12 @@
                         <p>Have a question? You may find an answer in our <a href="#">FAQs</a>. But you can also contact us.</p>
 
                         <ul class="contact-list">
-                            <li><i class='bx bx-map'></i> Location: <a href="#">Dehiwala
-                                </a></li>
-                            <li><i class='bx bx-phone-call'></i> Call Us: <a href="tel:+94711780018">+9471 178 0018 , +9477 632 9697</a></li>
-                            <li><i class='bx bx-envelope'></i> Email Us: <a href="urbanink.lk@gmail.com">hello@xton.com</a></li>
+                            <li><i class='bx bx-map'></i> Location: <a href="#">Dehiwala</a></li>
+                            <li><i class='bx bx-phone-call'></i> Call Us:
+                                <a href="tel:+94711780018">+94 71 178 0018</a>,
+                                <a href="tel:+94776329697">+94 77 632 9697</a>
+                            </li>
+                            <li><i class='bx bx-envelope'></i> Email Us: <a href="mailto:urbanink.lk@gmail.com">urbanink.lk@gmail.com</a></li>
                         </ul>
 
                         <h3>Opening Hours:</h3>

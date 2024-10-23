@@ -162,9 +162,9 @@
                             <p>One of the most popular on the web is shopping. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
                             <ul class="sidebar-contact-info">
-                                <li><i class='bx bx-map'></i> <a href="#" target="_blank">Wonder Street, USA, New York</a></li>
-                                <li><i class='bx bx-phone-call'></i> <a href="tel:+01321654214">+01 321 654 214</a></li>
-                                <li><i class='bx bx-envelope'></i> <a href="mailto:hello@xton.com">hello@xton.com</a></li>
+                                <li><i class='bx bx-map'></i> <a href="#" target="_blank">Dehiwala</a></li>
+                                <li><i class='bx bx-phone-call'></i> <a href="tel:+94776329697">+94776329697</a></li>
+                                <li><i class='bx bx-envelope'></i> <a href="mailto:urbanink.lk@gmail.com">urbanink.lk@gmail.com</a></li>
                             </ul>
                         </div>
 
