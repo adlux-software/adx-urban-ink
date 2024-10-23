@@ -22,7 +22,7 @@ use App\Models\Cart;
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/responsive.css') }}">
 
-    <title>UBERINK</title>
+    <title>URBAN INK</title>
 
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
 </head>
@@ -34,8 +34,8 @@ use App\Models\Cart;
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-6 col-md-12">
                 <ul class="header-contact-info">
-                    <li>Welcome to URBONINK</li>
-                    <li>Call: <a href="+9477 632 9697">+9477 632 9697</a></li>
+                    <li>Welcome to URBAN INK</li>
+                    <li>Call: <a href="tel:+94776329697">+94 77 632 9697</a></li>
                 </ul>
             </div>
 
@@ -159,13 +159,13 @@ use App\Models\Cart;
                             </div>
                         </div>
 
-                        <div class="option-item">
-                            <div class="burger-menu" data-bs-toggle="modal" data-bs-target="#sidebarModal">
-                                <span class="top-bar"></span>
-                                <span class="middle-bar"></span>
-                                <span class="bottom-bar"></span>
-                            </div>
-                        </div>
+{{--                        <div class="option-item">--}}
+{{--                            <div class="burger-menu" data-bs-toggle="modal" data-bs-target="#sidebarModal">--}}
+{{--                                <span class="top-bar"></span>--}}
+{{--                                <span class="middle-bar"></span>--}}
+{{--                                <span class="bottom-bar"></span>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </nav>
