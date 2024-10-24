@@ -15,10 +15,12 @@
                             <li><i class='bx bx-phone-call'></i> Call Us:
                                 <a href="tel:{{ business('business_phone_1') }}">
                                     {{ business('business_phone_1') }}
-                                </a>,
-                                <a href="tel:{{ business('business_phone_2') }}">
-                                    {{ business('business_phone_2') }}
                                 </a>
+                                @if(business('business_phone_2'))
+                                    {{ ','.' ' }}<a href="tel:{{ business('business_phone_2') }}">
+                                        {{ business('business_phone_2') }}
+                                    </a>
+                                @endif
                             </li>
                             <li><i class='bx bx-envelope'></i> Email Us:
                                 <a href="mailto:{{ business('business_email') }}">

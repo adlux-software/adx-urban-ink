@@ -171,6 +171,11 @@
                                     <a href="tel:{{ business('business_phone_1') }}">
                                         {{ business('business_phone_1') }}
                                     </a>
+                                    @if(business('business_phone_2'))
+                                        {{ ','.' ' }}<a href="tel:{{ business('business_phone_2') }}">
+                                            {{ business('business_phone_2') }}
+                                        </a>
+                                    @endif
                                 </li>
                                 <li><i class='bx bx-envelope'></i>
                                     <a href="mailto:{{ business('business_email') }}">
