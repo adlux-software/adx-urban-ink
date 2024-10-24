@@ -54,3 +54,19 @@ if (!function_exists('business')) {
         }
     }
 }
+
+if (!function_exists('is_admin')) {
+    function is_admin(): bool
+    {
+        try {
+            // check if the user is logged in
+            if (auth('admin')->check()) {
+                return true;
+            }
+
+            return false;
+        } catch (\Exception $exception) {
+            abort(500, $exception->getMessage());
+        }
+    }
+}

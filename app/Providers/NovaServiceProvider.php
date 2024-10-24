@@ -75,6 +75,13 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuItem::resource(\App\Nova\PolicyResource::class),
                 ])->icon('book-open')->collapsable(),
 
+                MenuSection::make('Media', [
+                    MenuItem::resource(\App\Nova\Resources\Image::class),
+                    MenuItem::resource(\App\Nova\Resources\Video::class),
+                    MenuItem::resource(\App\Nova\Resources\File::class),
+                    MenuItem::resource(\App\Nova\Resources\Audio::class),
+                ])->icon('camera')->collapsable(),
+
                 MenuSection::make(__(config('nova-settings-tool.sidebar-label', 'Settings')))
                     ->path('/settings')
                     ->icon('cog'),

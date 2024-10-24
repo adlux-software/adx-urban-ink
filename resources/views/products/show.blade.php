@@ -4,7 +4,13 @@
     <div class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h2>{{$product->title}}</h2>            <ul>
+                <h2>{{$product->title}}</h2>
+                @if(is_admin())
+                    <a href="/admin/resources/products/{{ $product->id }}/edit" target="_blank">
+                        Edit
+                    </a>
+                @endif
+                <ul>
                     <li><a href="index.html">Home</a></li>
                     <li>Products Details</li>
                 </ul>
@@ -46,7 +52,7 @@
 
                                     <div class="accordion-content show">
 
-                                        <p>{!! $product->description !!}
+                                        <p>{!! $product->description !!}</p>
 
                                     </div>
                                 </li>

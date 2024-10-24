@@ -9,7 +9,6 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Trix;
 use Mostafaznv\NovaCkEditor\CkEditor;
 
 class PolicyResource extends Resource
