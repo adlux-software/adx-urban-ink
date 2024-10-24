@@ -67,6 +67,9 @@ img {
 .d-table-cell {
     vertical-align: middle;
 }
+.dropdown-menu.show {
+    display: flex
+}
 :focus {
     outline: 0 !important;
 }
