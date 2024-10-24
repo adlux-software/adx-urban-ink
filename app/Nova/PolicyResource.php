@@ -18,7 +18,7 @@ class PolicyResource extends Resource
     public static $title = 'title';
 
     public static $search = [
-        'id', 'title', 'slug', 'summery', 'description', 'status',
+        'id', 'title', 'slug', 'summary', 'description', 'status',
     ];
 
     public function fields(Request $request): array
@@ -34,7 +34,7 @@ class PolicyResource extends Resource
                 ->from('title')
                 ->rules('required'),
 
-            CkEditor::make('Summery', 'summery')
+            CkEditor::make('Summary', 'summary')
                 ->sortable()
                 ->rules('nullable'),
 

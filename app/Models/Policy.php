@@ -14,7 +14,7 @@ class Policy extends Model
     protected $fillable = [
         'title',
         'slug',
-        'summery',
+        'summary',
         'description',
         'sort_order',
         'status',
