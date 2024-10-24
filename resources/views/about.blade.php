@@ -261,9 +261,22 @@
                             <p>One of the most popular on the web is shopping. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
                             <ul class="sidebar-contact-info">
-                                <li><i class='bx bx-map'></i> <a href="#" target="_blank">Dehiwala</a></li>
-                                <li><i class='bx bx-phone-call'></i> <a href="tel:+94776329697">+94776329697</a></li>
-                                <li><i class='bx bx-envelope'></i> <a href="mailto:urbanink.lk@gmail.com">urbanink.lk@gmail.com</a></li>
+                                <li>
+                                    <i class='bx bx-map'></i>
+                                    <a href="#" target="_blank">
+                                        {{ business('business_address') }}
+                                    </a>
+                                </li>
+                                <li><i class='bx bx-phone-call'></i>
+                                    <a href="tel:{{ business('business_phone_1') }}">
+                                        {{ business('business_phone_1') }}
+                                    </a>
+                                </li>
+                                <li><i class='bx bx-envelope'></i>
+                                    <a href="mailto:{{ business('business_email') }}">
+                                        {{ business('business_email') }}
+                                    </a>
+                                </li>
                             </ul>
                         </div>
 

@@ -9,12 +9,22 @@
                         <p>Have a question? You may find an answer in our <a href="#">FAQs</a>. But you can also contact us.</p>
 
                         <ul class="contact-list">
-                            <li><i class='bx bx-map'></i> Location: <a href="#">Dehiwala</a></li>
-                            <li><i class='bx bx-phone-call'></i> Call Us:
-                                <a href="tel:+94711780018">+94 71 178 0018</a>,
-                                <a href="tel:+94776329697">+94 77 632 9697</a>
+                            <li><i class='bx bx-map'></i> Location:
+                                <a href="#">{{ business('business_address') }}</a>
                             </li>
-                            <li><i class='bx bx-envelope'></i> Email Us: <a href="mailto:urbanink.lk@gmail.com">urbanink.lk@gmail.com</a></li>
+                            <li><i class='bx bx-phone-call'></i> Call Us:
+                                <a href="tel:{{ business('business_phone_1') }}">
+                                    {{ business('business_phone_1') }}
+                                </a>,
+                                <a href="tel:{{ business('business_phone_2') }}">
+                                    {{ business('business_phone_2') }}
+                                </a>
+                            </li>
+                            <li><i class='bx bx-envelope'></i> Email Us:
+                                <a href="mailto:{{ business('business_email') }}">
+                                    {{ business('business_email') }}
+                                </a>
+                            </li>
                         </ul>
 
                         <h3>Opening Hours:</h3>

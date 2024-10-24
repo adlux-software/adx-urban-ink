@@ -35,7 +35,11 @@ use App\Models\Cart;
             <div class="col-lg-6 col-md-12">
                 <ul class="header-contact-info">
                     <li>Welcome to URBAN INK</li>
-                    <li>Call: <a href="tel:+94776329697">+94 77 632 9697</a></li>
+                    <li>Call:
+                        <a href="tel:{{ business('business_phone_1') }}">
+                            {{ business('business_phone_1') }}
+                        </a>
+                    </li>
                 </ul>
             </div>
 
@@ -326,9 +330,25 @@ use App\Models\Cart;
                     <div class="about-the-store">
                         <p>One of the most popular on the web is shopping.</p>
                         <ul class="footer-contact-info">
-                            <li><i class='bx bx-map'></i> <a href="#" target="_blank">Dehiwala</a></li>
-                            <li><i class='bx bx-phone-call'></i> <a href="tel:+9471 178 0018">+9471 178 0018 , +9477 632 9697</a></li>
-                            <li><i class='bx bx-envelope'></i> <a href="mailto:urbanink.lk@gmail.com">urbanink.lk@gmail.com</a></li>
+                            <li><i class='bx bx-map'></i>
+                                <a href="#" target="_blank">
+                                    {{ business('business_address') }}
+                                </a>
+                            </li>
+                            <li><i class='bx bx-phone-call'></i>
+                                <a href="tel:{{ business('business_phone_1') }}">
+                                    {{ business('business_phone_1') }}
+                                </a>
+                                ,
+                                <a href="tel:{{ business('business_phone_2') }}">
+                                    {{ business('business_phone_2') }}
+                                </a>
+                            </li>
+                            <li><i class='bx bx-envelope'></i>
+                                <a href="mailto:{{ business('business_email') }}">
+                                    {{ business('business_email') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
 

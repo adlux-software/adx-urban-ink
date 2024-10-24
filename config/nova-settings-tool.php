@@ -49,6 +49,40 @@ return [
     'settings' => [
 
         [
+            'key' => 'business_address',
+            'type' => 'textarea',
+            'label' => 'Address',
+            'panel' => 'Business',
+        ],
+
+        [
+            'key' => 'business_google_map',
+            'label' => 'Google Map',
+            'type' => 'code',
+            'panel' => 'Contact',
+            'help' => 'Google maps iframe URL.',
+            'placeholder' => 'Google maps',
+        ],
+
+        [
+            'key' => 'business_phone_1',
+            'label' => 'Phone 1',
+            'panel' => 'Business',
+        ],
+
+        [
+            'key' => 'business_phone_2',
+            'label' => 'Phone 2',
+            'panel' => 'Business',
+        ],
+
+        [
+            'key' => 'business_email',
+            'label' => 'Email',
+            'panel' => 'Business',
+        ],
+
+        [
             'key' => 'business_whatsapp',
             'label' => 'WhatsApp',
             'panel' => 'Business',

@@ -21,7 +21,7 @@
 
     <!-- Map -->
     <div id="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d63373.90939318645!2d79.8360743290344!3d6.906224166796591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m5!1s0x3ae25a8d6ec1f8c3%3A0x47810f3e7d084753!2sDehiwala-Mount%20Lavinia!3m2!1d6.830118499999999!2d79.8800832!4m0!5e0!3m2!1sen!2slk!4v1727782894292!5m2!1sen!2slk"></iframe>
+        <iframe src="{{ business('business_google_map') }}"></iframe>
     </div>
     <!-- End Map -->
 
