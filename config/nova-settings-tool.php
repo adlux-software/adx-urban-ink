@@ -49,6 +49,12 @@ return [
     'settings' => [
 
         [
+            'key' => 'business_whatsapp',
+            'label' => 'WhatsApp',
+            'panel' => 'Business',
+        ],
+
+        [
             'key' => 'twitter_url',
             'label' => 'Twitter Profile',
             'panel' => 'Social',
@@ -59,7 +65,7 @@ return [
             'label' => 'Instagram Profile',
             'panel' => 'Social',
         ],
-        
+
         [
             'key' => 'facebook_url',
             'label' => 'Facebook Profile',
@@ -67,42 +73,33 @@ return [
         ],
 
         [
-            'key' => 'feature_42',
-            'label' => 'Feature 42',
-            'type' => 'toggle',
-            'help' => 'For the upcoming release. <a href="/docs#feature_42">Read more here.</a>',
+            'key' => 'linkedin_url',
+            'label' => 'LinkedIn Profile',
+            'panel' => 'Social',
         ],
 
         [
-            'key' => 'welcome',
-            'label' => 'Welcome Message',
-            'type' => 'textarea',
-            'help' => 'Greeting for new users on their first login.',
+            'key' => 'pinterest_url',
+            'label' => 'Pinterest Profile',
+            'panel' => 'Social',
         ],
 
-        [
-            'key' => 'snippet',
-            'label' => 'Tracking Snippet',
-            'type' => 'code',
-            'language' => 'htmlmixed',
-            'help' => 'Analytics snippet to add to all marketing pages.',
-        ],
+//        [
+//            'key' => 'welcome',
+//            'label' => 'Welcome Message',
+//            'type' => 'textarea',
+//            'help' => 'Greeting for new users on their first login.',
+//        ],
 
-        [
-            'key' => 'theme',
-            'label' => 'Default App Theme',
-            'type' => 'select',
-            'options' => [
-                'dark' => 'Dark theme',
-                'light' => 'Light theme',
-            ],
-        ],
-
-        [
-            'key' => 'timeout',
-            'type' => 'Number',
-            'label' => 'Timeout (min.)',
-        ],
+//        [
+//            'key' => 'theme',
+//            'label' => 'Default App Theme',
+//            'type' => 'select',
+//            'options' => [
+//                'dark' => 'Dark theme',
+//                'light' => 'Light theme',
+//            ],
+//        ],
 
     ],
 

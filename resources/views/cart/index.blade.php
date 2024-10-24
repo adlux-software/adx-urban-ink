@@ -85,61 +85,61 @@
                 <div class="single-instagram-post">
                     <img src="assets/img/instagram/img1.jpg" alt="image">
                     <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
+                    <a href="{{ business('instagram_url') }}" target="_blank" class="link-btn"></a>
                 </div>
 
                 <div class="single-instagram-post">
                     <img src="assets/img/instagram/img2.jpg" alt="image">
                     <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
+                    <a href="{{ business('instagram_url') }}" target="_blank" class="link-btn"></a>
                 </div>
 
                 <div class="single-instagram-post">
                     <img src="assets/img/instagram/img3.jpg" alt="image">
                     <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
+                    <a href="{{ business('instagram_url') }}" target="_blank" class="link-btn"></a>
                 </div>
 
                 <div class="single-instagram-post">
                     <img src="assets/img/instagram/img4.jpg" alt="image">
                     <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
+                    <a href="{{ business('instagram_url') }}" target="_blank" class="link-btn"></a>
                 </div>
 
                 <div class="single-instagram-post">
                     <img src="assets/img/instagram/img10.jpg" alt="image">
                     <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
+                    <a href="{{ business('instagram_url') }}" target="_blank" class="link-btn"></a>
                 </div>
 
                 <div class="single-instagram-post">
                     <img src="assets/img/instagram/img6.jpg" alt="image">
                     <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
+                    <a href="{{ business('instagram_url') }}" target="_blank" class="link-btn"></a>
                 </div>
 
                 <div class="single-instagram-post">
                     <img src="assets/img/instagram/img7.jpg" alt="image">
                     <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
+                    <a href="{{ business('instagram_url') }}" target="_blank" class="link-btn"></a>
                 </div>
 
                 <div class="single-instagram-post">
                     <img src="assets/img/instagram/img8.jpg" alt="image">
                     <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
+                    <a href="{{ business('instagram_url') }}" target="_blank" class="link-btn"></a>
                 </div>
 
                 <div class="single-instagram-post">
                     <img src="assets/img/instagram/img9.jpg" alt="image">
                     <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
+                    <a href="{{ business('instagram_url') }}" target="_blank" class="link-btn"></a>
                 </div>
 
                 <div class="single-instagram-post">
                     <img src="assets/img/instagram/img5.jpg" alt="image">
                     <i class='bx bxl-instagram'></i>
-                    <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
+                    <a href="{{ business('instagram_url') }}" target="_blank" class="link-btn"></a>
                 </div>
             </div>
         </div>
@@ -169,11 +169,11 @@
                         </div>
 
                         <ul class="social-link">
-                            <li><a href="https://www.facebook.com/" class="d-block" target="_blank"><i class='bx bxl-facebook'></i></a></li>
-                            <li><a href="https://twitter.com/login" class="d-block" target="_blank"><i class='bx bxl-twitter'></i></a></li>
-                            <li><a href="https://www.instagram.com/" class="d-block" target="_blank"><i class='bx bxl-instagram'></i></a></li>
-                            <li><a href="https://www.linkedin.com/login" class="d-block" target="_blank"><i class='bx bxl-linkedin'></i></a></li>
-                            <li><a href="https://www.pinterest.com/" class="d-block" target="_blank"><i class='bx bxl-pinterest-alt'></i></a></li>
+                            <li><a href="{{ business('facebook_url') }}" class="d-block" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+                            <li><a href="{{ business('twitter_url') }}" class="d-block" target="_blank"><i class='bx bxl-twitter'></i></a></li>
+                            <li><a href="{{ business('instagram_url') }}" class="d-block" target="_blank"><i class='bx bxl-instagram'></i></a></li>
+                            <li><a href="{{ business('linkedin_url') }}" class="d-block" target="_blank"><i class='bx bxl-linkedin'></i></a></li>
+                            <li><a href="{{ business('pinterest_url') }}" class="d-block" target="_blank"><i class='bx bxl-pinterest-alt'></i></a></li>
                         </ul>
                     </div>
 

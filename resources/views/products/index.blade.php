@@ -88,7 +88,7 @@
     <div class="instagram-area">
         <div class="container-fluid">
             <div class="instagram-title">
-                <a href="https://www.instagram.com/urbanink_lk?igsh=MWo1dzI3NDZ3cWM1cg==" target="_blank"><i class='bx bxl-instagram'></i> Follow us on @urbanink_lk</a>
+                <a href="{{ business('instagram_url') }}" target="_blank"><i class='bx bxl-instagram'></i> Follow us on @urbanink_lk</a>
             </div>
 
             <div class="instagram-slides owl-carousel owl-theme">
@@ -98,7 +98,7 @@
                         <div class="single-instagram-post">
                             <img src="{{ $Product->getFirstMediaURL('featured', 'thumb') }}" alt="image">
                             <i class='bx bxl-instagram'></i>
-                            <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
+                            <a href="{{ business('instagram_url') }}" target="_blank" class="link-btn"></a>
                         </div>
                     @endif
                 @endforeach

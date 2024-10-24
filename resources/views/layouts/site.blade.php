@@ -333,9 +333,9 @@ use App\Models\Cart;
                     </div>
 
                     <ul class="social-link">
-                        <li><a href="https://www.facebook.com/" class="d-block" target="_blank"><i class='bx bxl-facebook'></i></a></li>
-                        <li><a href="https://www.instagram.com/" class="d-block" target="_blank"><i class='bx bxl-instagram'></i></a></li>
-                        <li><a href="https://www.whatsapp.com/" class="d-block" target="_blank"><i class='bx bxl-whatsapp'></i></a></li>
+                        <li><a href="{{ business('facebook_url') }}" class="d-block" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+                        <li><a href="{{ business('instagram_url') }}" class="d-block" target="_blank"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://wa.me/{{ business('business_whatsapp') }}" class="d-block" target="_blank"><i class='bx bxl-whatsapp'></i></a></li>
 
 
                     </ul>
