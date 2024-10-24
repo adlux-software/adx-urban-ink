@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
+use Mostafaznv\NovaCkEditor\CkEditor;
 
 class PolicyResource extends Resource
 {
@@ -34,11 +35,11 @@ class PolicyResource extends Resource
                 ->from('title')
                 ->rules('required'),
 
-            Trix::make('Summery', 'summery')
+            CkEditor::make('Summery', 'summery')
                 ->sortable()
                 ->rules('nullable'),
 
-            Trix::make('Description', 'description')
+            CkEditor::make('Description', 'description')
                 ->sortable()
                 ->rules('nullable'),
 

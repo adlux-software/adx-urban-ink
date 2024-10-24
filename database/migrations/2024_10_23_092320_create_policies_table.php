@@ -11,8 +11,8 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->string('summery')->nullable();
-            $table->string('description')->nullable();
+            $table->text('summery')->nullable();
+            $table->longText('description')->nullable();
             $table->integer('sort_order')->default(0);
             $table->boolean('status')->default(1);
             $table->timestamps();
