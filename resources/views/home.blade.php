@@ -17,9 +17,9 @@
                     <div class="row justify-content-left">
                         <div class="col-lg-7 col-md-12 banner-container">
                             <div class="main-banner-content">
-                                <span class="sub-title text-primary">Limited Time Offer!</span>
+                                <span class="sub-title text-primary">Discover UrbanInk!</span>
                                 <h1 class="banner-heading text-dark">Wear your story</h1>
-                                <p class="banner-description text-primary">Take 20% Off ‘Sale Must-Haves'</p>
+                                <p class="banner-description text-primary">The largest design collection in the island</p>
                                 <div class="btn-box">
                                     <a href="/products" class="btn btn-warning">Shop Now</a>
                                 </div>
