@@ -162,15 +162,8 @@
 {{--                                </li>--}}
 
 
+                                <livewire:review-livewire :productId="$product->id" />
 
-
-                                <li class="accordion-item">
-                                    <a class="accordion-title active" href="javascript:void(0)">
-                                        <i class='bx bx-chevron-down'></i>
-                                        <livewire:review-livewire :productId="$product->id" />
-                                    </a>
-
-                                </li>
 
                             </ul>
                         </div>
@@ -179,22 +172,27 @@
             </div>
         </div>
 
-        <div class="related-products">
-            <div class="container">
-                <div class="section-title">
-                    <span class="sub-title">Our Shop</span>
-                    <h2>Related Products</h2>
-                </div>
 
-                <div class="products-slides owl-carousel owl-theme">
+    </section>
+    <!-- End Product Details Area -->
 
 
-                    @php
-                        $related_products = \App\Models\Product::where('category_id', $product->category_id)->get();
-                    @endphp
+    <div class="related-products">
+        <div class="container">
+            <div class="section-title">
+                <span class="sub-title">Our Shop</span>
+                <h2>Related Products</h2>
+            </div>
+
+            <div class="products-slides owl-carousel owl-theme">
 
 
-                    @foreach($related_products as $related_product)
+                @php
+                    $related_products = \App\Models\Product::where('category_id', $product->category_id)->get();
+                @endphp
+
+
+                @foreach($related_products as $related_product)
 
                     <div class="single-products-box">
                         <div class="products-image">
@@ -205,7 +203,7 @@
                                 <a href="{{ route('product.show' , $related_product->slug) }}"> <img src="{{ $related_product->getFirstMediaURL('featured', 'thumb') }}" class="hover-image" alt="image"></a>
                             @endif
 
-                               <div class="products-button">
+                            <div class="products-button">
                                 <ul>
                                     <li>
                                         <div class="wishlist-btn">
@@ -256,18 +254,13 @@
                         </div>
                     </div>
 
-                    @endforeach
+                @endforeach
 
 
 
-                </div>
             </div>
         </div>
-    </section>
-    <!-- End Product Details Area -->
-
-
-
+    </div>
 
 
 
