@@ -76,6 +76,7 @@
                                             <option value="{{ $i }}">{{ $i }} Star{{ $i > 1 ? 's' : '' }}</option>
                                         @endfor
                                     </select>
+
                                     @error('rating') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                             </div>

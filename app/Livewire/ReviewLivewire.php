@@ -18,11 +18,12 @@ class ReviewLivewire extends Component
 
     protected $rules = [
         'name' => 'required|string|max:255',
-        'email' => 'required|email|max:255',
+        'email' => 'required|email',
         'title' => 'required|string|max:255',
         'body' => 'required|string',
         'rating' => 'required|integer|min:1|max:5',
     ];
+
 
     public function mount($productId)
     {
