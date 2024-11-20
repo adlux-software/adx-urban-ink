@@ -176,7 +176,7 @@
     </section>
     <!-- End Product Details Area -->
 
-
+    <section class="facility-area pb-70">
     <div class="related-products">
         <div class="container">
             <div class="section-title">
@@ -261,8 +261,7 @@
             </div>
         </div>
     </div>
-
-
+    </section>
 
     <!-- Start Facility Area -->
     <section class="facility-area pb-70">
