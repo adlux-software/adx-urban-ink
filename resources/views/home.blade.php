@@ -199,13 +199,23 @@
                                 <span class="new-price " style="padding-left: 10px">Rs. {{ number_format($variant->selling_price, 2) }}</span>
                             @else
                                 <span class="price-not-available ">Price not available</span>
-                            @endif </div>
-                        <div class="star-rating">
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
+                            @endif
+
+                        </div>
+
+                        @php
+                            $details = \App\Models\Review::all();
+                            $details = $details->where('product_id', $Product->id);
+                            $items = $details->first();
+                        @endphp
+
+
+                        <div class="products-review">
+                            <div class="star-rating" style="margin-right: 4px">
+                                @for ($i = 1; $i <= 5; $i++)
+                                    <i class="{{ $i <= round($details->avg('rating')) ? 'bx bxs-star' : 'bx bx-star' }}"></i>
+                                @endfor
+                            </div>
                         </div>
                         <a class="add-to-cart" href="{{ route('product.show' , $Product->slug) }}">View</a>
 
@@ -351,13 +361,21 @@
                                     @else
                                         <span class="price-not-available ">Price not available</span>
                                     @endif </div>
-                                <div class="star-rating">
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
+                                @php
+                                    $details = \App\Models\Review::all();
+                                    $details = $details->where('product_id', $Product->id);
+                                    $items = $details->first();
+                                @endphp
+
+
+                                <div class="products-review">
+                                    <div class="star-rating" style="margin-right: 4px">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <i class="{{ $i <= round($details->avg('rating')) ? 'bx bxs-star' : 'bx bx-star' }}"></i>
+                                        @endfor
+                                    </div>
                                 </div>
+
                                 <a class="add-to-cart" href="{{ route('product.show' , $Product->slug) }}">View</a>
 
                             </div>
