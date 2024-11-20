@@ -29,6 +29,7 @@ class ReviewLivewire extends Component
     {
         $this->product_id = $productId;
         $this->loadReviews();
+
     }
 
     public function loadReviews()
@@ -56,6 +57,7 @@ class ReviewLivewire extends Component
 
     public function render()
     {
-        return view('livewire.review-livewire');
-    }
+        return view('livewire.review-livewire', [
+            'product_id' => $this->product_id, // Pass product_id to the view
+        ]);    }
 }

@@ -1,3 +1,9 @@
+@php
+    $details = \App\Models\Review::all();
+    $details = $details->where('product_id', $product->id);
+    $items = $details->first();
+@endphp
+
 <div>
     <h3>{{$product->title}}</h3>
     @if($product->variants->count() > 0)
@@ -6,15 +12,16 @@
             <span class="old-price">Rs.{{ number_format($product->variants?->first()->mrp, 2) }}</span>
         </div>
     @endif
+
+
+
     <div class="products-review">
-        <div class="rating">
-            <i class='bx bx-star'></i>
-            <i class='bx bx-star'></i>
-            <i class='bx bx-star'></i>
-            <i class='bx bx-star'></i>
-            <i class='bx bx-star'></i>
-        </div>
-        <a href="#" class="rating-count">3 reviews</a>
+            <div class="rating" style="margin-right: 4px">
+                @for ($i = 1; $i <= 5; $i++)
+                    <i class="{{ $i <= round($details->avg('rating')) ? 'bx bxs-star' : 'bx bx-star' }}"></i>
+                @endfor
+            </div>
+        <a href="#" class="rating-count">{{ $details->count()}} reviews</a>
     </div>
 
     <ul class="products-info">

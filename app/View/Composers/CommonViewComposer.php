@@ -6,6 +6,7 @@ namespace App\View\Composers;
 use App\Models\Category;
 use App\Models\instagram;
 use App\Models\Product;
+use App\Models\Review;
 use Illuminate\View\View;
 
 class CommonViewComposer
@@ -24,7 +25,6 @@ class CommonViewComposer
 
         $products = Product::with('media')->get();
         $instagram = instagram::with('media')->get();
-
 
         $view->with([
             'categories' => $categories,

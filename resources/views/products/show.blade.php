@@ -1,5 +1,6 @@
 <x-site-layout>
 
+
     <!-- Start Page Title -->
     <div class="page-title-area">
         <div class="container">
@@ -162,7 +163,6 @@
 
 
                                 <livewire:review-livewire :productId="$product->id" />
-
 
                             </ul>
                         </div>
