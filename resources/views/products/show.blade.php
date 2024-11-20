@@ -238,13 +238,20 @@
                                     </div>
                                 @endif
 
-                                <div class="star-rating">
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
+                                @php
+                                    $details = \App\Models\Review::all();
+                                    $details = $details->where('product_id', $related_product->id);
+                                    $items = $details->first();
+                                @endphp
+
+                                <div class="products-review">
+                                    <div class="star-rating" style="margin-right: 4px">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <i class="{{ $i <= round($details->avg('rating')) ? 'bx bxs-star' : 'bx bx-star' }}"></i>
+                                        @endfor
+                                    </div>
                                 </div>
+
                                 <a href="{{ route('product.show' , $related_product->slug) }}" class="add-to-cart">View</a>
                             </div>
                         </div>
