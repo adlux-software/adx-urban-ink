@@ -1,13 +1,11 @@
 <div class="products-review-form" style="z-index: 1">
-
-
     <li class="accordion-item">
-        <a class="accordion-title" href="javascript:void(0)">
-            <i class='bx bx-chevron-down'></i>
+        <a class="accordion-title" href="javascript:void(0)" onclick="toggleAccordion()">
+            <i id="accordion-icon" class='bx bx-chevron-down'></i>
             Reviews
         </a>
 
-        <div class="accordion-content">
+        <div class="accordion-content" id="accordion-content" style="display: none;">
             <div class="products-review-form">
                 <h3>Customer Reviews</h3>
 
@@ -90,5 +88,21 @@
             </div>
         </div>
     </li>
-
 </div>
+
+<script>
+    function toggleAccordion() {
+        var content = document.getElementById('accordion-content');
+        var icon = document.getElementById('accordion-icon');
+
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+            icon.classList.remove('bx-chevron-down');
+            icon.classList.add('bx-chevron-up');
+        } else {
+            content.style.display = "none";
+            icon.classList.remove('bx-chevron-up');
+            icon.classList.add('bx-chevron-down');
+        }
+    }
+</script>
