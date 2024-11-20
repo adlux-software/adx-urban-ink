@@ -45,7 +45,6 @@
                         <div class="products-details-accordion">
                             <ul class="accordion">
 
-
                                 <li class="accordion-item">
                                     <a class="accordion-title active" href="javascript:void(0)">
                                         <i class='bx bx-chevron-down'></i>
@@ -172,8 +171,6 @@
             </div>
         </div>
 
-
-    </section>
     <!-- End Product Details Area -->
 
 

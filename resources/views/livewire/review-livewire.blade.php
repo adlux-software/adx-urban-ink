@@ -2,12 +2,12 @@
 
 
     <li class="accordion-item">
-        <a class="accordion-title" href="javascript:void(0)">
+        <a class="accordion-title active" href="javascript:void(0)">
             <i class='bx bx-chevron-down'></i>
-            Reviews
+            Description
         </a>
 
-        <div class="accordion-content">
+        <div class="accordion-content show">
             <div class="products-review-form">
                 <h3>Customer Reviews</h3>
 
