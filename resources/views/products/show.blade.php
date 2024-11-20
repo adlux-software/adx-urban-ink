@@ -172,8 +172,90 @@
         </div>
 
     <!-- End Product Details Area -->
+    <div class="related-products">
+            <div class="container">
+                <div class="section-title">
+                    <span class="sub-title">Our Shop</span>
+                    <h2>Related Products</h2>
+                </div>
+
+                <div class="products-slides owl-carousel owl-theme">
 
 
+                    @php
+                        $related_products = \App\Models\Product::where('category_id', $product->category_id)->get();
+                    @endphp
+
+
+                    @foreach($related_products as $related_product)
+
+                        <div class="single-products-box">
+                            <div class="products-image">
+
+                                @if($related_product->hasMedia('featured'))
+
+                                    <a href="{{ route('product.show' , $related_product->slug) }}"> <img src="{{ $related_product->getFirstMediaURL('featured', 'thumb') }}" class="main-image" alt="image"></a>
+                                    <a href="{{ route('product.show' , $related_product->slug) }}"> <img src="{{ $related_product->getFirstMediaURL('featured', 'thumb') }}" class="hover-image" alt="image"></a>
+                                @endif
+
+                                <div class="products-button">
+                                    <ul>
+                                        <li>
+                                            <div class="wishlist-btn">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#shoppingWishlistModal">
+                                                    <i class='bx bx-heart'></i>
+                                                    <span class="tooltip-label">Add to Wishlist</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="compare-btn">
+                                                <a href="compare.html">
+                                                    <i class='bx bx-refresh'></i>
+                                                    <span class="tooltip-label">Compare</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="quick-view-btn">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
+                                                    <i class='bx bx-search-alt'></i>
+                                                    <span class="tooltip-label">Quick View</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="products-content">
+                                <h3><a href="{{ route('product.show' , $related_product->slug) }}">{{$related_product->title}}</a></h3>
+
+                                @if($related_product->variants->count() > 0)
+                                    <div class="price">
+                                        <span class="old-price">Rs.{{ $related_product->variants->first()->mrp }}</span>
+                                        <span class="new-price">Rs.{{ $related_product->variants->first()->selling_price }}</span>
+                                    </div>
+                                @endif
+
+                                <div class="star-rating">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                </div>
+                                <a href="{{ route('product.show' , $related_product->slug) }}" class="add-to-cart">View</a>
+                            </div>
+                        </div>
+
+                    @endforeach
+
+
+
+                </div>
+            </div>
+        </div>
 
 
     <!-- Start Facility Area -->
@@ -232,90 +314,7 @@
         </div>
     </section>
     <!-- End Facility Area -->
-    <div class="related-products">
-        <div class="container">
-            <div class="section-title">
-                <span class="sub-title">Our Shop</span>
-                <h2>Related Products</h2>
-            </div>
 
-            <div class="products-slides owl-carousel owl-theme">
-
-
-                @php
-                    $related_products = \App\Models\Product::where('category_id', $product->category_id)->get();
-                @endphp
-
-
-                @foreach($related_products as $related_product)
-
-                    <div class="single-products-box">
-                        <div class="products-image">
-
-                            @if($related_product->hasMedia('featured'))
-
-                                <a href="{{ route('product.show' , $related_product->slug) }}"> <img src="{{ $related_product->getFirstMediaURL('featured', 'thumb') }}" class="main-image" alt="image"></a>
-                                <a href="{{ route('product.show' , $related_product->slug) }}"> <img src="{{ $related_product->getFirstMediaURL('featured', 'thumb') }}" class="hover-image" alt="image"></a>
-                            @endif
-
-                            <div class="products-button">
-                                <ul>
-                                    <li>
-                                        <div class="wishlist-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#shoppingWishlistModal">
-                                                <i class='bx bx-heart'></i>
-                                                <span class="tooltip-label">Add to Wishlist</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="compare-btn">
-                                            <a href="compare.html">
-                                                <i class='bx bx-refresh'></i>
-                                                <span class="tooltip-label">Compare</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="quick-view-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                                                <i class='bx bx-search-alt'></i>
-                                                <span class="tooltip-label">Quick View</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="products-content">
-                            <h3><a href="{{ route('product.show' , $related_product->slug) }}">{{$related_product->title}}</a></h3>
-
-                            @if($related_product->variants->count() > 0)
-                                <div class="price">
-                                    <span class="old-price">Rs.{{ $related_product->variants->first()->mrp }}</span>
-                                    <span class="new-price">Rs.{{ $related_product->variants->first()->selling_price }}</span>
-                                </div>
-                            @endif
-
-                            <div class="star-rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                            </div>
-                            <a href="{{ route('product.show' , $related_product->slug) }}" class="add-to-cart">View</a>
-                        </div>
-                    </div>
-
-                @endforeach
-
-
-
-            </div>
-        </div>
-    </div>
 
 
 

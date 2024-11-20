@@ -4,7 +4,7 @@
     <li class="accordion-item">
         <a class="accordion-title active" href="javascript:void(0)">
             <i class='bx bx-chevron-down'></i>
-            Description
+            Customer Reviews
         </a>
 
         <div class="accordion-content show">
