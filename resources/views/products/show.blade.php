@@ -162,8 +162,15 @@
 {{--                                </li>--}}
 
 
-                                <livewire:review-livewire :productId="$product->id" />
 
+
+                                <li class="accordion-item">
+                                    <a class="accordion-title active" href="javascript:void(0)">
+                                        <i class='bx bx-chevron-down'></i>
+                                        <livewire:review-livewire :productId="$product->id" />
+                                    </a>
+
+                                </li>
 
                             </ul>
                         </div>
