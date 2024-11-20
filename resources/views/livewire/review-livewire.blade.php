@@ -1,4 +1,4 @@
-<div class="products-review-form">
+<div class="products-review-form" style="z-index: 1">
 
 
     <li class="accordion-item">
@@ -90,7 +90,5 @@
             </div>
         </div>
     </li>
-
-
 
 </div>

@@ -44,7 +44,7 @@
 
                         <div class="products-details-accordion">
                             <ul class="accordion">
-                                <livewire:review-livewire :productId="$product->id" />
+
 
                                 <li class="accordion-item">
                                     <a class="accordion-title active" href="javascript:void(0)">
@@ -162,6 +162,7 @@
 {{--                                </li>--}}
 
 
+                                <livewire:review-livewire :productId="$product->id" />
 
 
                             </ul>
