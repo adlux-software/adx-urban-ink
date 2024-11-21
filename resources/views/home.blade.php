@@ -1,7 +1,7 @@
 
 <x-site-layout>
 
-    <div class="main-banner single-main-banner banner-bg-dark">
+    <div class="single-main-banner banner-bg-dark">
         <!-- Background with dark overlay -->
         <div class="banner-image-overlay d-flex justify-content-start align-items-center text-left">
             <div class="container">
