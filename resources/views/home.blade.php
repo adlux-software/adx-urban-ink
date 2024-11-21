@@ -1,29 +1,19 @@
 
 <x-site-layout>
 
-    <!-- Start Main Banner Area -->
-    <div class="main-banner single-main-banner banner-bg6">
-        <!-- Video for all screens -->
-        <div class="embed-responsive embed-responsive-16by9">
-            <video autoplay muted loop class="embed-responsive-item banner-video">
-                <source src="../../assets/img/Render 22.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+    <div class="main-banner single-main-banner banner-bg-dark">
+        <!-- Background with dark overlay -->
+        <div class="banner-image-overlay d-flex justify-content-start align-items-center text-left">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8">
+                        <div class="main-banner-content bg-dark p-5 rounded shadow-lg">
+                            <span class="sub-title text-warning d-block mb-3">Discover UrbanInk!</span>
+                            <h1 class="banner-heading text-white mb-4">Wear Your Story</h1>
+                            <p class="banner-description text-light mb-4">The largest design collection on the island. Bold, creative, and inspired fashion just for you.</p>
 
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="container">
-                    <div class="row justify-content-left">
-                        <div class="col-lg-7 col-md-12 banner-container">
-                            <div class="main-banner-content">
-                                <span class="sub-title text-primary">Discover UrbanInk!</span>
-                                <h1 class="banner-heading text-dark">Wear your story</h1>
-                                <p class="banner-description text-primary">The largest design collection in the island</p>
-                                <div class="btn-box">
-                                    <a href="/products" class="btn btn-warning">Shop Now</a>
-                                </div>
-                            </div>
+                                <a href="/products" class="btn btn-warning btn-lg shadow-lg">Shop Now</a>
+
                         </div>
                     </div>
                 </div>
@@ -32,74 +22,101 @@
     </div>
     <!-- End Main Banner Area -->
 
-
-
     <style>
-        .banner-container {
-            position: relative;
+        /* Parallax effect on background */
+        .banner-image-overlay {
+            background-image: url('../../assets/img/uuu.webp'); /* Set your background image here */
             background-size: cover;
-            border-radius: 20px;
-
+            background-position: center center;
+            height: 100vh;
+            position: relative;
+            color: white;
+            background-attachment: fixed; /* Parallax effect */
             overflow: hidden;
         }
 
-        .banner-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 80%;
-            height: 100%;
-            background: #FFFFFF; /* LightSkyBlue with transparency */
-            filter: blur(100px); /* Adjust blur radius as needed */
-            z-index: 1;
+        /* Dark banner content styling with modern lux feel */
+        .main-banner-content {
+            background-color: rgba(0, 0, 0, 0.75); /* Dark overlay behind text */
+            padding: 50px 60px;
+            border-radius: 20px;
+            transition: transform 0.3s ease-in-out;
         }
 
-        .main-banner-content {
-            position: relative;
-            z-index: 2;
-            color: #FFFFFF;
-            text-align: left;
-            padding: 50px 20px; /* Adjust padding as needed */
-            backdrop-filter: blur(5px); /* Optional: Adds a blur effect to the content area */
+        .main-banner-content:hover {
+            transform: translateY(-10px); /* Subtle hover effect */
         }
 
         .sub-title {
-            display: block;
-            font-size: 1.5em;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f39c12;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
         .banner-heading {
-            font-size: 3em; /* Adjust as needed */
-            margin-bottom: 20px;
-            font-weight: bold;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
         }
 
         .banner-description {
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            font-size: 1.6rem;
+            margin-bottom: 40px;
+            color: #ccc;
+            line-height: 1.7;
         }
 
-        .btn-box {
-            margin-top: 20px;
+        .btn-box a {
+            padding: 16px 32px;
+            background-color: #f39c12;
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
-        .default-btn {
-            background-color: #F4C03D;
-            color: #000000;
-            padding: 10px 20px;
+        .btn-box a:hover {
+            background-color: #e67e22;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
+            transform: translateY(-5px); /* Button hover effect */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
-        .default-btn:hover {
-            background-color: #000000;
-            color: #FFFFFF;
+        /* Ensure proper alignment and responsive layout */
+        @media (max-width: 768px) {
+            .banner-image-overlay {
+                text-align: center;
+            }
+
+            .main-banner-content {
+                padding: 30px;
+            }
+
+            .sub-title, .banner-heading, .banner-description {
+                text-align: center;
+            }
+
+            .col-lg-6 {
+                width: 100%;
+            }
         }
     </style>
+
+    <script>
+        // Smooth scroll for the 'Shop Now' button
+        document.querySelector('.btn-box a').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#products').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
 <!-- End Main Banner Area -->
 
