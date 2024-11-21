@@ -113,10 +113,11 @@
 {{--                    </label>--}}
 {{--                </div>--}}
 
-                <div class="item">
-                    <a href="#" class="default-btn">Buy it now!</a>
-                </div>
+{{--                <div class="item">--}}
+{{--                    <a href="#" class="default-btn">Buy it now!</a>--}}
+{{--                </div>--}}
             </div>
+
         @else
             @if(!$show_success_message)
                 <div class="alert alert-danger mt-4" role="alert">
@@ -124,21 +125,24 @@
                 </div>
             @endif
         @endif
+
     @else
+
         @if(!$show_success_message)
             <div class="alert alert-info mt-4" role="alert">
                 Please select both color and size to check availability.
             </div>
         @endif
+
     @endif
 
-    <div class="wishlist-compare-btn">
-        <a href="#" class="optional-btn"><i class='bx bx-heart'></i> Add to Wishlist</a>
-    </div>
+    @livewire('add-to-wishlist', ['product' => $product])
+
 
     @if($show_success_message)
         <div class="alert alert-success mt-4" role="alert">
             {{ $success }}
         </div>
     @endif
+
 </div>

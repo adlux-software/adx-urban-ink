@@ -259,7 +259,6 @@
                     @endforeach
 
 
-
                 </div>
             </div>
         </div>
@@ -601,12 +600,12 @@
                 </button>
 
                 <div class="modal-body">
-                    <h3>My Wish List (3)</h3>
+                    <h3>My Wish List</h3>
 
                     <div class="products-cart-content">
                         <div class="products-cart">
                             <div class="products-image">
-                                <a href="#"><img src="assets/img/products/img1.jpg" alt="image"></a>
+                               <a href="#"><img src="assets/img/products/img1.jpg" alt="image"></a>
                             </div>
 
                             <div class="products-content">

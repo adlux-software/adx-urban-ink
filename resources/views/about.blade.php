@@ -489,6 +489,7 @@
     <!-- End Shopping Cart Modal -->
 
     <!-- Start Wishlist Modal -->
+
     <div class="modal right fade shoppingWishlistModal" id="shoppingWishlistModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

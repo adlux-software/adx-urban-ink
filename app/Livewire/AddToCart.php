@@ -86,19 +86,19 @@ class AddToCart extends Component
 
         $cart_status = 'create';
 
-        if (! request()->session()->has('cart_session_id')) {
+        if (!request()->session()->has('cart_session_id')) {
             $session_id = (string) Uuid::uuid4();
             request()->session()->put('cart_session_id', $session_id);
         }
 
         $session_id = request()->session()->get('cart_session_id');
-
         $user = Auth::user();
 
-        $cart = (new Cart())
-            ->where('session_id', $session_id)
+        // Check for an existing cart for this session and user
+        $cart = Cart::where('session_id', $session_id)
             ->where('user_id', $user ? $user->id : null)
-            ->where('is_paid', 0);
+            ->where('is_paid', 0)
+            ->first();
 
         if ($cart->count() > 0) {
             $cart_status = 'update';

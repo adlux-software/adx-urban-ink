@@ -55,3 +55,5 @@ Route::get('/thank-you', [ThankYouController::class, 'index'])
 
 Route::get('/policies/{slug}', [PolicyController::class, 'show'])
     ->name('policies.show');
+
+
