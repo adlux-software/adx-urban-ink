@@ -86,52 +86,50 @@ class AddToCart extends Component
 
         $cart_status = 'create';
 
-        if (!request()->session()->has('cart_session_id')) {
+        // Always create a session ID if it doesn't exist
+        if (! request()->session()->has('cart_session_id')) {
             $session_id = (string) Uuid::uuid4();
             request()->session()->put('cart_session_id', $session_id);
         }
 
+        // Get the session ID
         $session_id = request()->session()->get('cart_session_id');
+
+        // Get the authenticated user
         $user = Auth::user();
 
-        // Check for an existing cart for this session and user
-        $cart = Cart::where('session_id', $session_id)
-            ->where('user_id', $user ? $user->id : null)
+        // Check if there's already an active cart for the session or user
+        $cart = Cart::where(function ($query) use ($session_id, $user) {
+            $query->where('session_id', $session_id)
+                ->orWhere('user_id', $user ? $user->id : null);
+        })
             ->where('is_paid', 0)
-            ->first();
+            ->first(); // Use first to get a single record
 
-        if ($cart->count() > 0) {
+        if ($cart) {
             $cart_status = 'update';
-            $cart = $cart->get()->first();
         } else {
-
-            if ($user) {
-                $cart = (new Cart())
-                    ->where('user_id', $user->id)
-                    ->where('is_paid', 0);
-
-                if ($cart && $cart->count() > 0) {
-                    $cart_status = 'update';
-                    $cart = $cart->get()->first();
-                }
-            }
-        }
-
-        if ($cart_status === 'update' && isset($cart) && $cart instanceof Cart) {
-            if ($cart->variants && $cart->variants->count() && $cart->variants->pluck('id')->search($this->selected_variant->id) > -1) {
-                $cart->variants()->detach($this->selected_variant->id);
-            }
-        } elseif ($cart_status === 'create') {
-            $cart = (new Cart())->create([
+            // If no cart is found, we create a new one
+            $cart = Cart::create([
                 'session_id' => $session_id,
-                'user_id' => $user->id ?? null,
+                'user_id' => $user ? $user->id : null,
                 'is_paid' => 0,
             ]);
         }
 
+        // Once we have the cart, we proceed to manage variants
+        if ($cart_status === 'update' && isset($cart) && $cart instanceof Cart) {
+            // Detach the variant if it already exists in the cart
+            if ($cart->variants && $cart->variants->count() && $cart->variants->pluck('id')->search($this->selected_variant->id) > -1) {
+                $cart->variants()->detach($this->selected_variant->id);
+            }
+        }
+
+        // Add the selected variant to the cart
         if (isset($cart) && $cart instanceof Cart) {
             $price = $this->selected_variant->selling_price * $this->selected_quantity;
 
+            // Attach the selected variant to the cart with its details
             $cart->variants()->attach($this->selected_variant->id, [
                 'product_id' => $this->selected_variant->product_id,
                 'price' => $price,
@@ -139,17 +137,16 @@ class AddToCart extends Component
             ]);
 
             $this->show_success_message = true;
-
-            // Optionally, you can reset other states or hide other messages here
             $this->success = 'Product added to cart successfully!';
         }
 
+        // Recalculate the cart total and reset selected values
         $this->cart = calculate_cart_total($cart->id);
         $this->selected_quantity = 1;
         $this->selected_variant = [];
 
+        // Dispatch the event to update the cart
         $this->dispatch('CartAddedUpdated');
-
     }
 
     public function render()
