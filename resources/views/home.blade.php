@@ -13,8 +13,29 @@
                                     <span class="sub-title text-warning d-block mb-3">Discover UrbanInk!</span>
                                     <h1 class="banner-heading text-white mb-4">Wear Your Story</h1>
                                     <p class="banner-description text-light mb-4">The largest design collection on the island. Bold, creative, and inspired fashion just for you.</p>
-                                    <a href="/products" class="btn btn-warning btn-lg shadow-lg">Shop Now</a>
-                                </div>
+                                    <a href="{{ route('products.index') }}" class="shop-now-link">Shop Now</a>
+
+                                    <style>
+                                        .shop-now-link {
+                                            display: inline-block;
+                                            padding: 10px 20px;
+                                            background-color: #bf9101; /* Warning color */
+                                            color: #fff; /* White text */
+                                            font-size: 1.25rem; /* Large text */
+                                            font-weight: bold;
+                                            text-align: center;
+                                            text-decoration: none;
+                                            border-radius: 5px;
+                                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+                                            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                                        }
+
+                                        .shop-now-link:hover {
+                                            background-color: #e0a800; /* Darker warning color on hover */
+                                            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Larger shadow on hover */
+                                            color: black;
+                                        }
+                                    </style>                                </div>
                             </div>
                         </div>
                     </div>
@@ -28,7 +49,7 @@
                                     <span class="sub-title text-warning d-block mb-3">Your Style, Your Statement!</span>
                                     <h1 class="banner-heading text-white mb-4">Express Yourself</h1>
                                     <p class="banner-description text-light mb-4">Unleash your creativity with our exclusive designs. Crafted for bold personalities.</p>
-                                    <a href="/products" class="btn btn-warning btn-lg shadow-lg">Shop Now</a>
+                                    <a href="{{ route('products.index') }}" class="shop-now-link">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +64,7 @@
                                     <span class="sub-title text-warning d-block mb-3">Your Style, Your Statement!</span>
                                     <h1 class="banner-heading text-white mb-4">Express Yourself</h1>
                                     <p class="banner-description text-light mb-4">Unleash your creativity with our exclusive designs. Crafted for bold personalities.</p>
-                                    <a href="/products" class="btn btn-warning btn-lg shadow-lg">Shop Now</a>
+                                    <a href="{{ route('products.index') }}" class="shop-now-link">Shop Now</a>
                                 </div>
                             </div>
                         </div>
