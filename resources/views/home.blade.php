@@ -1,119 +1,130 @@
 
 <x-site-layout>
-
     <div class="single-main-banner banner-bg-dark">
         <!-- Background with dark overlay -->
-        <div class="banner-image-overlay d-flex justify-content-start align-items-center text-left">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-8">
-                        <div class="main-banner-content bg-dark p-5 rounded shadow-lg">
-                            <span class="sub-title text-warning d-block mb-3">Discover UrbanInk!</span>
-                            <h1 class="banner-heading text-white mb-4">Wear Your Story</h1>
-                            <p class="banner-description text-light mb-4">The largest design collection on the island. Bold, creative, and inspired fashion just for you.</p>
-
-                                <a href="/products" class="btn btn-warning btn-lg shadow-lg">Shop Now</a>
-
+        <div class="swiper banner-slider">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide banner-image-overlay d-flex justify-content-start align-items-center text-left" style="background-image: url('../../assets/img/3.png');">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8">
+                                <div class="main-banner-content bg-dark p-5 rounded shadow-lg">
+                                    <span class="sub-title text-warning d-block mb-3">Discover UrbanInk!</span>
+                                    <h1 class="banner-heading text-white mb-4">Wear Your Story</h1>
+                                    <p class="banner-description text-light mb-4">The largest design collection on the island. Bold, creative, and inspired fashion just for you.</p>
+                                    <a href="/products" class="btn btn-warning btn-lg shadow-lg">Shop Now</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide banner-image-overlay d-flex justify-content-start align-items-center text-left" style="background-image: url('../../assets/img/4.png');">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8">
+                                <div class="main-banner-content bg-dark p-5 rounded shadow-lg">
+                                    <span class="sub-title text-warning d-block mb-3">Your Style, Your Statement!</span>
+                                    <h1 class="banner-heading text-white mb-4">Express Yourself</h1>
+                                    <p class="banner-description text-light mb-4">Unleash your creativity with our exclusive designs. Crafted for bold personalities.</p>
+                                    <a href="/products" class="btn btn-warning btn-lg shadow-lg">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide banner-image-overlay d-flex justify-content-start align-items-center text-left" style="background-image: url('../../assets/img/1.png');">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8">
+                                <div class="main-banner-content bg-dark p-5 rounded shadow-lg">
+                                    <span class="sub-title text-warning d-block mb-3">Your Style, Your Statement!</span>
+                                    <h1 class="banner-heading text-white mb-4">Express Yourself</h1>
+                                    <p class="banner-description text-light mb-4">Unleash your creativity with our exclusive designs. Crafted for bold personalities.</p>
+                                    <a href="/products" class="btn btn-warning btn-lg shadow-lg">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+            <!-- Add Pagination and Navigation -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
+
     <!-- End Main Banner Area -->
 
+    <!-- Swiper.js Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
     <style>
-        /* Parallax effect on background */
-        .banner-image-overlay {
-            background-image: url('../../assets/img/uuu.webp'); /* Set your background image here */
+        /* Adjust Swiper height for full view */
+        .banner-slider {
+            height: 100vh;
+        }
+
+        .swiper-slide {
             background-size: cover;
             background-position: center center;
-            height: 100vh;
-            position: relative;
-            color: white;
-            background-attachment: fixed; /* Parallax effect */
-            overflow: hidden;
         }
 
-        /* Dark banner content styling with modern lux feel */
-        .main-banner-content {
-            background-color: rgba(0, 0, 0, 0.75); /* Dark overlay behind text */
-            padding: 50px 60px;
-            border-radius: 20px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .main-banner-content:hover {
-            transform: translateY(-10px); /* Subtle hover effect */
-        }
-
-        .sub-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #f39c12;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .banner-heading {
-            font-size: 4.5rem;
-            font-weight: 900;
+        .swiper-button-next, .swiper-button-prev {
             color: #fff;
-            margin-bottom: 25px;
-            text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+            background-color: rgba(0, 0, 0, 0.5); /* Black with transparency */
+            border-radius: 50%; /* Makes it round */
+            width: 50px; /* Adjust size */
+            height: 50px; /* Adjust size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
         }
 
-        .banner-description {
-            font-size: 1.6rem;
-            margin-bottom: 40px;
-            color: #ccc;
-            line-height: 1.7;
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background-color: rgba(0, 0, 0, 0.8); /* Darker on hover */
         }
 
-        .btn-box a {
-            padding: 16px 32px;
-            background-color: #f39c12;
-            color: #fff;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 50px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 20px; /* Adjust arrow size */
         }
 
-        .btn-box a:hover {
-            background-color: #e67e22;
-            text-decoration: none;
-            transform: translateY(-5px); /* Button hover effect */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Ensure proper alignment and responsive layout */
-        @media (max-width: 768px) {
-            .banner-image-overlay {
-                text-align: center;
-            }
-
-            .main-banner-content {
-                padding: 30px;
-            }
-
-            .sub-title, .banner-heading, .banner-description {
-                text-align: center;
-            }
-
-            .col-lg-6 {
-                width: 100%;
-            }
-        }
     </style>
 
+    <!-- Swiper.js Script -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        // Smooth scroll for the 'Shop Now' button
-        document.querySelector('.btn-box a').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector('#products').scrollIntoView({
-                behavior: 'smooth'
+
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            effect: 'fade', // Optional fade effect
+        });
+
+        // Keep the smooth scroll for the 'Shop Now' button
+        document.querySelectorAll('.btn-box a, .btn.btn-warning').forEach((button) => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('#products').scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
